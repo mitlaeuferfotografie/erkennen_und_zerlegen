@@ -1,0 +1,5808 @@
+[
+ {
+  "datei": "0",
+  "text": "0",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "1",
+  "text": "1",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "2",
+  "text": "2",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "3",
+  "text": "3",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "4",
+  "text": "4",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "5",
+  "text": "5",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "6",
+  "text": "6",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "7",
+  "text": "7",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "8",
+  "text": "8",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "9",
+  "text": "9",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "10",
+  "text": "10",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "11",
+  "text": "11",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "12",
+  "text": "12",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "13",
+  "text": "13",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "14",
+  "text": "14",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "15",
+  "text": "15",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "16",
+  "text": "16",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "17",
+  "text": "17",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "18",
+  "text": "18",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "19",
+  "text": "19",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "20",
+  "text": "20",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/start_hallo",
+  "schluessel": "start_hallo",
+  "text": "Hallo! Was möchtest du üben?",
+  "gesprochen": "Hallo! Was möchtest du üben?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/start_kraft",
+  "schluessel": "start_kraft",
+  "text": "Kraft der 5",
+  "gesprochen": "Kraft der fünf",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/start_zerlegen",
+  "schluessel": "start_zerlegen",
+  "text": "Zerlegen",
+  "gesprochen": "Zerlegen",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlegen_bald",
+  "schluessel": "zerlegen_bald",
+  "text": "Zerlegen kommt bald.",
+  "gesprochen": "Zerlegen kommt bald.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/kraft_menu",
+  "schluessel": "kraft_menu",
+  "text": "Was möchtest du machen?",
+  "gesprochen": "Was möchtest du machen?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/spiel_legen5",
+  "schluessel": "spiel_legen5",
+  "text": "Legen",
+  "gesprochen": "Legen",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/spiel_blitz5",
+  "schluessel": "spiel_blitz5",
+  "text": "Blitzblick",
+  "gesprochen": "Blitzblick",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/spiel_umkehr5",
+  "schluessel": "spiel_umkehr5",
+  "text": "Hören und legen",
+  "gesprochen": "Hören und legen",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/spiel_frei5",
+  "schluessel": "spiel_frei5",
+  "text": "Frei legen",
+  "gesprochen": "Frei legen",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/blitz_aufgabe",
+  "schluessel": "blitz_aufgabe",
+  "text": "Schau genau hin. Wie viele sind es?",
+  "gesprochen": "Schau genau hin. Wie viele sind es?",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/umkehr_aufgabe",
+  "schluessel": "umkehr_aufgabe",
+  "text": "Hör gut zu und leg die Zahl.",
+  "gesprochen": "Hör gut zu und leg die Zahl.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/umkehr_nochmal",
+  "schluessel": "umkehr_nochmal",
+  "text": "Hör noch mal genau hin.",
+  "gesprochen": "Hör noch mal genau hin.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/weniger_teile",
+  "schluessel": "weniger_teile",
+  "text": "Das sind genug. Geht es mit weniger Teilen?",
+  "gesprochen": "Das sind genug. Geht es mit weniger Teilen?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlegen_wahl",
+  "schluessel": "zerlegen_wahl",
+  "text": "Welche Zahl möchtest du zerlegen?",
+  "gesprochen": "Welche Zahl möchtest du zerlegen?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/stufe_wahl_4",
+  "schluessel": "stufe_wahl",
+  "text": "Die 4. Welche Übung?",
+  "gesprochen": "Die vier. Welche Übung?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/stufe_wahl_5",
+  "schluessel": "stufe_wahl",
+  "text": "Die 5. Welche Übung?",
+  "gesprochen": "Die fünf. Welche Übung?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/stufe_wahl_6",
+  "schluessel": "stufe_wahl",
+  "text": "Die 6. Welche Übung?",
+  "gesprochen": "Die sechs. Welche Übung?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/stufe_wahl_7",
+  "schluessel": "stufe_wahl",
+  "text": "Die 7. Welche Übung?",
+  "gesprochen": "Die sieben. Welche Übung?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/stufe_wahl_8",
+  "schluessel": "stufe_wahl",
+  "text": "Die 8. Welche Übung?",
+  "gesprochen": "Die acht. Welche Übung?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/stufe_wahl_9",
+  "schluessel": "stufe_wahl",
+  "text": "Die 9. Welche Übung?",
+  "gesprochen": "Die neun. Welche Übung?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/stufe_wahl_10",
+  "schluessel": "stufe_wahl",
+  "text": "Die 10. Welche Übung?",
+  "gesprochen": "Die zehn. Welche Übung?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/stufe_wahl_gemischt",
+  "schluessel": "stufe_wahl",
+  "text": "Alle Zahlen gemischt. Welche Übung?",
+  "gesprochen": "Alle Zahlen gemischt. Welche Übung?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/spiel_z1",
+  "schluessel": "spiel_z1",
+  "text": "Übung 1",
+  "gesprochen": "Übung eins",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/spiel_z2",
+  "schluessel": "spiel_z2",
+  "text": "Übung 2",
+  "gesprochen": "Übung zwei",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/spiel_z3",
+  "schluessel": "spiel_z3",
+  "text": "Übung 3",
+  "gesprochen": "Übung drei",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/spiel_z4",
+  "schluessel": "spiel_z4",
+  "text": "Plusaufgaben",
+  "gesprochen": "Plusaufgaben",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/spiel_zprobe",
+  "schluessel": "spiel_zprobe",
+  "text": "Pass-Probe",
+  "gesprochen": "Passprobe",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_4_0",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 0 dazuzählen, damit ich 4 erhalte?",
+  "gesprochen": "Wie viel muss ich zur null dazuzählen, damit ich vier erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_4_4",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 4 dazuzählen, damit ich 4 erhalte?",
+  "gesprochen": "Wie viel muss ich zur vier dazuzählen, damit ich vier erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_4_1",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 1 dazuzählen, damit ich 4 erhalte?",
+  "gesprochen": "Wie viel muss ich zur eins dazuzählen, damit ich vier erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_4_3",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 3 dazuzählen, damit ich 4 erhalte?",
+  "gesprochen": "Wie viel muss ich zur drei dazuzählen, damit ich vier erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_4_2",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 2 dazuzählen, damit ich 4 erhalte?",
+  "gesprochen": "Wie viel muss ich zur zwei dazuzählen, damit ich vier erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_5_0",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 0 dazuzählen, damit ich 5 erhalte?",
+  "gesprochen": "Wie viel muss ich zur null dazuzählen, damit ich fünf erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_5_5",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 5 dazuzählen, damit ich 5 erhalte?",
+  "gesprochen": "Wie viel muss ich zur fünf dazuzählen, damit ich fünf erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_5_1",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 1 dazuzählen, damit ich 5 erhalte?",
+  "gesprochen": "Wie viel muss ich zur eins dazuzählen, damit ich fünf erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_5_4",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 4 dazuzählen, damit ich 5 erhalte?",
+  "gesprochen": "Wie viel muss ich zur vier dazuzählen, damit ich fünf erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_5_2",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 2 dazuzählen, damit ich 5 erhalte?",
+  "gesprochen": "Wie viel muss ich zur zwei dazuzählen, damit ich fünf erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_5_3",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 3 dazuzählen, damit ich 5 erhalte?",
+  "gesprochen": "Wie viel muss ich zur drei dazuzählen, damit ich fünf erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_6_0",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 0 dazuzählen, damit ich 6 erhalte?",
+  "gesprochen": "Wie viel muss ich zur null dazuzählen, damit ich sechs erhalte?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_6_6",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 6 dazuzählen, damit ich 6 erhalte?",
+  "gesprochen": "Wie viel muss ich zur sechs dazuzählen, damit ich sechs erhalte?",
+  "z": 2,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_6_1",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 1 dazuzählen, damit ich 6 erhalte?",
+  "gesprochen": "Wie viel muss ich zur eins dazuzählen, damit ich sechs erhalte?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_6_5",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 5 dazuzählen, damit ich 6 erhalte?",
+  "gesprochen": "Wie viel muss ich zur fünf dazuzählen, damit ich sechs erhalte?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_6_2",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 2 dazuzählen, damit ich 6 erhalte?",
+  "gesprochen": "Wie viel muss ich zur zwei dazuzählen, damit ich sechs erhalte?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_6_4",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 4 dazuzählen, damit ich 6 erhalte?",
+  "gesprochen": "Wie viel muss ich zur vier dazuzählen, damit ich sechs erhalte?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_6_3",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 3 dazuzählen, damit ich 6 erhalte?",
+  "gesprochen": "Wie viel muss ich zur drei dazuzählen, damit ich sechs erhalte?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_7_0",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 0 dazuzählen, damit ich 7 erhalte?",
+  "gesprochen": "Wie viel muss ich zur null dazuzählen, damit ich sieben erhalte?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_7_7",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 7 dazuzählen, damit ich 7 erhalte?",
+  "gesprochen": "Wie viel muss ich zur sieben dazuzählen, damit ich sieben erhalte?",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_7_1",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 1 dazuzählen, damit ich 7 erhalte?",
+  "gesprochen": "Wie viel muss ich zur eins dazuzählen, damit ich sieben erhalte?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_7_6",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 6 dazuzählen, damit ich 7 erhalte?",
+  "gesprochen": "Wie viel muss ich zur sechs dazuzählen, damit ich sieben erhalte?",
+  "z": 2,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_7_2",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 2 dazuzählen, damit ich 7 erhalte?",
+  "gesprochen": "Wie viel muss ich zur zwei dazuzählen, damit ich sieben erhalte?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_7_5",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 5 dazuzählen, damit ich 7 erhalte?",
+  "gesprochen": "Wie viel muss ich zur fünf dazuzählen, damit ich sieben erhalte?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_7_3",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 3 dazuzählen, damit ich 7 erhalte?",
+  "gesprochen": "Wie viel muss ich zur drei dazuzählen, damit ich sieben erhalte?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_7_4",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 4 dazuzählen, damit ich 7 erhalte?",
+  "gesprochen": "Wie viel muss ich zur vier dazuzählen, damit ich sieben erhalte?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_8_0",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 0 dazuzählen, damit ich 8 erhalte?",
+  "gesprochen": "Wie viel muss ich zur null dazuzählen, damit ich acht erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_8_8",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 8 dazuzählen, damit ich 8 erhalte?",
+  "gesprochen": "Wie viel muss ich zur acht dazuzählen, damit ich acht erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_8_1",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 1 dazuzählen, damit ich 8 erhalte?",
+  "gesprochen": "Wie viel muss ich zur eins dazuzählen, damit ich acht erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_8_7",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 7 dazuzählen, damit ich 8 erhalte?",
+  "gesprochen": "Wie viel muss ich zur sieben dazuzählen, damit ich acht erhalte?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_8_2",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 2 dazuzählen, damit ich 8 erhalte?",
+  "gesprochen": "Wie viel muss ich zur zwei dazuzählen, damit ich acht erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_8_6",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 6 dazuzählen, damit ich 8 erhalte?",
+  "gesprochen": "Wie viel muss ich zur sechs dazuzählen, damit ich acht erhalte?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_8_3",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 3 dazuzählen, damit ich 8 erhalte?",
+  "gesprochen": "Wie viel muss ich zur drei dazuzählen, damit ich acht erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_8_5",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 5 dazuzählen, damit ich 8 erhalte?",
+  "gesprochen": "Wie viel muss ich zur fünf dazuzählen, damit ich acht erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_8_4",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 4 dazuzählen, damit ich 8 erhalte?",
+  "gesprochen": "Wie viel muss ich zur vier dazuzählen, damit ich acht erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_9_0",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 0 dazuzählen, damit ich 9 erhalte?",
+  "gesprochen": "Wie viel muss ich zur null dazuzählen, damit ich neun erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_9_9",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 9 dazuzählen, damit ich 9 erhalte?",
+  "gesprochen": "Wie viel muss ich zur neun dazuzählen, damit ich neun erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_9_1",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 1 dazuzählen, damit ich 9 erhalte?",
+  "gesprochen": "Wie viel muss ich zur eins dazuzählen, damit ich neun erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_9_8",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 8 dazuzählen, damit ich 9 erhalte?",
+  "gesprochen": "Wie viel muss ich zur acht dazuzählen, damit ich neun erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_9_2",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 2 dazuzählen, damit ich 9 erhalte?",
+  "gesprochen": "Wie viel muss ich zur zwei dazuzählen, damit ich neun erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_9_7",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 7 dazuzählen, damit ich 9 erhalte?",
+  "gesprochen": "Wie viel muss ich zur sieben dazuzählen, damit ich neun erhalte?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_9_3",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 3 dazuzählen, damit ich 9 erhalte?",
+  "gesprochen": "Wie viel muss ich zur drei dazuzählen, damit ich neun erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_9_6",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 6 dazuzählen, damit ich 9 erhalte?",
+  "gesprochen": "Wie viel muss ich zur sechs dazuzählen, damit ich neun erhalte?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_9_4",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 4 dazuzählen, damit ich 9 erhalte?",
+  "gesprochen": "Wie viel muss ich zur vier dazuzählen, damit ich neun erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_9_5",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 5 dazuzählen, damit ich 9 erhalte?",
+  "gesprochen": "Wie viel muss ich zur fünf dazuzählen, damit ich neun erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_10_0",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 0 dazuzählen, damit ich 10 erhalte?",
+  "gesprochen": "Wie viel muss ich zur null dazuzählen, damit ich zehn erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_10_10",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 10 dazuzählen, damit ich 10 erhalte?",
+  "gesprochen": "Wie viel muss ich zur zehn dazuzählen, damit ich zehn erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_10_1",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 1 dazuzählen, damit ich 10 erhalte?",
+  "gesprochen": "Wie viel muss ich zur eins dazuzählen, damit ich zehn erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_10_9",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 9 dazuzählen, damit ich 10 erhalte?",
+  "gesprochen": "Wie viel muss ich zur neun dazuzählen, damit ich zehn erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_10_2",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 2 dazuzählen, damit ich 10 erhalte?",
+  "gesprochen": "Wie viel muss ich zur zwei dazuzählen, damit ich zehn erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_10_8",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 8 dazuzählen, damit ich 10 erhalte?",
+  "gesprochen": "Wie viel muss ich zur acht dazuzählen, damit ich zehn erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_10_3",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 3 dazuzählen, damit ich 10 erhalte?",
+  "gesprochen": "Wie viel muss ich zur drei dazuzählen, damit ich zehn erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_10_7",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 7 dazuzählen, damit ich 10 erhalte?",
+  "gesprochen": "Wie viel muss ich zur sieben dazuzählen, damit ich zehn erhalte?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_10_4",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 4 dazuzählen, damit ich 10 erhalte?",
+  "gesprochen": "Wie viel muss ich zur vier dazuzählen, damit ich zehn erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_10_6",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 6 dazuzählen, damit ich 10 erhalte?",
+  "gesprochen": "Wie viel muss ich zur sechs dazuzählen, damit ich zehn erhalte?",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_aufgabe_10_5",
+  "schluessel": "zerlege_aufgabe",
+  "text": "Wie viel muss ich zur 5 dazuzählen, damit ich 10 erhalte?",
+  "gesprochen": "Wie viel muss ich zur fünf dazuzählen, damit ich zehn erhalte?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_4_0",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 4 ist 0 und 4.",
+  "gesprochen": "Richtig! vier ist null und vier.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_4_1",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 4 ist 1 und 3.",
+  "gesprochen": "Richtig! vier ist eins und drei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_4_2",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 4 ist 2 und 2.",
+  "gesprochen": "Richtig! vier ist zwei und zwei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_4_3",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 4 ist 3 und 1.",
+  "gesprochen": "Richtig! vier ist drei und eins.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_4_4",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 4 ist 4 und 0.",
+  "gesprochen": "Richtig! vier ist vier und null.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_5_0",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 5 ist 0 und 5.",
+  "gesprochen": "Richtig! fünf ist null und fünf.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_5_1",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 5 ist 1 und 4.",
+  "gesprochen": "Richtig! fünf ist eins und vier.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_5_2",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 5 ist 2 und 3.",
+  "gesprochen": "Richtig! fünf ist zwei und drei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_5_3",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 5 ist 3 und 2.",
+  "gesprochen": "Richtig! fünf ist drei und zwei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_5_4",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 5 ist 4 und 1.",
+  "gesprochen": "Richtig! fünf ist vier und eins.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_5_5",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 5 ist 5 und 0.",
+  "gesprochen": "Richtig! fünf ist fünf und null.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_6_0",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 6 ist 0 und 6.",
+  "gesprochen": "Richtig! sechs ist null und sechs.",
+  "z": 2,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_richtig_6_1",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 6 ist 1 und 5.",
+  "gesprochen": "Richtig! sechs ist eins und fünf.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_richtig_6_2",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 6 ist 2 und 4.",
+  "gesprochen": "Richtig! sechs ist zwei und vier.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_richtig_6_3",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 6 ist 3 und 3.",
+  "gesprochen": "Richtig! sechs ist drei und drei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_richtig_6_4",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 6 ist 4 und 2.",
+  "gesprochen": "Richtig! sechs ist vier und zwei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_richtig_6_5",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 6 ist 5 und 1.",
+  "gesprochen": "Richtig! sechs ist fünf und eins.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_richtig_6_6",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 6 ist 6 und 0.",
+  "gesprochen": "Richtig! sechs ist sechs und null.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/zerlege_richtig_7_0",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 7 ist 0 und 7.",
+  "gesprochen": "Richtig! sieben ist null und sieben.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/zerlege_richtig_7_1",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 7 ist 1 und 6.",
+  "gesprochen": "Richtig! sieben ist eins und sechs.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/zerlege_richtig_7_2",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 7 ist 2 und 5.",
+  "gesprochen": "Richtig! sieben ist zwei und fünf.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_richtig_7_3",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 7 ist 3 und 4.",
+  "gesprochen": "Richtig! sieben ist drei und vier.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_richtig_7_4",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 7 ist 4 und 3.",
+  "gesprochen": "Richtig! sieben ist vier und drei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_richtig_7_5",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 7 ist 5 und 2.",
+  "gesprochen": "Richtig! sieben ist fünf und zwei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_richtig_7_6",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 7 ist 6 und 1.",
+  "gesprochen": "Richtig! sieben ist sechs und eins.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/zerlege_richtig_7_7",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 7 ist 7 und 0.",
+  "gesprochen": "Richtig! sieben ist sieben und null.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/zerlege_richtig_8_0",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 8 ist 0 und 8.",
+  "gesprochen": "Richtig! acht ist null und acht.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_8_1",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 8 ist 1 und 7.",
+  "gesprochen": "Richtig! acht ist eins und sieben.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_richtig_8_2",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 8 ist 2 und 6.",
+  "gesprochen": "Richtig! acht ist zwei und sechs.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_richtig_8_3",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 8 ist 3 und 5.",
+  "gesprochen": "Richtig! acht ist drei und fünf.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_8_4",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 8 ist 4 und 4.",
+  "gesprochen": "Richtig! acht ist vier und vier.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_8_5",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 8 ist 5 und 3.",
+  "gesprochen": "Richtig! acht ist fünf und drei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_8_6",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 8 ist 6 und 2.",
+  "gesprochen": "Richtig! acht ist sechs und zwei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_richtig_8_7",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 8 ist 7 und 1.",
+  "gesprochen": "Richtig! acht ist sieben und eins.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_richtig_8_8",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 8 ist 8 und 0.",
+  "gesprochen": "Richtig! acht ist acht und null.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_9_0",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 9 ist 0 und 9.",
+  "gesprochen": "Richtig! neun ist null und neun.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_9_1",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 9 ist 1 und 8.",
+  "gesprochen": "Richtig! neun ist eins und acht.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_9_2",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 9 ist 2 und 7.",
+  "gesprochen": "Richtig! neun ist zwei und sieben.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_richtig_9_3",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 9 ist 3 und 6.",
+  "gesprochen": "Richtig! neun ist drei und sechs.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_richtig_9_4",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 9 ist 4 und 5.",
+  "gesprochen": "Richtig! neun ist vier und fünf.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_9_5",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 9 ist 5 und 4.",
+  "gesprochen": "Richtig! neun ist fünf und vier.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_9_6",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 9 ist 6 und 3.",
+  "gesprochen": "Richtig! neun ist sechs und drei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_richtig_9_7",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 9 ist 7 und 2.",
+  "gesprochen": "Richtig! neun ist sieben und zwei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_richtig_9_8",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 9 ist 8 und 1.",
+  "gesprochen": "Richtig! neun ist acht und eins.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_9_9",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 9 ist 9 und 0.",
+  "gesprochen": "Richtig! neun ist neun und null.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_10_0",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 10 ist 0 und 10.",
+  "gesprochen": "Richtig! zehn ist null und zehn.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_10_1",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 10 ist 1 und 9.",
+  "gesprochen": "Richtig! zehn ist eins und neun.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_10_2",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 10 ist 2 und 8.",
+  "gesprochen": "Richtig! zehn ist zwei und acht.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_10_3",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 10 ist 3 und 7.",
+  "gesprochen": "Richtig! zehn ist drei und sieben.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_richtig_10_4",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 10 ist 4 und 6.",
+  "gesprochen": "Richtig! zehn ist vier und sechs.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_10_5",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 10 ist 5 und 5.",
+  "gesprochen": "Richtig! zehn ist fünf und fünf.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_10_6",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 10 ist 6 und 4.",
+  "gesprochen": "Richtig! zehn ist sechs und vier.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_richtig_10_7",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 10 ist 7 und 3.",
+  "gesprochen": "Richtig! zehn ist sieben und drei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_richtig_10_8",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 10 ist 8 und 2.",
+  "gesprochen": "Richtig! zehn ist acht und zwei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_10_9",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 10 ist 9 und 1.",
+  "gesprochen": "Richtig! zehn ist neun und eins.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_richtig_10_10",
+  "schluessel": "zerlege_richtig",
+  "text": "Richtig! 10 ist 10 und 0.",
+  "gesprochen": "Richtig! zehn ist zehn und null.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_hilfe",
+  "schluessel": "zerlege_hilfe",
+  "text": "Schau auf die Würfel. Wie viele fehlen?",
+  "gesprochen": "Schau auf die Würfel. Wie viele fehlen?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/stufe2_aufgabe_4",
+  "schluessel": "stufe2_aufgabe",
+  "text": "4. Wie viele sind in der Hand?",
+  "gesprochen": "Vier. Wie viele sind in der Hand?",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/stufe2_aufgabe_5",
+  "schluessel": "stufe2_aufgabe",
+  "text": "5. Wie viele sind in der Hand?",
+  "gesprochen": "Fünf. Wie viele sind in der Hand?",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/stufe2_aufgabe_6",
+  "schluessel": "stufe2_aufgabe",
+  "text": "6. Wie viele sind in der Hand?",
+  "gesprochen": "Sechs. Wie viele sind in der Hand?",
+  "z": 2,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/stufe2_aufgabe_7",
+  "schluessel": "stufe2_aufgabe",
+  "text": "7. Wie viele sind in der Hand?",
+  "gesprochen": "Sieben. Wie viele sind in der Hand?",
+  "z": 2,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/stufe2_aufgabe_8",
+  "schluessel": "stufe2_aufgabe",
+  "text": "8. Wie viele sind in der Hand?",
+  "gesprochen": "Acht. Wie viele sind in der Hand?",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/stufe2_aufgabe_9",
+  "schluessel": "stufe2_aufgabe",
+  "text": "9. Wie viele sind in der Hand?",
+  "gesprochen": "Neun. Wie viele sind in der Hand?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/stufe2_aufgabe_10",
+  "schluessel": "stufe2_aufgabe",
+  "text": "10. Wie viele sind in der Hand?",
+  "gesprochen": "Zehn. Wie viele sind in der Hand?",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/stufe1_frage",
+  "schluessel": "stufe1_frage",
+  "text": "Wie viele sind in der Hand?",
+  "gesprochen": "Wie viele sind in der Hand?",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/stufe2_hilfe",
+  "schluessel": "stufe2_hilfe",
+  "text": "Schau in die Hand und zähl die Würfel.",
+  "gesprochen": "Schau in die Hand und zähl die Würfel.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_4_0",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 4 und 0.",
+  "gesprochen": "Das geht auch andersherum: vier und null.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_4_1",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 3 und 1.",
+  "gesprochen": "Das geht auch andersherum: drei und eins.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_4_2",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 2 und 2.",
+  "gesprochen": "Das geht auch andersherum: zwei und zwei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_4_3",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 1 und 3.",
+  "gesprochen": "Das geht auch andersherum: eins und drei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_4_4",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 0 und 4.",
+  "gesprochen": "Das geht auch andersherum: null und vier.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_5_0",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 5 und 0.",
+  "gesprochen": "Das geht auch andersherum: fünf und null.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_5_1",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 4 und 1.",
+  "gesprochen": "Das geht auch andersherum: vier und eins.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_5_2",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 3 und 2.",
+  "gesprochen": "Das geht auch andersherum: drei und zwei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_5_3",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 2 und 3.",
+  "gesprochen": "Das geht auch andersherum: zwei und drei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_5_4",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 1 und 4.",
+  "gesprochen": "Das geht auch andersherum: eins und vier.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_5_5",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 0 und 5.",
+  "gesprochen": "Das geht auch andersherum: null und fünf.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_6_0",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 6 und 0.",
+  "gesprochen": "Das geht auch andersherum: sechs und null.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_tausch_6_1",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 5 und 1.",
+  "gesprochen": "Das geht auch andersherum: fünf und eins.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_6_2",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 4 und 2.",
+  "gesprochen": "Das geht auch andersherum: vier und zwei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_6_3",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 3 und 3.",
+  "gesprochen": "Das geht auch andersherum: drei und drei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_6_4",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 2 und 4.",
+  "gesprochen": "Das geht auch andersherum: zwei und vier.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_6_5",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 1 und 5.",
+  "gesprochen": "Das geht auch andersherum: eins und fünf.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_6_6",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 0 und 6.",
+  "gesprochen": "Das geht auch andersherum: null und sechs.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_tausch_7_0",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 7 und 0.",
+  "gesprochen": "Das geht auch andersherum: sieben und null.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_tausch_7_1",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 6 und 1.",
+  "gesprochen": "Das geht auch andersherum: sechs und eins.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_tausch_7_2",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 5 und 2.",
+  "gesprochen": "Das geht auch andersherum: fünf und zwei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_7_3",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 4 und 3.",
+  "gesprochen": "Das geht auch andersherum: vier und drei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_7_4",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 3 und 4.",
+  "gesprochen": "Das geht auch andersherum: drei und vier.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_7_5",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 2 und 5.",
+  "gesprochen": "Das geht auch andersherum: zwei und fünf.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_7_6",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 1 und 6.",
+  "gesprochen": "Das geht auch andersherum: eins und sechs.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_tausch_7_7",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 0 und 7.",
+  "gesprochen": "Das geht auch andersherum: null und sieben.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_tausch_8_0",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 8 und 0.",
+  "gesprochen": "Das geht auch andersherum: acht und null.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_8_1",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 7 und 1.",
+  "gesprochen": "Das geht auch andersherum: sieben und eins.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_tausch_8_2",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 6 und 2.",
+  "gesprochen": "Das geht auch andersherum: sechs und zwei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_tausch_8_3",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 5 und 3.",
+  "gesprochen": "Das geht auch andersherum: fünf und drei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_8_4",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 4 und 4.",
+  "gesprochen": "Das geht auch andersherum: vier und vier.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_8_5",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 3 und 5.",
+  "gesprochen": "Das geht auch andersherum: drei und fünf.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_8_6",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 2 und 6.",
+  "gesprochen": "Das geht auch andersherum: zwei und sechs.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_tausch_8_7",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 1 und 7.",
+  "gesprochen": "Das geht auch andersherum: eins und sieben.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_tausch_8_8",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 0 und 8.",
+  "gesprochen": "Das geht auch andersherum: null und acht.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_9_0",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 9 und 0.",
+  "gesprochen": "Das geht auch andersherum: neun und null.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_9_1",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 8 und 1.",
+  "gesprochen": "Das geht auch andersherum: acht und eins.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_9_2",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 7 und 2.",
+  "gesprochen": "Das geht auch andersherum: sieben und zwei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_tausch_9_3",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 6 und 3.",
+  "gesprochen": "Das geht auch andersherum: sechs und drei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_tausch_9_4",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 5 und 4.",
+  "gesprochen": "Das geht auch andersherum: fünf und vier.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_9_5",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 4 und 5.",
+  "gesprochen": "Das geht auch andersherum: vier und fünf.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_9_6",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 3 und 6.",
+  "gesprochen": "Das geht auch andersherum: drei und sechs.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_tausch_9_7",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 2 und 7.",
+  "gesprochen": "Das geht auch andersherum: zwei und sieben.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_tausch_9_8",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 1 und 8.",
+  "gesprochen": "Das geht auch andersherum: eins und acht.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_9_9",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 0 und 9.",
+  "gesprochen": "Das geht auch andersherum: null und neun.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_10_0",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 10 und 0.",
+  "gesprochen": "Das geht auch andersherum: zehn und null.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_10_1",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 9 und 1.",
+  "gesprochen": "Das geht auch andersherum: neun und eins.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_10_2",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 8 und 2.",
+  "gesprochen": "Das geht auch andersherum: acht und zwei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_10_3",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 7 und 3.",
+  "gesprochen": "Das geht auch andersherum: sieben und drei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_tausch_10_4",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 6 und 4.",
+  "gesprochen": "Das geht auch andersherum: sechs und vier.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_tausch_10_5",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 5 und 5.",
+  "gesprochen": "Das geht auch andersherum: fünf und fünf.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_10_6",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 4 und 6.",
+  "gesprochen": "Das geht auch andersherum: vier und sechs.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_tausch_10_7",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 3 und 7.",
+  "gesprochen": "Das geht auch andersherum: drei und sieben.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_tausch_10_8",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 2 und 8.",
+  "gesprochen": "Das geht auch andersherum: zwei und acht.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_10_9",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 1 und 9.",
+  "gesprochen": "Das geht auch andersherum: eins und neun.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_tausch_10_10",
+  "schluessel": "zerlege_tausch",
+  "text": "Das geht auch andersherum: 0 und 10.",
+  "gesprochen": "Das geht auch andersherum: null und zehn.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_4_0",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 4 ist 0 und 4.",
+  "gesprochen": "Schau: vier ist null und vier.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_4_1",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 4 ist 1 und 3.",
+  "gesprochen": "Schau: vier ist eins und drei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_4_2",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 4 ist 2 und 2.",
+  "gesprochen": "Schau: vier ist zwei und zwei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_4_3",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 4 ist 3 und 1.",
+  "gesprochen": "Schau: vier ist drei und eins.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_4_4",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 4 ist 4 und 0.",
+  "gesprochen": "Schau: vier ist vier und null.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_5_0",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 5 ist 0 und 5.",
+  "gesprochen": "Schau: fünf ist null und fünf.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_5_1",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 5 ist 1 und 4.",
+  "gesprochen": "Schau: fünf ist eins und vier.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_5_2",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 5 ist 2 und 3.",
+  "gesprochen": "Schau: fünf ist zwei und drei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_5_3",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 5 ist 3 und 2.",
+  "gesprochen": "Schau: fünf ist drei und zwei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_5_4",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 5 ist 4 und 1.",
+  "gesprochen": "Schau: fünf ist vier und eins.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_5_5",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 5 ist 5 und 0.",
+  "gesprochen": "Schau: fünf ist fünf und null.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_6_0",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 6 ist 0 und 6.",
+  "gesprochen": "Schau: sechs ist null und sechs.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/zerlege_loesung_6_1",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 6 ist 1 und 5.",
+  "gesprochen": "Schau: sechs ist eins und fünf.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_loesung_6_2",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 6 ist 2 und 4.",
+  "gesprochen": "Schau: sechs ist zwei und vier.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_loesung_6_3",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 6 ist 3 und 3.",
+  "gesprochen": "Schau: sechs ist drei und drei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_loesung_6_4",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 6 ist 4 und 2.",
+  "gesprochen": "Schau: sechs ist vier und zwei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_loesung_6_5",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 6 ist 5 und 1.",
+  "gesprochen": "Schau: sechs ist fünf und eins.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_loesung_6_6",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 6 ist 6 und 0.",
+  "gesprochen": "Schau: sechs ist sechs und null.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/zerlege_loesung_7_0",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 7 ist 0 und 7.",
+  "gesprochen": "Schau: sieben ist null und sieben.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/zerlege_loesung_7_1",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 7 ist 1 und 6.",
+  "gesprochen": "Schau: sieben ist eins und sechs.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/zerlege_loesung_7_2",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 7 ist 2 und 5.",
+  "gesprochen": "Schau: sieben ist zwei und fünf.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_loesung_7_3",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 7 ist 3 und 4.",
+  "gesprochen": "Schau: sieben ist drei und vier.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_loesung_7_4",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 7 ist 4 und 3.",
+  "gesprochen": "Schau: sieben ist vier und drei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_loesung_7_5",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 7 ist 5 und 2.",
+  "gesprochen": "Schau: sieben ist fünf und zwei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_loesung_7_6",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 7 ist 6 und 1.",
+  "gesprochen": "Schau: sieben ist sechs und eins.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/zerlege_loesung_7_7",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 7 ist 7 und 0.",
+  "gesprochen": "Schau: sieben ist sieben und null.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/zerlege_loesung_8_0",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 8 ist 0 und 8.",
+  "gesprochen": "Schau: acht ist null und acht.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_8_1",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 8 ist 1 und 7.",
+  "gesprochen": "Schau: acht ist eins und sieben.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_loesung_8_2",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 8 ist 2 und 6.",
+  "gesprochen": "Schau: acht ist zwei und sechs.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_loesung_8_3",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 8 ist 3 und 5.",
+  "gesprochen": "Schau: acht ist drei und fünf.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_8_4",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 8 ist 4 und 4.",
+  "gesprochen": "Schau: acht ist vier und vier.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_8_5",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 8 ist 5 und 3.",
+  "gesprochen": "Schau: acht ist fünf und drei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_8_6",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 8 ist 6 und 2.",
+  "gesprochen": "Schau: acht ist sechs und zwei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_loesung_8_7",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 8 ist 7 und 1.",
+  "gesprochen": "Schau: acht ist sieben und eins.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_loesung_8_8",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 8 ist 8 und 0.",
+  "gesprochen": "Schau: acht ist acht und null.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_9_0",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 9 ist 0 und 9.",
+  "gesprochen": "Schau: neun ist null und neun.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_9_1",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 9 ist 1 und 8.",
+  "gesprochen": "Schau: neun ist eins und acht.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_9_2",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 9 ist 2 und 7.",
+  "gesprochen": "Schau: neun ist zwei und sieben.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_loesung_9_3",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 9 ist 3 und 6.",
+  "gesprochen": "Schau: neun ist drei und sechs.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_loesung_9_4",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 9 ist 4 und 5.",
+  "gesprochen": "Schau: neun ist vier und fünf.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_9_5",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 9 ist 5 und 4.",
+  "gesprochen": "Schau: neun ist fünf und vier.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_9_6",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 9 ist 6 und 3.",
+  "gesprochen": "Schau: neun ist sechs und drei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_loesung_9_7",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 9 ist 7 und 2.",
+  "gesprochen": "Schau: neun ist sieben und zwei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_loesung_9_8",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 9 ist 8 und 1.",
+  "gesprochen": "Schau: neun ist acht und eins.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_9_9",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 9 ist 9 und 0.",
+  "gesprochen": "Schau: neun ist neun und null.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_10_0",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 10 ist 0 und 10.",
+  "gesprochen": "Schau: zehn ist null und zehn.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_10_1",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 10 ist 1 und 9.",
+  "gesprochen": "Schau: zehn ist eins und neun.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_10_2",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 10 ist 2 und 8.",
+  "gesprochen": "Schau: zehn ist zwei und acht.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_10_3",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 10 ist 3 und 7.",
+  "gesprochen": "Schau: zehn ist drei und sieben.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_loesung_10_4",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 10 ist 4 und 6.",
+  "gesprochen": "Schau: zehn ist vier und sechs.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_loesung_10_5",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 10 ist 5 und 5.",
+  "gesprochen": "Schau: zehn ist fünf und fünf.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_10_6",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 10 ist 6 und 4.",
+  "gesprochen": "Schau: zehn ist sechs und vier.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_loesung_10_7",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 10 ist 7 und 3.",
+  "gesprochen": "Schau: zehn ist sieben und drei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_loesung_10_8",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 10 ist 8 und 2.",
+  "gesprochen": "Schau: zehn ist acht und zwei.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_10_9",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 10 ist 9 und 1.",
+  "gesprochen": "Schau: zehn ist neun und eins.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_loesung_10_10",
+  "schluessel": "zerlege_loesung",
+  "text": "Schau: 10 ist 10 und 0.",
+  "gesprochen": "Schau: zehn ist zehn und null.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_start",
+  "schluessel": "probe_start",
+  "text": "Jetzt kommt die Pass-Probe.",
+  "gesprochen": "Jetzt kommt die Passprobe.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_0_3_0",
+  "schluessel": "probe_ende",
+  "text": "0 von 3 richtig.",
+  "gesprochen": "Null von drei richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_1_3_0",
+  "schluessel": "probe_ende",
+  "text": "1 von 3 richtig.",
+  "gesprochen": "Eine von drei richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_1_3_1",
+  "schluessel": "probe_ende",
+  "text": "1 von 3 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Eine von drei richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_3_0",
+  "schluessel": "probe_ende",
+  "text": "2 von 3 richtig.",
+  "gesprochen": "Zwei von drei richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_3_1",
+  "schluessel": "probe_ende",
+  "text": "2 von 3 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Zwei von drei richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_3_2",
+  "schluessel": "probe_ende",
+  "text": "2 von 3 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Zwei von drei richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_3_0",
+  "schluessel": "probe_ende",
+  "text": "Alle 3 richtig.",
+  "gesprochen": "Alle drei richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_3_1",
+  "schluessel": "probe_ende",
+  "text": "Alle 3 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Alle drei richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_3_2",
+  "schluessel": "probe_ende",
+  "text": "Alle 3 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Alle drei richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_3_3",
+  "schluessel": "probe_ende",
+  "text": "Alle 3 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Alle drei richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_0_4_0",
+  "schluessel": "probe_ende",
+  "text": "0 von 4 richtig.",
+  "gesprochen": "Null von vier richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_1_4_0",
+  "schluessel": "probe_ende",
+  "text": "1 von 4 richtig.",
+  "gesprochen": "Eine von vier richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_1_4_1",
+  "schluessel": "probe_ende",
+  "text": "1 von 4 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Eine von vier richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_4_0",
+  "schluessel": "probe_ende",
+  "text": "2 von 4 richtig.",
+  "gesprochen": "Zwei von vier richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_4_1",
+  "schluessel": "probe_ende",
+  "text": "2 von 4 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Zwei von vier richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_4_2",
+  "schluessel": "probe_ende",
+  "text": "2 von 4 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Zwei von vier richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_4_0",
+  "schluessel": "probe_ende",
+  "text": "3 von 4 richtig.",
+  "gesprochen": "Drei von vier richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_4_1",
+  "schluessel": "probe_ende",
+  "text": "3 von 4 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Drei von vier richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_4_2",
+  "schluessel": "probe_ende",
+  "text": "3 von 4 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Drei von vier richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_4_3",
+  "schluessel": "probe_ende",
+  "text": "3 von 4 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Drei von vier richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_4_0",
+  "schluessel": "probe_ende",
+  "text": "Alle 4 richtig.",
+  "gesprochen": "Alle vier richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_4_1",
+  "schluessel": "probe_ende",
+  "text": "Alle 4 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Alle vier richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_4_2",
+  "schluessel": "probe_ende",
+  "text": "Alle 4 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Alle vier richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_4_3",
+  "schluessel": "probe_ende",
+  "text": "Alle 4 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Alle vier richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_4_4",
+  "schluessel": "probe_ende",
+  "text": "Alle 4 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Alle vier richtig, davon vier blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_0_5_0",
+  "schluessel": "probe_ende",
+  "text": "0 von 5 richtig.",
+  "gesprochen": "Null von fünf richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_1_5_0",
+  "schluessel": "probe_ende",
+  "text": "1 von 5 richtig.",
+  "gesprochen": "Eine von fünf richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_1_5_1",
+  "schluessel": "probe_ende",
+  "text": "1 von 5 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Eine von fünf richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_5_0",
+  "schluessel": "probe_ende",
+  "text": "2 von 5 richtig.",
+  "gesprochen": "Zwei von fünf richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_5_1",
+  "schluessel": "probe_ende",
+  "text": "2 von 5 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Zwei von fünf richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_5_2",
+  "schluessel": "probe_ende",
+  "text": "2 von 5 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Zwei von fünf richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_5_0",
+  "schluessel": "probe_ende",
+  "text": "3 von 5 richtig.",
+  "gesprochen": "Drei von fünf richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_5_1",
+  "schluessel": "probe_ende",
+  "text": "3 von 5 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Drei von fünf richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_5_2",
+  "schluessel": "probe_ende",
+  "text": "3 von 5 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Drei von fünf richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_5_3",
+  "schluessel": "probe_ende",
+  "text": "3 von 5 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Drei von fünf richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_5_0",
+  "schluessel": "probe_ende",
+  "text": "4 von 5 richtig.",
+  "gesprochen": "Vier von fünf richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_5_1",
+  "schluessel": "probe_ende",
+  "text": "4 von 5 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Vier von fünf richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_5_2",
+  "schluessel": "probe_ende",
+  "text": "4 von 5 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Vier von fünf richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_5_3",
+  "schluessel": "probe_ende",
+  "text": "4 von 5 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Vier von fünf richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_5_4",
+  "schluessel": "probe_ende",
+  "text": "4 von 5 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Vier von fünf richtig, davon vier blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_5_0",
+  "schluessel": "probe_ende",
+  "text": "Alle 5 richtig.",
+  "gesprochen": "Alle fünf richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_5_1",
+  "schluessel": "probe_ende",
+  "text": "Alle 5 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Alle fünf richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_5_2",
+  "schluessel": "probe_ende",
+  "text": "Alle 5 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Alle fünf richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_5_3",
+  "schluessel": "probe_ende",
+  "text": "Alle 5 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Alle fünf richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_5_4",
+  "schluessel": "probe_ende",
+  "text": "Alle 5 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Alle fünf richtig, davon vier blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_5_5",
+  "schluessel": "probe_ende",
+  "text": "Alle 5 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Alle fünf richtig, davon fünf blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_0_6_0",
+  "schluessel": "probe_ende",
+  "text": "0 von 6 richtig.",
+  "gesprochen": "Null von sechs richtig.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_1_6_0",
+  "schluessel": "probe_ende",
+  "text": "1 von 6 richtig.",
+  "gesprochen": "Eine von sechs richtig.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_1_6_1",
+  "schluessel": "probe_ende",
+  "text": "1 von 6 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Eine von sechs richtig, davon eine blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_2_6_0",
+  "schluessel": "probe_ende",
+  "text": "2 von 6 richtig.",
+  "gesprochen": "Zwei von sechs richtig.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_2_6_1",
+  "schluessel": "probe_ende",
+  "text": "2 von 6 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Zwei von sechs richtig, davon eine blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_2_6_2",
+  "schluessel": "probe_ende",
+  "text": "2 von 6 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Zwei von sechs richtig, davon zwei blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_6_0",
+  "schluessel": "probe_ende",
+  "text": "3 von 6 richtig.",
+  "gesprochen": "Drei von sechs richtig.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_3_6_1",
+  "schluessel": "probe_ende",
+  "text": "3 von 6 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Drei von sechs richtig, davon eine blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_3_6_2",
+  "schluessel": "probe_ende",
+  "text": "3 von 6 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Drei von sechs richtig, davon zwei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_3_6_3",
+  "schluessel": "probe_ende",
+  "text": "3 von 6 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Drei von sechs richtig, davon drei blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_6_0",
+  "schluessel": "probe_ende",
+  "text": "4 von 6 richtig.",
+  "gesprochen": "Vier von sechs richtig.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_4_6_1",
+  "schluessel": "probe_ende",
+  "text": "4 von 6 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Vier von sechs richtig, davon eine blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_6_2",
+  "schluessel": "probe_ende",
+  "text": "4 von 6 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Vier von sechs richtig, davon zwei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_4_6_3",
+  "schluessel": "probe_ende",
+  "text": "4 von 6 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Vier von sechs richtig, davon drei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_4_6_4",
+  "schluessel": "probe_ende",
+  "text": "4 von 6 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Vier von sechs richtig, davon vier blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_6_0",
+  "schluessel": "probe_ende",
+  "text": "5 von 6 richtig.",
+  "gesprochen": "Fünf von sechs richtig.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_6_1",
+  "schluessel": "probe_ende",
+  "text": "5 von 6 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Fünf von sechs richtig, davon eine blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_5_6_2",
+  "schluessel": "probe_ende",
+  "text": "5 von 6 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Fünf von sechs richtig, davon zwei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_5_6_3",
+  "schluessel": "probe_ende",
+  "text": "5 von 6 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Fünf von sechs richtig, davon drei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_5_6_4",
+  "schluessel": "probe_ende",
+  "text": "5 von 6 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Fünf von sechs richtig, davon vier blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_5_6_5",
+  "schluessel": "probe_ende",
+  "text": "5 von 6 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Fünf von sechs richtig, davon fünf blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_6_0",
+  "schluessel": "probe_ende",
+  "text": "Alle 6 richtig.",
+  "gesprochen": "Alle sechs richtig.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_6_1",
+  "schluessel": "probe_ende",
+  "text": "Alle 6 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Alle sechs richtig, davon eine blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_6_2",
+  "schluessel": "probe_ende",
+  "text": "Alle 6 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Alle sechs richtig, davon zwei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_6_3",
+  "schluessel": "probe_ende",
+  "text": "Alle 6 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Alle sechs richtig, davon drei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_6_4",
+  "schluessel": "probe_ende",
+  "text": "Alle 6 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Alle sechs richtig, davon vier blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_6_5",
+  "schluessel": "probe_ende",
+  "text": "Alle 6 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Alle sechs richtig, davon fünf blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_6_6",
+  "schluessel": "probe_ende",
+  "text": "Alle 6 richtig, davon 6 blitzschnell.",
+  "gesprochen": "Alle sechs richtig, davon sechs blitzschnell.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/probe_ende_0_7_0",
+  "schluessel": "probe_ende",
+  "text": "0 von 7 richtig.",
+  "gesprochen": "Null von sieben richtig.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_1_7_0",
+  "schluessel": "probe_ende",
+  "text": "1 von 7 richtig.",
+  "gesprochen": "Eine von sieben richtig.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_1_7_1",
+  "schluessel": "probe_ende",
+  "text": "1 von 7 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Eine von sieben richtig, davon eine blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_7_0",
+  "schluessel": "probe_ende",
+  "text": "2 von 7 richtig.",
+  "gesprochen": "Zwei von sieben richtig.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_7_1",
+  "schluessel": "probe_ende",
+  "text": "2 von 7 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Zwei von sieben richtig, davon eine blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_7_2",
+  "schluessel": "probe_ende",
+  "text": "2 von 7 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Zwei von sieben richtig, davon zwei blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_7_0",
+  "schluessel": "probe_ende",
+  "text": "3 von 7 richtig.",
+  "gesprochen": "Drei von sieben richtig.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_7_1",
+  "schluessel": "probe_ende",
+  "text": "3 von 7 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Drei von sieben richtig, davon eine blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_3_7_2",
+  "schluessel": "probe_ende",
+  "text": "3 von 7 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Drei von sieben richtig, davon zwei blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_7_3",
+  "schluessel": "probe_ende",
+  "text": "3 von 7 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Drei von sieben richtig, davon drei blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_7_0",
+  "schluessel": "probe_ende",
+  "text": "4 von 7 richtig.",
+  "gesprochen": "Vier von sieben richtig.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_7_1",
+  "schluessel": "probe_ende",
+  "text": "4 von 7 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Vier von sieben richtig, davon eine blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_7_2",
+  "schluessel": "probe_ende",
+  "text": "4 von 7 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Vier von sieben richtig, davon zwei blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_7_3",
+  "schluessel": "probe_ende",
+  "text": "4 von 7 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Vier von sieben richtig, davon drei blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_7_4",
+  "schluessel": "probe_ende",
+  "text": "4 von 7 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Vier von sieben richtig, davon vier blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_7_0",
+  "schluessel": "probe_ende",
+  "text": "5 von 7 richtig.",
+  "gesprochen": "Fünf von sieben richtig.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_5_7_1",
+  "schluessel": "probe_ende",
+  "text": "5 von 7 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Fünf von sieben richtig, davon eine blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_7_2",
+  "schluessel": "probe_ende",
+  "text": "5 von 7 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Fünf von sieben richtig, davon zwei blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_7_3",
+  "schluessel": "probe_ende",
+  "text": "5 von 7 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Fünf von sieben richtig, davon drei blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_7_4",
+  "schluessel": "probe_ende",
+  "text": "5 von 7 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Fünf von sieben richtig, davon vier blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_7_5",
+  "schluessel": "probe_ende",
+  "text": "5 von 7 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Fünf von sieben richtig, davon fünf blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_7_0",
+  "schluessel": "probe_ende",
+  "text": "6 von 7 richtig.",
+  "gesprochen": "Sechs von sieben richtig.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/probe_ende_6_7_1",
+  "schluessel": "probe_ende",
+  "text": "6 von 7 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Sechs von sieben richtig, davon eine blitzschnell.",
+  "z": 2,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_7_2",
+  "schluessel": "probe_ende",
+  "text": "6 von 7 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Sechs von sieben richtig, davon zwei blitzschnell.",
+  "z": 2,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_7_3",
+  "schluessel": "probe_ende",
+  "text": "6 von 7 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Sechs von sieben richtig, davon drei blitzschnell.",
+  "z": 2,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_7_4",
+  "schluessel": "probe_ende",
+  "text": "6 von 7 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Sechs von sieben richtig, davon vier blitzschnell.",
+  "z": 2,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_7_5",
+  "schluessel": "probe_ende",
+  "text": "6 von 7 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Sechs von sieben richtig, davon fünf blitzschnell.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/probe_ende_6_7_6",
+  "schluessel": "probe_ende",
+  "text": "6 von 7 richtig, davon 6 blitzschnell.",
+  "gesprochen": "Sechs von sieben richtig, davon sechs blitzschnell.",
+  "z": 3,
+  "weich": 3
+ },
+ {
+  "datei": "saetze/probe_ende_7_7_0",
+  "schluessel": "probe_ende",
+  "text": "Alle 7 richtig.",
+  "gesprochen": "Alle sieben richtig.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_7_1",
+  "schluessel": "probe_ende",
+  "text": "Alle 7 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Alle sieben richtig, davon eine blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_7_2",
+  "schluessel": "probe_ende",
+  "text": "Alle 7 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Alle sieben richtig, davon zwei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_7_3",
+  "schluessel": "probe_ende",
+  "text": "Alle 7 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Alle sieben richtig, davon drei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_7_4",
+  "schluessel": "probe_ende",
+  "text": "Alle 7 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Alle sieben richtig, davon vier blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_7_5",
+  "schluessel": "probe_ende",
+  "text": "Alle 7 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Alle sieben richtig, davon fünf blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_7_6",
+  "schluessel": "probe_ende",
+  "text": "Alle 7 richtig, davon 6 blitzschnell.",
+  "gesprochen": "Alle sieben richtig, davon sechs blitzschnell.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/probe_ende_7_7_7",
+  "schluessel": "probe_ende",
+  "text": "Alle 7 richtig, davon 7 blitzschnell.",
+  "gesprochen": "Alle sieben richtig, davon sieben blitzschnell.",
+  "z": 2,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_0_8_0",
+  "schluessel": "probe_ende",
+  "text": "0 von 8 richtig.",
+  "gesprochen": "Null von acht richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_1_8_0",
+  "schluessel": "probe_ende",
+  "text": "1 von 8 richtig.",
+  "gesprochen": "Eine von acht richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_1_8_1",
+  "schluessel": "probe_ende",
+  "text": "1 von 8 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Eine von acht richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_8_0",
+  "schluessel": "probe_ende",
+  "text": "2 von 8 richtig.",
+  "gesprochen": "Zwei von acht richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_8_1",
+  "schluessel": "probe_ende",
+  "text": "2 von 8 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Zwei von acht richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_8_2",
+  "schluessel": "probe_ende",
+  "text": "2 von 8 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Zwei von acht richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_8_0",
+  "schluessel": "probe_ende",
+  "text": "3 von 8 richtig.",
+  "gesprochen": "Drei von acht richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_8_1",
+  "schluessel": "probe_ende",
+  "text": "3 von 8 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Drei von acht richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_8_2",
+  "schluessel": "probe_ende",
+  "text": "3 von 8 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Drei von acht richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_8_3",
+  "schluessel": "probe_ende",
+  "text": "3 von 8 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Drei von acht richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_8_0",
+  "schluessel": "probe_ende",
+  "text": "4 von 8 richtig.",
+  "gesprochen": "Vier von acht richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_8_1",
+  "schluessel": "probe_ende",
+  "text": "4 von 8 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Vier von acht richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_8_2",
+  "schluessel": "probe_ende",
+  "text": "4 von 8 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Vier von acht richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_8_3",
+  "schluessel": "probe_ende",
+  "text": "4 von 8 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Vier von acht richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_8_4",
+  "schluessel": "probe_ende",
+  "text": "4 von 8 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Vier von acht richtig, davon vier blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_8_0",
+  "schluessel": "probe_ende",
+  "text": "5 von 8 richtig.",
+  "gesprochen": "Fünf von acht richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_8_1",
+  "schluessel": "probe_ende",
+  "text": "5 von 8 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Fünf von acht richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_8_2",
+  "schluessel": "probe_ende",
+  "text": "5 von 8 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Fünf von acht richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_8_3",
+  "schluessel": "probe_ende",
+  "text": "5 von 8 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Fünf von acht richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_8_4",
+  "schluessel": "probe_ende",
+  "text": "5 von 8 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Fünf von acht richtig, davon vier blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_8_5",
+  "schluessel": "probe_ende",
+  "text": "5 von 8 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Fünf von acht richtig, davon fünf blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_6_8_0",
+  "schluessel": "probe_ende",
+  "text": "6 von 8 richtig.",
+  "gesprochen": "Sechs von acht richtig.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_8_1",
+  "schluessel": "probe_ende",
+  "text": "6 von 8 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Sechs von acht richtig, davon eine blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_8_2",
+  "schluessel": "probe_ende",
+  "text": "6 von 8 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Sechs von acht richtig, davon zwei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_8_3",
+  "schluessel": "probe_ende",
+  "text": "6 von 8 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Sechs von acht richtig, davon drei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_8_4",
+  "schluessel": "probe_ende",
+  "text": "6 von 8 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Sechs von acht richtig, davon vier blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_8_5",
+  "schluessel": "probe_ende",
+  "text": "6 von 8 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Sechs von acht richtig, davon fünf blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_8_6",
+  "schluessel": "probe_ende",
+  "text": "6 von 8 richtig, davon 6 blitzschnell.",
+  "gesprochen": "Sechs von acht richtig, davon sechs blitzschnell.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/probe_ende_7_8_0",
+  "schluessel": "probe_ende",
+  "text": "7 von 8 richtig.",
+  "gesprochen": "Sieben von acht richtig.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_8_1",
+  "schluessel": "probe_ende",
+  "text": "7 von 8 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Sieben von acht richtig, davon eine blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_8_2",
+  "schluessel": "probe_ende",
+  "text": "7 von 8 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Sieben von acht richtig, davon zwei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_8_3",
+  "schluessel": "probe_ende",
+  "text": "7 von 8 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Sieben von acht richtig, davon drei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_8_4",
+  "schluessel": "probe_ende",
+  "text": "7 von 8 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Sieben von acht richtig, davon vier blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_8_5",
+  "schluessel": "probe_ende",
+  "text": "7 von 8 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Sieben von acht richtig, davon fünf blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_8_6",
+  "schluessel": "probe_ende",
+  "text": "7 von 8 richtig, davon 6 blitzschnell.",
+  "gesprochen": "Sieben von acht richtig, davon sechs blitzschnell.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/probe_ende_7_8_7",
+  "schluessel": "probe_ende",
+  "text": "7 von 8 richtig, davon 7 blitzschnell.",
+  "gesprochen": "Sieben von acht richtig, davon sieben blitzschnell.",
+  "z": 2,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_8_8_0",
+  "schluessel": "probe_ende",
+  "text": "Alle 8 richtig.",
+  "gesprochen": "Alle acht richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_8_1",
+  "schluessel": "probe_ende",
+  "text": "Alle 8 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Alle acht richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_8_2",
+  "schluessel": "probe_ende",
+  "text": "Alle 8 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Alle acht richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_8_3",
+  "schluessel": "probe_ende",
+  "text": "Alle 8 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Alle acht richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_8_4",
+  "schluessel": "probe_ende",
+  "text": "Alle 8 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Alle acht richtig, davon vier blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_8_5",
+  "schluessel": "probe_ende",
+  "text": "Alle 8 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Alle acht richtig, davon fünf blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_8_6",
+  "schluessel": "probe_ende",
+  "text": "Alle 8 richtig, davon 6 blitzschnell.",
+  "gesprochen": "Alle acht richtig, davon sechs blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_8_8_7",
+  "schluessel": "probe_ende",
+  "text": "Alle 8 richtig, davon 7 blitzschnell.",
+  "gesprochen": "Alle acht richtig, davon sieben blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_8_8",
+  "schluessel": "probe_ende",
+  "text": "Alle 8 richtig, davon 8 blitzschnell.",
+  "gesprochen": "Alle acht richtig, davon acht blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_0_9_0",
+  "schluessel": "probe_ende",
+  "text": "0 von 9 richtig.",
+  "gesprochen": "Null von neun richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_1_9_0",
+  "schluessel": "probe_ende",
+  "text": "1 von 9 richtig.",
+  "gesprochen": "Eine von neun richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_1_9_1",
+  "schluessel": "probe_ende",
+  "text": "1 von 9 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Eine von neun richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_9_0",
+  "schluessel": "probe_ende",
+  "text": "2 von 9 richtig.",
+  "gesprochen": "Zwei von neun richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_9_1",
+  "schluessel": "probe_ende",
+  "text": "2 von 9 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Zwei von neun richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_9_2",
+  "schluessel": "probe_ende",
+  "text": "2 von 9 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Zwei von neun richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_9_0",
+  "schluessel": "probe_ende",
+  "text": "3 von 9 richtig.",
+  "gesprochen": "Drei von neun richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_9_1",
+  "schluessel": "probe_ende",
+  "text": "3 von 9 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Drei von neun richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_9_2",
+  "schluessel": "probe_ende",
+  "text": "3 von 9 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Drei von neun richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_9_3",
+  "schluessel": "probe_ende",
+  "text": "3 von 9 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Drei von neun richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_9_0",
+  "schluessel": "probe_ende",
+  "text": "4 von 9 richtig.",
+  "gesprochen": "Vier von neun richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_9_1",
+  "schluessel": "probe_ende",
+  "text": "4 von 9 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Vier von neun richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_9_2",
+  "schluessel": "probe_ende",
+  "text": "4 von 9 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Vier von neun richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_9_3",
+  "schluessel": "probe_ende",
+  "text": "4 von 9 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Vier von neun richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_9_4",
+  "schluessel": "probe_ende",
+  "text": "4 von 9 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Vier von neun richtig, davon vier blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_9_0",
+  "schluessel": "probe_ende",
+  "text": "5 von 9 richtig.",
+  "gesprochen": "Fünf von neun richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_9_1",
+  "schluessel": "probe_ende",
+  "text": "5 von 9 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Fünf von neun richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_9_2",
+  "schluessel": "probe_ende",
+  "text": "5 von 9 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Fünf von neun richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_9_3",
+  "schluessel": "probe_ende",
+  "text": "5 von 9 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Fünf von neun richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_9_4",
+  "schluessel": "probe_ende",
+  "text": "5 von 9 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Fünf von neun richtig, davon vier blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_9_5",
+  "schluessel": "probe_ende",
+  "text": "5 von 9 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Fünf von neun richtig, davon fünf blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_6_9_0",
+  "schluessel": "probe_ende",
+  "text": "6 von 9 richtig.",
+  "gesprochen": "Sechs von neun richtig.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_9_1",
+  "schluessel": "probe_ende",
+  "text": "6 von 9 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Sechs von neun richtig, davon eine blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_9_2",
+  "schluessel": "probe_ende",
+  "text": "6 von 9 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Sechs von neun richtig, davon zwei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_9_3",
+  "schluessel": "probe_ende",
+  "text": "6 von 9 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Sechs von neun richtig, davon drei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_9_4",
+  "schluessel": "probe_ende",
+  "text": "6 von 9 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Sechs von neun richtig, davon vier blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_9_5",
+  "schluessel": "probe_ende",
+  "text": "6 von 9 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Sechs von neun richtig, davon fünf blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_9_6",
+  "schluessel": "probe_ende",
+  "text": "6 von 9 richtig, davon 6 blitzschnell.",
+  "gesprochen": "Sechs von neun richtig, davon sechs blitzschnell.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/probe_ende_7_9_0",
+  "schluessel": "probe_ende",
+  "text": "7 von 9 richtig.",
+  "gesprochen": "Sieben von neun richtig.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_9_1",
+  "schluessel": "probe_ende",
+  "text": "7 von 9 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Sieben von neun richtig, davon eine blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_9_2",
+  "schluessel": "probe_ende",
+  "text": "7 von 9 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Sieben von neun richtig, davon zwei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_9_3",
+  "schluessel": "probe_ende",
+  "text": "7 von 9 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Sieben von neun richtig, davon drei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_9_4",
+  "schluessel": "probe_ende",
+  "text": "7 von 9 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Sieben von neun richtig, davon vier blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_9_5",
+  "schluessel": "probe_ende",
+  "text": "7 von 9 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Sieben von neun richtig, davon fünf blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_9_6",
+  "schluessel": "probe_ende",
+  "text": "7 von 9 richtig, davon 6 blitzschnell.",
+  "gesprochen": "Sieben von neun richtig, davon sechs blitzschnell.",
+  "z": 2,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_9_7",
+  "schluessel": "probe_ende",
+  "text": "7 von 9 richtig, davon 7 blitzschnell.",
+  "gesprochen": "Sieben von neun richtig, davon sieben blitzschnell.",
+  "z": 2,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_8_9_0",
+  "schluessel": "probe_ende",
+  "text": "8 von 9 richtig.",
+  "gesprochen": "Acht von neun richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_9_1",
+  "schluessel": "probe_ende",
+  "text": "8 von 9 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Acht von neun richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_9_2",
+  "schluessel": "probe_ende",
+  "text": "8 von 9 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Acht von neun richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_9_3",
+  "schluessel": "probe_ende",
+  "text": "8 von 9 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Acht von neun richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_9_4",
+  "schluessel": "probe_ende",
+  "text": "8 von 9 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Acht von neun richtig, davon vier blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_9_5",
+  "schluessel": "probe_ende",
+  "text": "8 von 9 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Acht von neun richtig, davon fünf blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_9_6",
+  "schluessel": "probe_ende",
+  "text": "8 von 9 richtig, davon 6 blitzschnell.",
+  "gesprochen": "Acht von neun richtig, davon sechs blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_8_9_7",
+  "schluessel": "probe_ende",
+  "text": "8 von 9 richtig, davon 7 blitzschnell.",
+  "gesprochen": "Acht von neun richtig, davon sieben blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_8_9_8",
+  "schluessel": "probe_ende",
+  "text": "8 von 9 richtig, davon 8 blitzschnell.",
+  "gesprochen": "Acht von neun richtig, davon acht blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_9_0",
+  "schluessel": "probe_ende",
+  "text": "Alle 9 richtig.",
+  "gesprochen": "Alle neun richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_9_1",
+  "schluessel": "probe_ende",
+  "text": "Alle 9 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Alle neun richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_9_2",
+  "schluessel": "probe_ende",
+  "text": "Alle 9 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Alle neun richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_9_3",
+  "schluessel": "probe_ende",
+  "text": "Alle 9 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Alle neun richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_9_4",
+  "schluessel": "probe_ende",
+  "text": "Alle 9 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Alle neun richtig, davon vier blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_9_5",
+  "schluessel": "probe_ende",
+  "text": "Alle 9 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Alle neun richtig, davon fünf blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_9_6",
+  "schluessel": "probe_ende",
+  "text": "Alle 9 richtig, davon 6 blitzschnell.",
+  "gesprochen": "Alle neun richtig, davon sechs blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_9_9_7",
+  "schluessel": "probe_ende",
+  "text": "Alle 9 richtig, davon 7 blitzschnell.",
+  "gesprochen": "Alle neun richtig, davon sieben blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_9_8",
+  "schluessel": "probe_ende",
+  "text": "Alle 9 richtig, davon 8 blitzschnell.",
+  "gesprochen": "Alle neun richtig, davon acht blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_9_9",
+  "schluessel": "probe_ende",
+  "text": "Alle 9 richtig, davon 9 blitzschnell.",
+  "gesprochen": "Alle neun richtig, davon neun blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_0_10_0",
+  "schluessel": "probe_ende",
+  "text": "0 von 10 richtig.",
+  "gesprochen": "Null von zehn richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_1_10_0",
+  "schluessel": "probe_ende",
+  "text": "1 von 10 richtig.",
+  "gesprochen": "Eine von zehn richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_1_10_1",
+  "schluessel": "probe_ende",
+  "text": "1 von 10 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Eine von zehn richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_10_0",
+  "schluessel": "probe_ende",
+  "text": "2 von 10 richtig.",
+  "gesprochen": "Zwei von zehn richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_10_1",
+  "schluessel": "probe_ende",
+  "text": "2 von 10 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Zwei von zehn richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_10_2",
+  "schluessel": "probe_ende",
+  "text": "2 von 10 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Zwei von zehn richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_10_0",
+  "schluessel": "probe_ende",
+  "text": "3 von 10 richtig.",
+  "gesprochen": "Drei von zehn richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_10_1",
+  "schluessel": "probe_ende",
+  "text": "3 von 10 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Drei von zehn richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_10_2",
+  "schluessel": "probe_ende",
+  "text": "3 von 10 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Drei von zehn richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_10_3",
+  "schluessel": "probe_ende",
+  "text": "3 von 10 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Drei von zehn richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_10_0",
+  "schluessel": "probe_ende",
+  "text": "4 von 10 richtig.",
+  "gesprochen": "Vier von zehn richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_10_1",
+  "schluessel": "probe_ende",
+  "text": "4 von 10 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Vier von zehn richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_10_2",
+  "schluessel": "probe_ende",
+  "text": "4 von 10 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Vier von zehn richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_10_3",
+  "schluessel": "probe_ende",
+  "text": "4 von 10 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Vier von zehn richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_10_4",
+  "schluessel": "probe_ende",
+  "text": "4 von 10 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Vier von zehn richtig, davon vier blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_10_0",
+  "schluessel": "probe_ende",
+  "text": "5 von 10 richtig.",
+  "gesprochen": "Fünf von zehn richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_10_1",
+  "schluessel": "probe_ende",
+  "text": "5 von 10 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Fünf von zehn richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_10_2",
+  "schluessel": "probe_ende",
+  "text": "5 von 10 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Fünf von zehn richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_10_3",
+  "schluessel": "probe_ende",
+  "text": "5 von 10 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Fünf von zehn richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_10_4",
+  "schluessel": "probe_ende",
+  "text": "5 von 10 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Fünf von zehn richtig, davon vier blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_10_5",
+  "schluessel": "probe_ende",
+  "text": "5 von 10 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Fünf von zehn richtig, davon fünf blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_6_10_0",
+  "schluessel": "probe_ende",
+  "text": "6 von 10 richtig.",
+  "gesprochen": "Sechs von zehn richtig.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_10_1",
+  "schluessel": "probe_ende",
+  "text": "6 von 10 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Sechs von zehn richtig, davon eine blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_10_2",
+  "schluessel": "probe_ende",
+  "text": "6 von 10 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Sechs von zehn richtig, davon zwei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_10_3",
+  "schluessel": "probe_ende",
+  "text": "6 von 10 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Sechs von zehn richtig, davon drei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_10_4",
+  "schluessel": "probe_ende",
+  "text": "6 von 10 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Sechs von zehn richtig, davon vier blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_10_5",
+  "schluessel": "probe_ende",
+  "text": "6 von 10 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Sechs von zehn richtig, davon fünf blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_10_6",
+  "schluessel": "probe_ende",
+  "text": "6 von 10 richtig, davon 6 blitzschnell.",
+  "gesprochen": "Sechs von zehn richtig, davon sechs blitzschnell.",
+  "z": 2,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_10_0",
+  "schluessel": "probe_ende",
+  "text": "7 von 10 richtig.",
+  "gesprochen": "Sieben von zehn richtig.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_10_1",
+  "schluessel": "probe_ende",
+  "text": "7 von 10 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Sieben von zehn richtig, davon eine blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_10_2",
+  "schluessel": "probe_ende",
+  "text": "7 von 10 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Sieben von zehn richtig, davon zwei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_10_3",
+  "schluessel": "probe_ende",
+  "text": "7 von 10 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Sieben von zehn richtig, davon drei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_10_4",
+  "schluessel": "probe_ende",
+  "text": "7 von 10 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Sieben von zehn richtig, davon vier blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_10_5",
+  "schluessel": "probe_ende",
+  "text": "7 von 10 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Sieben von zehn richtig, davon fünf blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_10_6",
+  "schluessel": "probe_ende",
+  "text": "7 von 10 richtig, davon 6 blitzschnell.",
+  "gesprochen": "Sieben von zehn richtig, davon sechs blitzschnell.",
+  "z": 2,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_10_7",
+  "schluessel": "probe_ende",
+  "text": "7 von 10 richtig, davon 7 blitzschnell.",
+  "gesprochen": "Sieben von zehn richtig, davon sieben blitzschnell.",
+  "z": 2,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_8_10_0",
+  "schluessel": "probe_ende",
+  "text": "8 von 10 richtig.",
+  "gesprochen": "Acht von zehn richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_10_1",
+  "schluessel": "probe_ende",
+  "text": "8 von 10 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Acht von zehn richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_10_2",
+  "schluessel": "probe_ende",
+  "text": "8 von 10 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Acht von zehn richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_10_3",
+  "schluessel": "probe_ende",
+  "text": "8 von 10 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Acht von zehn richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_10_4",
+  "schluessel": "probe_ende",
+  "text": "8 von 10 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Acht von zehn richtig, davon vier blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_10_5",
+  "schluessel": "probe_ende",
+  "text": "8 von 10 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Acht von zehn richtig, davon fünf blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_10_6",
+  "schluessel": "probe_ende",
+  "text": "8 von 10 richtig, davon 6 blitzschnell.",
+  "gesprochen": "Acht von zehn richtig, davon sechs blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_10_7",
+  "schluessel": "probe_ende",
+  "text": "8 von 10 richtig, davon 7 blitzschnell.",
+  "gesprochen": "Acht von zehn richtig, davon sieben blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_10_8",
+  "schluessel": "probe_ende",
+  "text": "8 von 10 richtig, davon 8 blitzschnell.",
+  "gesprochen": "Acht von zehn richtig, davon acht blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_10_0",
+  "schluessel": "probe_ende",
+  "text": "9 von 10 richtig.",
+  "gesprochen": "Neun von zehn richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_10_1",
+  "schluessel": "probe_ende",
+  "text": "9 von 10 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Neun von zehn richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_10_2",
+  "schluessel": "probe_ende",
+  "text": "9 von 10 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Neun von zehn richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_10_3",
+  "schluessel": "probe_ende",
+  "text": "9 von 10 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Neun von zehn richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_10_4",
+  "schluessel": "probe_ende",
+  "text": "9 von 10 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Neun von zehn richtig, davon vier blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_10_5",
+  "schluessel": "probe_ende",
+  "text": "9 von 10 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Neun von zehn richtig, davon fünf blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_10_6",
+  "schluessel": "probe_ende",
+  "text": "9 von 10 richtig, davon 6 blitzschnell.",
+  "gesprochen": "Neun von zehn richtig, davon sechs blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_10_7",
+  "schluessel": "probe_ende",
+  "text": "9 von 10 richtig, davon 7 blitzschnell.",
+  "gesprochen": "Neun von zehn richtig, davon sieben blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_10_8",
+  "schluessel": "probe_ende",
+  "text": "9 von 10 richtig, davon 8 blitzschnell.",
+  "gesprochen": "Neun von zehn richtig, davon acht blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_10_9",
+  "schluessel": "probe_ende",
+  "text": "9 von 10 richtig, davon 9 blitzschnell.",
+  "gesprochen": "Neun von zehn richtig, davon neun blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_10_0",
+  "schluessel": "probe_ende",
+  "text": "Alle 10 richtig.",
+  "gesprochen": "Alle zehn richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_10_1",
+  "schluessel": "probe_ende",
+  "text": "Alle 10 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Alle zehn richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_10_2",
+  "schluessel": "probe_ende",
+  "text": "Alle 10 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Alle zehn richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_10_3",
+  "schluessel": "probe_ende",
+  "text": "Alle 10 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Alle zehn richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_10_4",
+  "schluessel": "probe_ende",
+  "text": "Alle 10 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Alle zehn richtig, davon vier blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_10_5",
+  "schluessel": "probe_ende",
+  "text": "Alle 10 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Alle zehn richtig, davon fünf blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_10_6",
+  "schluessel": "probe_ende",
+  "text": "Alle 10 richtig, davon 6 blitzschnell.",
+  "gesprochen": "Alle zehn richtig, davon sechs blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_10_7",
+  "schluessel": "probe_ende",
+  "text": "Alle 10 richtig, davon 7 blitzschnell.",
+  "gesprochen": "Alle zehn richtig, davon sieben blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_10_8",
+  "schluessel": "probe_ende",
+  "text": "Alle 10 richtig, davon 8 blitzschnell.",
+  "gesprochen": "Alle zehn richtig, davon acht blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_10_9",
+  "schluessel": "probe_ende",
+  "text": "Alle 10 richtig, davon 9 blitzschnell.",
+  "gesprochen": "Alle zehn richtig, davon neun blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_10_10",
+  "schluessel": "probe_ende",
+  "text": "Alle 10 richtig, davon 10 blitzschnell.",
+  "gesprochen": "Alle zehn richtig, davon zehn blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_0_11_0",
+  "schluessel": "probe_ende",
+  "text": "0 von 11 richtig.",
+  "gesprochen": "Null von elf richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_1_11_0",
+  "schluessel": "probe_ende",
+  "text": "1 von 11 richtig.",
+  "gesprochen": "Eine von elf richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_1_11_1",
+  "schluessel": "probe_ende",
+  "text": "1 von 11 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Eine von elf richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_11_0",
+  "schluessel": "probe_ende",
+  "text": "2 von 11 richtig.",
+  "gesprochen": "Zwei von elf richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_11_1",
+  "schluessel": "probe_ende",
+  "text": "2 von 11 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Zwei von elf richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_2_11_2",
+  "schluessel": "probe_ende",
+  "text": "2 von 11 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Zwei von elf richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_11_0",
+  "schluessel": "probe_ende",
+  "text": "3 von 11 richtig.",
+  "gesprochen": "Drei von elf richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_11_1",
+  "schluessel": "probe_ende",
+  "text": "3 von 11 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Drei von elf richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_11_2",
+  "schluessel": "probe_ende",
+  "text": "3 von 11 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Drei von elf richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_3_11_3",
+  "schluessel": "probe_ende",
+  "text": "3 von 11 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Drei von elf richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_11_0",
+  "schluessel": "probe_ende",
+  "text": "4 von 11 richtig.",
+  "gesprochen": "Vier von elf richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_11_1",
+  "schluessel": "probe_ende",
+  "text": "4 von 11 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Vier von elf richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_11_2",
+  "schluessel": "probe_ende",
+  "text": "4 von 11 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Vier von elf richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_11_3",
+  "schluessel": "probe_ende",
+  "text": "4 von 11 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Vier von elf richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_4_11_4",
+  "schluessel": "probe_ende",
+  "text": "4 von 11 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Vier von elf richtig, davon vier blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_11_0",
+  "schluessel": "probe_ende",
+  "text": "5 von 11 richtig.",
+  "gesprochen": "Fünf von elf richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_11_1",
+  "schluessel": "probe_ende",
+  "text": "5 von 11 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Fünf von elf richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_11_2",
+  "schluessel": "probe_ende",
+  "text": "5 von 11 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Fünf von elf richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_11_3",
+  "schluessel": "probe_ende",
+  "text": "5 von 11 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Fünf von elf richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_11_4",
+  "schluessel": "probe_ende",
+  "text": "5 von 11 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Fünf von elf richtig, davon vier blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_5_11_5",
+  "schluessel": "probe_ende",
+  "text": "5 von 11 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Fünf von elf richtig, davon fünf blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_6_11_0",
+  "schluessel": "probe_ende",
+  "text": "6 von 11 richtig.",
+  "gesprochen": "Sechs von elf richtig.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_11_1",
+  "schluessel": "probe_ende",
+  "text": "6 von 11 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Sechs von elf richtig, davon eine blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_11_2",
+  "schluessel": "probe_ende",
+  "text": "6 von 11 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Sechs von elf richtig, davon zwei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_11_3",
+  "schluessel": "probe_ende",
+  "text": "6 von 11 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Sechs von elf richtig, davon drei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_11_4",
+  "schluessel": "probe_ende",
+  "text": "6 von 11 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Sechs von elf richtig, davon vier blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_11_5",
+  "schluessel": "probe_ende",
+  "text": "6 von 11 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Sechs von elf richtig, davon fünf blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_6_11_6",
+  "schluessel": "probe_ende",
+  "text": "6 von 11 richtig, davon 6 blitzschnell.",
+  "gesprochen": "Sechs von elf richtig, davon sechs blitzschnell.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/probe_ende_7_11_0",
+  "schluessel": "probe_ende",
+  "text": "7 von 11 richtig.",
+  "gesprochen": "Sieben von elf richtig.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_11_1",
+  "schluessel": "probe_ende",
+  "text": "7 von 11 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Sieben von elf richtig, davon eine blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_11_2",
+  "schluessel": "probe_ende",
+  "text": "7 von 11 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Sieben von elf richtig, davon zwei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_11_3",
+  "schluessel": "probe_ende",
+  "text": "7 von 11 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Sieben von elf richtig, davon drei blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_11_4",
+  "schluessel": "probe_ende",
+  "text": "7 von 11 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Sieben von elf richtig, davon vier blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_11_5",
+  "schluessel": "probe_ende",
+  "text": "7 von 11 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Sieben von elf richtig, davon fünf blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_7_11_6",
+  "schluessel": "probe_ende",
+  "text": "7 von 11 richtig, davon 6 blitzschnell.",
+  "gesprochen": "Sieben von elf richtig, davon sechs blitzschnell.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/probe_ende_7_11_7",
+  "schluessel": "probe_ende",
+  "text": "7 von 11 richtig, davon 7 blitzschnell.",
+  "gesprochen": "Sieben von elf richtig, davon sieben blitzschnell.",
+  "z": 2,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_8_11_0",
+  "schluessel": "probe_ende",
+  "text": "8 von 11 richtig.",
+  "gesprochen": "Acht von elf richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_11_1",
+  "schluessel": "probe_ende",
+  "text": "8 von 11 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Acht von elf richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_11_2",
+  "schluessel": "probe_ende",
+  "text": "8 von 11 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Acht von elf richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_11_3",
+  "schluessel": "probe_ende",
+  "text": "8 von 11 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Acht von elf richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_11_4",
+  "schluessel": "probe_ende",
+  "text": "8 von 11 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Acht von elf richtig, davon vier blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_11_5",
+  "schluessel": "probe_ende",
+  "text": "8 von 11 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Acht von elf richtig, davon fünf blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_11_6",
+  "schluessel": "probe_ende",
+  "text": "8 von 11 richtig, davon 6 blitzschnell.",
+  "gesprochen": "Acht von elf richtig, davon sechs blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_8_11_7",
+  "schluessel": "probe_ende",
+  "text": "8 von 11 richtig, davon 7 blitzschnell.",
+  "gesprochen": "Acht von elf richtig, davon sieben blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_8_11_8",
+  "schluessel": "probe_ende",
+  "text": "8 von 11 richtig, davon 8 blitzschnell.",
+  "gesprochen": "Acht von elf richtig, davon acht blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_11_0",
+  "schluessel": "probe_ende",
+  "text": "9 von 11 richtig.",
+  "gesprochen": "Neun von elf richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_11_1",
+  "schluessel": "probe_ende",
+  "text": "9 von 11 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Neun von elf richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_11_2",
+  "schluessel": "probe_ende",
+  "text": "9 von 11 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Neun von elf richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_11_3",
+  "schluessel": "probe_ende",
+  "text": "9 von 11 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Neun von elf richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_11_4",
+  "schluessel": "probe_ende",
+  "text": "9 von 11 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Neun von elf richtig, davon vier blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_11_5",
+  "schluessel": "probe_ende",
+  "text": "9 von 11 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Neun von elf richtig, davon fünf blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_11_6",
+  "schluessel": "probe_ende",
+  "text": "9 von 11 richtig, davon 6 blitzschnell.",
+  "gesprochen": "Neun von elf richtig, davon sechs blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_9_11_7",
+  "schluessel": "probe_ende",
+  "text": "9 von 11 richtig, davon 7 blitzschnell.",
+  "gesprochen": "Neun von elf richtig, davon sieben blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_11_8",
+  "schluessel": "probe_ende",
+  "text": "9 von 11 richtig, davon 8 blitzschnell.",
+  "gesprochen": "Neun von elf richtig, davon acht blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_9_11_9",
+  "schluessel": "probe_ende",
+  "text": "9 von 11 richtig, davon 9 blitzschnell.",
+  "gesprochen": "Neun von elf richtig, davon neun blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_11_0",
+  "schluessel": "probe_ende",
+  "text": "10 von 11 richtig.",
+  "gesprochen": "Zehn von elf richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_11_1",
+  "schluessel": "probe_ende",
+  "text": "10 von 11 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Zehn von elf richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_11_2",
+  "schluessel": "probe_ende",
+  "text": "10 von 11 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Zehn von elf richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_11_3",
+  "schluessel": "probe_ende",
+  "text": "10 von 11 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Zehn von elf richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_11_4",
+  "schluessel": "probe_ende",
+  "text": "10 von 11 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Zehn von elf richtig, davon vier blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_11_5",
+  "schluessel": "probe_ende",
+  "text": "10 von 11 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Zehn von elf richtig, davon fünf blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_11_6",
+  "schluessel": "probe_ende",
+  "text": "10 von 11 richtig, davon 6 blitzschnell.",
+  "gesprochen": "Zehn von elf richtig, davon sechs blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_11_7",
+  "schluessel": "probe_ende",
+  "text": "10 von 11 richtig, davon 7 blitzschnell.",
+  "gesprochen": "Zehn von elf richtig, davon sieben blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_11_8",
+  "schluessel": "probe_ende",
+  "text": "10 von 11 richtig, davon 8 blitzschnell.",
+  "gesprochen": "Zehn von elf richtig, davon acht blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_11_9",
+  "schluessel": "probe_ende",
+  "text": "10 von 11 richtig, davon 9 blitzschnell.",
+  "gesprochen": "Zehn von elf richtig, davon neun blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_10_11_10",
+  "schluessel": "probe_ende",
+  "text": "10 von 11 richtig, davon 10 blitzschnell.",
+  "gesprochen": "Zehn von elf richtig, davon zehn blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_11_11_0",
+  "schluessel": "probe_ende",
+  "text": "Alle 11 richtig.",
+  "gesprochen": "Alle elf richtig.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_11_11_1",
+  "schluessel": "probe_ende",
+  "text": "Alle 11 richtig, davon 1 blitzschnell.",
+  "gesprochen": "Alle elf richtig, davon eine blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_11_11_2",
+  "schluessel": "probe_ende",
+  "text": "Alle 11 richtig, davon 2 blitzschnell.",
+  "gesprochen": "Alle elf richtig, davon zwei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_11_11_3",
+  "schluessel": "probe_ende",
+  "text": "Alle 11 richtig, davon 3 blitzschnell.",
+  "gesprochen": "Alle elf richtig, davon drei blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_11_11_4",
+  "schluessel": "probe_ende",
+  "text": "Alle 11 richtig, davon 4 blitzschnell.",
+  "gesprochen": "Alle elf richtig, davon vier blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_11_11_5",
+  "schluessel": "probe_ende",
+  "text": "Alle 11 richtig, davon 5 blitzschnell.",
+  "gesprochen": "Alle elf richtig, davon fünf blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_11_11_6",
+  "schluessel": "probe_ende",
+  "text": "Alle 11 richtig, davon 6 blitzschnell.",
+  "gesprochen": "Alle elf richtig, davon sechs blitzschnell.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/probe_ende_11_11_7",
+  "schluessel": "probe_ende",
+  "text": "Alle 11 richtig, davon 7 blitzschnell.",
+  "gesprochen": "Alle elf richtig, davon sieben blitzschnell.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_11_11_8",
+  "schluessel": "probe_ende",
+  "text": "Alle 11 richtig, davon 8 blitzschnell.",
+  "gesprochen": "Alle elf richtig, davon acht blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_11_11_9",
+  "schluessel": "probe_ende",
+  "text": "Alle 11 richtig, davon 9 blitzschnell.",
+  "gesprochen": "Alle elf richtig, davon neun blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_11_11_10",
+  "schluessel": "probe_ende",
+  "text": "Alle 11 richtig, davon 10 blitzschnell.",
+  "gesprochen": "Alle elf richtig, davon zehn blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_ende_11_11_11",
+  "schluessel": "probe_ende",
+  "text": "Alle 11 richtig, davon 11 blitzschnell.",
+  "gesprochen": "Alle elf richtig, davon elf blitzschnell.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/bald",
+  "schluessel": "bald",
+  "text": "Das kommt bald.",
+  "gesprochen": "Das kommt bald.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/frei_intro",
+  "schluessel": "frei_intro",
+  "text": "Leg Fünfer und Einer ins Feld. Dann schreib, wie viele es sind.",
+  "gesprochen": "Leg Fünfer und Einer ins Feld. Dann schreib, wie viele es sind.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/legen_aufgabe_0_0",
+  "schluessel": "legen_aufgabe",
+  "text": "Null Fünfer und null Einer.",
+  "gesprochen": "Null Fünfer und null Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_0_1",
+  "schluessel": "legen_aufgabe",
+  "text": "Null Fünfer und ein Einer.",
+  "gesprochen": "Null Fünfer und ein Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_0_2",
+  "schluessel": "legen_aufgabe",
+  "text": "Null Fünfer und zwei Einer.",
+  "gesprochen": "Null Fünfer und zwei Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_0_3",
+  "schluessel": "legen_aufgabe",
+  "text": "Null Fünfer und drei Einer.",
+  "gesprochen": "Null Fünfer und drei Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_0_4",
+  "schluessel": "legen_aufgabe",
+  "text": "Null Fünfer und vier Einer.",
+  "gesprochen": "Null Fünfer und vier Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_1_0",
+  "schluessel": "legen_aufgabe",
+  "text": "Ein Fünfer und null Einer.",
+  "gesprochen": "Ein Fünfer und null Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_1_1",
+  "schluessel": "legen_aufgabe",
+  "text": "Ein Fünfer und ein Einer.",
+  "gesprochen": "Ein Fünfer und ein Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_1_2",
+  "schluessel": "legen_aufgabe",
+  "text": "Ein Fünfer und zwei Einer.",
+  "gesprochen": "Ein Fünfer und zwei Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_1_3",
+  "schluessel": "legen_aufgabe",
+  "text": "Ein Fünfer und drei Einer.",
+  "gesprochen": "Ein Fünfer und drei Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_1_4",
+  "schluessel": "legen_aufgabe",
+  "text": "Ein Fünfer und vier Einer.",
+  "gesprochen": "Ein Fünfer und vier Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_2_0",
+  "schluessel": "legen_aufgabe",
+  "text": "Zwei Fünfer und null Einer.",
+  "gesprochen": "Zwei Fünfer und null Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_2_1",
+  "schluessel": "legen_aufgabe",
+  "text": "Zwei Fünfer und ein Einer.",
+  "gesprochen": "Zwei Fünfer und ein Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_2_2",
+  "schluessel": "legen_aufgabe",
+  "text": "Zwei Fünfer und zwei Einer.",
+  "gesprochen": "Zwei Fünfer und zwei Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_2_3",
+  "schluessel": "legen_aufgabe",
+  "text": "Zwei Fünfer und drei Einer.",
+  "gesprochen": "Zwei Fünfer und drei Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_2_4",
+  "schluessel": "legen_aufgabe",
+  "text": "Zwei Fünfer und vier Einer.",
+  "gesprochen": "Zwei Fünfer und vier Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_3_0",
+  "schluessel": "legen_aufgabe",
+  "text": "Drei Fünfer und null Einer.",
+  "gesprochen": "Drei Fünfer und null Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_3_1",
+  "schluessel": "legen_aufgabe",
+  "text": "Drei Fünfer und ein Einer.",
+  "gesprochen": "Drei Fünfer und ein Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_3_2",
+  "schluessel": "legen_aufgabe",
+  "text": "Drei Fünfer und zwei Einer.",
+  "gesprochen": "Drei Fünfer und zwei Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_3_3",
+  "schluessel": "legen_aufgabe",
+  "text": "Drei Fünfer und drei Einer.",
+  "gesprochen": "Drei Fünfer und drei Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_3_4",
+  "schluessel": "legen_aufgabe",
+  "text": "Drei Fünfer und vier Einer.",
+  "gesprochen": "Drei Fünfer und vier Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_4_0",
+  "schluessel": "legen_aufgabe",
+  "text": "Vier Fünfer und null Einer.",
+  "gesprochen": "Vier Fünfer und null Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_4_1",
+  "schluessel": "legen_aufgabe",
+  "text": "Vier Fünfer und ein Einer.",
+  "gesprochen": "Vier Fünfer und ein Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_4_2",
+  "schluessel": "legen_aufgabe",
+  "text": "Vier Fünfer und zwei Einer.",
+  "gesprochen": "Vier Fünfer und zwei Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_4_3",
+  "schluessel": "legen_aufgabe",
+  "text": "Vier Fünfer und drei Einer.",
+  "gesprochen": "Vier Fünfer und drei Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_aufgabe_4_4",
+  "schluessel": "legen_aufgabe",
+  "text": "Vier Fünfer und vier Einer.",
+  "gesprochen": "Vier Fünfer und vier Einer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_nochmal",
+  "schluessel": "legen_nochmal",
+  "text": "Schau noch mal auf die Tafel.",
+  "gesprochen": "Schau noch mal auf die Tafel.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_tauschen",
+  "schluessel": "legen_tauschen",
+  "text": "Schau auf die Tafel. Tausche fünf Einer gegen einen Fünfer.",
+  "gesprochen": "Schau auf die Tafel. Tausche fünf Einer gegen einen Fünfer.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/schreib_zahl",
+  "schluessel": "schreib_zahl",
+  "text": "Wie viele sind es? Schreib die Zahl.",
+  "gesprochen": "Wie viele sind es? Schreib die Zahl.",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/geschafft_0",
+  "schluessel": "geschafft",
+  "text": "Geschafft! Du hast 0 Sterne.",
+  "gesprochen": "Geschafft! Du hast null Sterne.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/geschafft_1",
+  "schluessel": "geschafft",
+  "text": "Geschafft! Du hast einen Stern.",
+  "gesprochen": "Geschafft! Du hast einen Stern.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/geschafft_2",
+  "schluessel": "geschafft",
+  "text": "Geschafft! Du hast 2 Sterne.",
+  "gesprochen": "Geschafft! Du hast zwei Sterne.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/geschafft_3",
+  "schluessel": "geschafft",
+  "text": "Geschafft! Du hast 3 Sterne.",
+  "gesprochen": "Geschafft! Du hast drei Sterne.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/geschafft_4",
+  "schluessel": "geschafft",
+  "text": "Geschafft! Du hast 4 Sterne.",
+  "gesprochen": "Geschafft! Du hast vier Sterne.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/geschafft_5",
+  "schluessel": "geschafft",
+  "text": "Geschafft! Du hast 5 Sterne.",
+  "gesprochen": "Geschafft! Du hast fünf Sterne.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/geschafft_6",
+  "schluessel": "geschafft",
+  "text": "Geschafft! Du hast 6 Sterne.",
+  "gesprochen": "Geschafft! Du hast sechs Sterne.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/geschafft_7",
+  "schluessel": "geschafft",
+  "text": "Geschafft! Du hast 7 Sterne.",
+  "gesprochen": "Geschafft! Du hast sieben Sterne.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/geschafft_8",
+  "schluessel": "geschafft",
+  "text": "Geschafft! Du hast 8 Sterne.",
+  "gesprochen": "Geschafft! Du hast acht Sterne.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/geschafft_9",
+  "schluessel": "geschafft",
+  "text": "Geschafft! Du hast 9 Sterne.",
+  "gesprochen": "Geschafft! Du hast neun Sterne.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/geschafft_10",
+  "schluessel": "geschafft",
+  "text": "Geschafft! Du hast 10 Sterne.",
+  "gesprochen": "Geschafft! Du hast zehn Sterne.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/fuenfer_platz",
+  "schluessel": "fuenfer_platz",
+  "text": "Ein Fünfer passt nur in einen leeren Fünferplatz.",
+  "gesprochen": "Ein Fünfer passt nur in einen leeren Fünferplatz.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/fuenfer_naechster",
+  "schluessel": "fuenfer_naechster",
+  "text": "Leg den Fünfer auf den nächsten freien Fünferplatz.",
+  "gesprochen": "Leg den Fünfer auf den nächsten freien Fünferplatz.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/einer_platz",
+  "schluessel": "einer_platz",
+  "text": "Leg den Einer auf den nächsten freien Platz.",
+  "gesprochen": "Leg den Einer auf den nächsten freien Platz.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/feld_voll",
+  "schluessel": "feld_voll",
+  "text": "Das Feld ist voll.",
+  "gesprochen": "Das Feld ist voll.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/nur_letztes",
+  "schluessel": "nur_letztes",
+  "text": "Du kannst nur das letzte Teil zurücknehmen.",
+  "gesprochen": "Du kannst nur das letzte Teil zurücknehmen.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/tauschen_tipp",
+  "schluessel": "tauschen_tipp",
+  "text": "Fünf Einer kannst du gegen einen Fünfer tauschen.",
+  "gesprochen": "Fünf Einer kannst du gegen einen Fünfer tauschen.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zehner",
+  "schluessel": "zehner",
+  "text": "Zwei Fünfer sind ein Zehner.",
+  "gesprochen": "Zwei Fünfer sind ein Zehner.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/richtig_0",
+  "schluessel": "richtig",
+  "text": "Richtig! Das sind 0.",
+  "gesprochen": "Richtig! Das sind null.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/richtig_1",
+  "schluessel": "richtig",
+  "text": "Richtig! Das ist 1.",
+  "gesprochen": "Richtig! Das ist eins.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/richtig_2",
+  "schluessel": "richtig",
+  "text": "Richtig! Das sind 2.",
+  "gesprochen": "Richtig! Das sind zwei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/richtig_3",
+  "schluessel": "richtig",
+  "text": "Richtig! Das sind 3.",
+  "gesprochen": "Richtig! Das sind drei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/richtig_4",
+  "schluessel": "richtig",
+  "text": "Richtig! Das sind 4.",
+  "gesprochen": "Richtig! Das sind vier.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/richtig_5",
+  "schluessel": "richtig",
+  "text": "Richtig! Das sind 5.",
+  "gesprochen": "Richtig! Das sind fünf.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/richtig_6",
+  "schluessel": "richtig",
+  "text": "Richtig! Das sind 6.",
+  "gesprochen": "Richtig! Das sind sechs.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/richtig_7",
+  "schluessel": "richtig",
+  "text": "Richtig! Das sind 7.",
+  "gesprochen": "Richtig! Das sind sieben.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/richtig_8",
+  "schluessel": "richtig",
+  "text": "Richtig! Das sind 8.",
+  "gesprochen": "Richtig! Das sind acht.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/richtig_9",
+  "schluessel": "richtig",
+  "text": "Richtig! Das sind 9.",
+  "gesprochen": "Richtig! Das sind neun.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/richtig_10",
+  "schluessel": "richtig",
+  "text": "Richtig! Das sind 10.",
+  "gesprochen": "Richtig! Das sind zehn.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/richtig_11",
+  "schluessel": "richtig",
+  "text": "Richtig! Das sind 11.",
+  "gesprochen": "Richtig! Das sind elf.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/richtig_12",
+  "schluessel": "richtig",
+  "text": "Richtig! Das sind 12.",
+  "gesprochen": "Richtig! Das sind zwölf.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/richtig_13",
+  "schluessel": "richtig",
+  "text": "Richtig! Das sind 13.",
+  "gesprochen": "Richtig! Das sind dreizehn.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/richtig_14",
+  "schluessel": "richtig",
+  "text": "Richtig! Das sind 14.",
+  "gesprochen": "Richtig! Das sind vierzehn.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/richtig_15",
+  "schluessel": "richtig",
+  "text": "Richtig! Das sind 15.",
+  "gesprochen": "Richtig! Das sind fünfzehn.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/richtig_16",
+  "schluessel": "richtig",
+  "text": "Richtig! Das sind 16.",
+  "gesprochen": "Richtig! Das sind sechzehn.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/richtig_17",
+  "schluessel": "richtig",
+  "text": "Richtig! Das sind 17.",
+  "gesprochen": "Richtig! Das sind siebzehn.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/richtig_18",
+  "schluessel": "richtig",
+  "text": "Richtig! Das sind 18.",
+  "gesprochen": "Richtig! Das sind achtzehn.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/richtig_19",
+  "schluessel": "richtig",
+  "text": "Richtig! Das sind 19.",
+  "gesprochen": "Richtig! Das sind neunzehn.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/richtig_20",
+  "schluessel": "richtig",
+  "text": "Richtig! Das sind 20.",
+  "gesprochen": "Richtig! Das sind zwanzig.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/nochmal",
+  "schluessel": "nochmal",
+  "text": "Schau noch einmal genau hin. Ein Fünfer, das sind 5.",
+  "gesprochen": "Schau noch einmal genau hin. Ein Fünfer, das sind fünf.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/nochmal_kurz",
+  "schluessel": "nochmal_kurz",
+  "text": "Schau noch einmal genau hin.",
+  "gesprochen": "Schau noch einmal genau hin.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/aufloesung_0",
+  "schluessel": "aufloesung",
+  "text": "Schau: Es sind 0.",
+  "gesprochen": "Schau: Es sind null.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/aufloesung_1",
+  "schluessel": "aufloesung",
+  "text": "Schau: Es ist 1.",
+  "gesprochen": "Schau: Es ist eins.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/aufloesung_2",
+  "schluessel": "aufloesung",
+  "text": "Schau: Es sind 2.",
+  "gesprochen": "Schau: Es sind zwei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/aufloesung_3",
+  "schluessel": "aufloesung",
+  "text": "Schau: Es sind 3.",
+  "gesprochen": "Schau: Es sind drei.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/aufloesung_4",
+  "schluessel": "aufloesung",
+  "text": "Schau: Es sind 4.",
+  "gesprochen": "Schau: Es sind vier.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/aufloesung_5",
+  "schluessel": "aufloesung",
+  "text": "Schau: Es sind 5.",
+  "gesprochen": "Schau: Es sind fünf.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/aufloesung_6",
+  "schluessel": "aufloesung",
+  "text": "Schau: Es sind 6.",
+  "gesprochen": "Schau: Es sind sechs.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/aufloesung_7",
+  "schluessel": "aufloesung",
+  "text": "Schau: Es sind 7.",
+  "gesprochen": "Schau: Es sind sieben.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/aufloesung_8",
+  "schluessel": "aufloesung",
+  "text": "Schau: Es sind 8.",
+  "gesprochen": "Schau: Es sind acht.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/aufloesung_9",
+  "schluessel": "aufloesung",
+  "text": "Schau: Es sind 9.",
+  "gesprochen": "Schau: Es sind neun.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/aufloesung_10",
+  "schluessel": "aufloesung",
+  "text": "Schau: Es sind 10.",
+  "gesprochen": "Schau: Es sind zehn.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/aufloesung_11",
+  "schluessel": "aufloesung",
+  "text": "Schau: Es sind 11.",
+  "gesprochen": "Schau: Es sind elf.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/aufloesung_12",
+  "schluessel": "aufloesung",
+  "text": "Schau: Es sind 12.",
+  "gesprochen": "Schau: Es sind zwölf.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/aufloesung_13",
+  "schluessel": "aufloesung",
+  "text": "Schau: Es sind 13.",
+  "gesprochen": "Schau: Es sind dreizehn.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/aufloesung_14",
+  "schluessel": "aufloesung",
+  "text": "Schau: Es sind 14.",
+  "gesprochen": "Schau: Es sind vierzehn.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/aufloesung_15",
+  "schluessel": "aufloesung",
+  "text": "Schau: Es sind 15.",
+  "gesprochen": "Schau: Es sind fünfzehn.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/aufloesung_16",
+  "schluessel": "aufloesung",
+  "text": "Schau: Es sind 16.",
+  "gesprochen": "Schau: Es sind sechzehn.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/aufloesung_17",
+  "schluessel": "aufloesung",
+  "text": "Schau: Es sind 17.",
+  "gesprochen": "Schau: Es sind siebzehn.",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/aufloesung_18",
+  "schluessel": "aufloesung",
+  "text": "Schau: Es sind 18.",
+  "gesprochen": "Schau: Es sind achtzehn.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/aufloesung_19",
+  "schluessel": "aufloesung",
+  "text": "Schau: Es sind 19.",
+  "gesprochen": "Schau: Es sind neunzehn.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/aufloesung_20",
+  "schluessel": "aufloesung",
+  "text": "Schau: Es sind 20.",
+  "gesprochen": "Schau: Es sind zwanzig.",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/bis10",
+  "schluessel": "bis10",
+  "text": "Zahlen bis 10",
+  "gesprochen": "Zahlen bis zehn",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/bis20",
+  "schluessel": "bis20",
+  "text": "Zahlen bis 20",
+  "gesprochen": "Zahlen bis zwanzig",
+  "z": 0,
+  "weich": 0
+ }
+]

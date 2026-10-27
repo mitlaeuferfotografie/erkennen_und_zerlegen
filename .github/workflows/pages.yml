@@ -1,0 +1,70 @@
+# Baut die App bei jeder Änderung auf "main" und veröffentlicht sie auf GitHub Pages.
+name: Live-Seite bauen und veröffentlichen
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: App bauen
+        run: |
+          mkdir -p build _site
+          cp -r src build/src
+          cd build
+          npm init -y > /dev/null
+          npm install --silent react@18.1.0 react-dom@18.1.0 lucide-react@^0.577.0 three@0.160.0 esbuild tailwindcss@3
+          npx esbuild src/index.js --bundle --minify --loader:.js=jsx --jsx=automatic \
+            --define:process.env.NODE_ENV='"production"' --outfile=../_site/bundle.js
+          # Tailwind wird beim Bauen erzeugt (kein CDN, keine Verbindung zu Drittanbietern)
+          npx tailwindcss@3 -i src/tailwind-input.css -o ../_site/tailwind.css \
+            --content "src/**/*.{js,jsx},../public/index.html" --minify
+          cd ..
+          # Schriften mit ausliefern (keine Verbindung zu Google)
+          cp -r public/fonts _site/fonts
+          # Zahlen-Ansage (aufgenommene Stimmen)
+          if [ -d public/audio ]; then cp -r public/audio _site/audio; fi
+          # 3D-Handmodelle (MIT, siehe public/modelle/LIZENZ-Haende.txt)
+          if [ -d public/modelle ]; then cp -r public/modelle _site/modelle; fi
+          # Bilder (Stufen-Karten)
+          if [ -d public/bilder ]; then cp -r public/bilder _site/bilder; fi
+          node -e "
+            const fs = require('fs');
+            let h = fs.readFileSync('public/index.html', 'utf8');
+            h = h.replace(/<script type=\"module\"[^>]*><\/script>/, '');
+            h = h.replace('</body>', '  <script src=\"bundle.js\"></script>\n  </body>');
+            fs.writeFileSync('_site/index.html', h);
+          "
+          touch _site/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
