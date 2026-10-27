@@ -52,6 +52,7 @@ EINS = ['null', 'eins', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'ach
 def sprechtext(text, schluessel=''):
     """Ziffern als Wörter (sonst liest die Stimme „6.“ als Ordnungszahl)."""
     t = text.replace('Pass-Probe', 'Passprobe')
+    t = t.replace(' …?', '?')  # „… und …?“: mit den Punkten verliert die Stimme das Fragezeichen (keine Frage-Betonung)
     if schluessel == 'probe_ende':  # „eine von 3“, „davon eine blitzschnell“ (die Aufgabe)
         t = re.sub(r'\b1\b', 'eine', t)
     t = re.sub(r'\b(\d{1,2})\b', lambda m: EINS[int(m.group(1))], t)

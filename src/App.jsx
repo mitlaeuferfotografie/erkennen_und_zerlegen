@@ -1525,9 +1525,13 @@ function ZerlegeHandGame({ onFinish, zahl, stufe }) {
   const t = tasks[idx];
   const gesucht = gesuchtVon(t);
 
-  // Stufe 1: zuerst nur die Zahl nennen; die Frage kommt, wenn die Hand zu ist. Stufe 2: gleich die Frage.
-  useEffect(() => { say(stufe === 1 ? 'zahl_ansage' : 'stufe2_aufgabe', stufe === 1 ? t.n : t); }, [idx]); // eslint-disable-line react-hooks/exhaustive-deps
-  const animationFertig = () => { if (stufe === 1 && phase === 'zeigen') { setPhase('frage'); say('stufe1_frage'); } };
+  // „Die 5 zerlege ich in 3 und …?“ – Stufe 1: während die Hände zerlegen (kurz nach dem Start der Animation),
+  // Stufe 2: sofort. Die sichtbare Anzahl wird genannt, die versteckte gesucht.
+  const sichtbar = t.leer === 'l' ? t.b : t.a;
+  useEffect(() => {
+    if (stufe === 1) later(() => say('zerlege_frage', t), 700); else say('zerlege_frage', t);
+  }, [idx]); // eslint-disable-line react-hooks/exhaustive-deps
+  const animationFertig = () => { if (stufe === 1 && phase === 'zeigen') setPhase('frage'); };
   useEffect(() => { if (ohne3D && phase === 'zeigen') animationFertig(); }, [ohne3D, phase]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const record = (good) => setResults(r => { const c = [...r]; c[idx] = good; return c; });
@@ -1565,6 +1569,20 @@ function ZerlegeHandGame({ onFinish, zahl, stufe }) {
               ? <div className="pt-4 pb-2"><HaendeSzene key={idx} t={t} offen={offen} ton={t.ton} hilfe={hilfe && !offen} /></div>
               : <Haende3D t={t} stufe={stufe} offen={offen} tausch={ok && t.a !== t.b && (phase === 'tausch' || phase === 'fertig')} lauf={lauf} onFertig={animationFertig} onFehler={() => setOhne3D(true)} />}
           </div>
+          {/* Schreibfeld unter der geschlossenen Hand; in Stufe 2 steht unter der offenen Hand die sichtbare Anzahl (wie auf dem Arbeitsblatt) */}
+          {phase === 'frage' && (
+            <div className="w-full grid grid-cols-2 gap-2 items-start justify-items-center">
+              {[['l', t.leer === 'l'], ['r', t.leer === 'r']].map(([seite, gesuchteSeite]) => (
+                <div key={seite} className="min-w-0 flex justify-center">
+                  {gesuchteSeite
+                    ? <ZahlEingabe onSubmit={pruefe} resetKey={rk} nurEiner={t.n < 10} />
+                    : stufe === 2 && (
+                      <div className="flex items-center justify-center bg-white border-4 border-indigo-900 rounded-2xl font-bold text-indigo-950 leading-none shadow-[4px_4px_0_rgba(30,27,75,0.2)]" style={{ width: 120, height: 188, fontSize: 96 }}>{sichtbar}</div>
+                    )}
+                </div>
+              ))}
+            </div>
+          )}
           {stufe === 1 && phase === 'frage' && !ohne3D && (
             <button onClick={nochmalAnsehen} aria-label="Nochmal ansehen" title="Nochmal ansehen" className="flex items-center gap-2 bg-indigo-100 hover:bg-indigo-200 text-indigo-800 rounded-2xl px-5 py-3 active:scale-95"><Eye className="w-8 h-8" /><RotateCcw className="w-6 h-6" /></button>
           )}
@@ -1575,7 +1593,6 @@ function ZerlegeHandGame({ onFinish, zahl, stufe }) {
         </div>
         <div className="flex flex-col items-center gap-4">
           {phase === 'zeigen' && <div className="text-indigo-300 py-6"><Eye className="w-16 h-16 anim-float" /></div>}
-          {phase === 'frage' && <ZahlEingabe onSubmit={pruefe} resetKey={rk} nurEiner={t.n < 10} />}
           {offen && <Zahlenhaus key={`h${idx}`} n={t.n} zeilen={zeilen} zimmer={64} />}
           {phase === 'offen' && ok && <Cheer />}
           {phase === 'fertig' && <Ergebnis ok={ok} n={gesucht} onNext={weiter} jubel={false} />}

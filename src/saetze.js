@@ -33,6 +33,8 @@ export const SAETZE = {
   zerlege_richtig: (t) => `Richtig! ${t.n} ist ${t.a} und ${t.b}.`,
   zerlege_hilfe: 'Schau auf die Würfel. Wie viele fehlen?',
   stufe2_aufgabe: (t) => `${t.n}. Wie viele sind in der Hand?`,
+  // Übung 1 und 2 (Hände): die sichtbare Anzahl wird genannt, die versteckte erfragt (Probe der Lehrkraft 27.10.2026)
+  zerlege_frage: (t) => `Die ${t.n} zerlege ich in ${t.leer === 'l' ? t.b : t.a} und …?`,
   zahl_ansage: (n) => `${n}.`,
   stufe1_frage: 'Wie viele sind in der Hand?',
   stufe2_hilfe: 'Schau in die Hand und zähl die Würfel.',
@@ -75,6 +77,7 @@ export function satzDatei(key, n) {
   if (typeof n === 'object') {
     if (key === 'zerlege_aufgabe') return `${key}_${n.n}_${n.leer === 'r' ? n.a : n.b}`;
     if (key === 'stufe2_aufgabe') return `${key}_${n.n}`;
+    if (key === 'zerlege_frage') return `${key}_${n.n}_${n.leer === 'l' ? n.b : n.a}`;
     if ('n' in n && 'a' in n) return `${key}_${n.n}_${n.a}`;
     if ('f' in n) return `${key}_${n.f}_${n.e}`;
     if ('richtig' in n) return `${key}_${n.richtig}_${n.gesamt}_${n.blitz}`;
@@ -97,6 +100,7 @@ export function alleSaetze() {
     zerlege_loesung: zerlegungen,
     zerlege_tausch: zerlegungen,
     stufe2_aufgabe: bis(4, 10).map(n => ({ n })),
+    zerlege_frage: zerlegungen.map(t => ({ ...t, leer: 'r' })), // sichtbar = a
     // Pass-Probe: 3 bis 11 Aufgaben (mit bzw. ohne Null-Zerlegungen)
     probe_ende: bis(3, 11).flatMap(gesamt => bis(0, gesamt).flatMap(richtig => bis(0, richtig).map(blitz => ({ richtig, gesamt, blitz }))))
   };

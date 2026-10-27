@@ -5804,5 +5804,453 @@
   "gesprochen": "Zahlen bis zwanzig",
   "z": 0,
   "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_4_0",
+  "schluessel": "zerlege_frage",
+  "text": "Die 4 zerlege ich in 0 und …?",
+  "gesprochen": "Die vier zerlege ich in null und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_4_1",
+  "schluessel": "zerlege_frage",
+  "text": "Die 4 zerlege ich in 1 und …?",
+  "gesprochen": "Die vier zerlege ich in eins und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_4_2",
+  "schluessel": "zerlege_frage",
+  "text": "Die 4 zerlege ich in 2 und …?",
+  "gesprochen": "Die vier zerlege ich in zwei und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_4_3",
+  "schluessel": "zerlege_frage",
+  "text": "Die 4 zerlege ich in 3 und …?",
+  "gesprochen": "Die vier zerlege ich in drei und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_4_4",
+  "schluessel": "zerlege_frage",
+  "text": "Die 4 zerlege ich in 4 und …?",
+  "gesprochen": "Die vier zerlege ich in vier und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_5_0",
+  "schluessel": "zerlege_frage",
+  "text": "Die 5 zerlege ich in 0 und …?",
+  "gesprochen": "Die fünf zerlege ich in null und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_5_1",
+  "schluessel": "zerlege_frage",
+  "text": "Die 5 zerlege ich in 1 und …?",
+  "gesprochen": "Die fünf zerlege ich in eins und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_5_2",
+  "schluessel": "zerlege_frage",
+  "text": "Die 5 zerlege ich in 2 und …?",
+  "gesprochen": "Die fünf zerlege ich in zwei und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_5_3",
+  "schluessel": "zerlege_frage",
+  "text": "Die 5 zerlege ich in 3 und …?",
+  "gesprochen": "Die fünf zerlege ich in drei und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_5_4",
+  "schluessel": "zerlege_frage",
+  "text": "Die 5 zerlege ich in 4 und …?",
+  "gesprochen": "Die fünf zerlege ich in vier und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_5_5",
+  "schluessel": "zerlege_frage",
+  "text": "Die 5 zerlege ich in 5 und …?",
+  "gesprochen": "Die fünf zerlege ich in fünf und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_6_0",
+  "schluessel": "zerlege_frage",
+  "text": "Die 6 zerlege ich in 0 und …?",
+  "gesprochen": "Die sechs zerlege ich in null und?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_frage_6_1",
+  "schluessel": "zerlege_frage",
+  "text": "Die 6 zerlege ich in 1 und …?",
+  "gesprochen": "Die sechs zerlege ich in eins und?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_frage_6_2",
+  "schluessel": "zerlege_frage",
+  "text": "Die 6 zerlege ich in 2 und …?",
+  "gesprochen": "Die sechs zerlege ich in zwei und?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_frage_6_3",
+  "schluessel": "zerlege_frage",
+  "text": "Die 6 zerlege ich in 3 und …?",
+  "gesprochen": "Die sechs zerlege ich in drei und?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_frage_6_4",
+  "schluessel": "zerlege_frage",
+  "text": "Die 6 zerlege ich in 4 und …?",
+  "gesprochen": "Die sechs zerlege ich in vier und?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_frage_6_5",
+  "schluessel": "zerlege_frage",
+  "text": "Die 6 zerlege ich in 5 und …?",
+  "gesprochen": "Die sechs zerlege ich in fünf und?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_frage_6_6",
+  "schluessel": "zerlege_frage",
+  "text": "Die 6 zerlege ich in 6 und …?",
+  "gesprochen": "Die sechs zerlege ich in sechs und?",
+  "z": 2,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_frage_7_0",
+  "schluessel": "zerlege_frage",
+  "text": "Die 7 zerlege ich in 0 und …?",
+  "gesprochen": "Die sieben zerlege ich in null und?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_frage_7_1",
+  "schluessel": "zerlege_frage",
+  "text": "Die 7 zerlege ich in 1 und …?",
+  "gesprochen": "Die sieben zerlege ich in eins und?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_frage_7_2",
+  "schluessel": "zerlege_frage",
+  "text": "Die 7 zerlege ich in 2 und …?",
+  "gesprochen": "Die sieben zerlege ich in zwei und?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_frage_7_3",
+  "schluessel": "zerlege_frage",
+  "text": "Die 7 zerlege ich in 3 und …?",
+  "gesprochen": "Die sieben zerlege ich in drei und?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_frage_7_4",
+  "schluessel": "zerlege_frage",
+  "text": "Die 7 zerlege ich in 4 und …?",
+  "gesprochen": "Die sieben zerlege ich in vier und?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_frage_7_5",
+  "schluessel": "zerlege_frage",
+  "text": "Die 7 zerlege ich in 5 und …?",
+  "gesprochen": "Die sieben zerlege ich in fünf und?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_frage_7_6",
+  "schluessel": "zerlege_frage",
+  "text": "Die 7 zerlege ich in 6 und …?",
+  "gesprochen": "Die sieben zerlege ich in sechs und?",
+  "z": 2,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/zerlege_frage_7_7",
+  "schluessel": "zerlege_frage",
+  "text": "Die 7 zerlege ich in 7 und …?",
+  "gesprochen": "Die sieben zerlege ich in sieben und?",
+  "z": 2,
+  "weich": 2
+ },
+ {
+  "datei": "saetze/zerlege_frage_8_0",
+  "schluessel": "zerlege_frage",
+  "text": "Die 8 zerlege ich in 0 und …?",
+  "gesprochen": "Die acht zerlege ich in null und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_8_1",
+  "schluessel": "zerlege_frage",
+  "text": "Die 8 zerlege ich in 1 und …?",
+  "gesprochen": "Die acht zerlege ich in eins und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_8_2",
+  "schluessel": "zerlege_frage",
+  "text": "Die 8 zerlege ich in 2 und …?",
+  "gesprochen": "Die acht zerlege ich in zwei und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_8_3",
+  "schluessel": "zerlege_frage",
+  "text": "Die 8 zerlege ich in 3 und …?",
+  "gesprochen": "Die acht zerlege ich in drei und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_8_4",
+  "schluessel": "zerlege_frage",
+  "text": "Die 8 zerlege ich in 4 und …?",
+  "gesprochen": "Die acht zerlege ich in vier und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_8_5",
+  "schluessel": "zerlege_frage",
+  "text": "Die 8 zerlege ich in 5 und …?",
+  "gesprochen": "Die acht zerlege ich in fünf und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_8_6",
+  "schluessel": "zerlege_frage",
+  "text": "Die 8 zerlege ich in 6 und …?",
+  "gesprochen": "Die acht zerlege ich in sechs und?",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_8_7",
+  "schluessel": "zerlege_frage",
+  "text": "Die 8 zerlege ich in 7 und …?",
+  "gesprochen": "Die acht zerlege ich in sieben und?",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_8_8",
+  "schluessel": "zerlege_frage",
+  "text": "Die 8 zerlege ich in 8 und …?",
+  "gesprochen": "Die acht zerlege ich in acht und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_9_0",
+  "schluessel": "zerlege_frage",
+  "text": "Die 9 zerlege ich in 0 und …?",
+  "gesprochen": "Die neun zerlege ich in null und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_9_1",
+  "schluessel": "zerlege_frage",
+  "text": "Die 9 zerlege ich in 1 und …?",
+  "gesprochen": "Die neun zerlege ich in eins und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_9_2",
+  "schluessel": "zerlege_frage",
+  "text": "Die 9 zerlege ich in 2 und …?",
+  "gesprochen": "Die neun zerlege ich in zwei und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_9_3",
+  "schluessel": "zerlege_frage",
+  "text": "Die 9 zerlege ich in 3 und …?",
+  "gesprochen": "Die neun zerlege ich in drei und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_9_4",
+  "schluessel": "zerlege_frage",
+  "text": "Die 9 zerlege ich in 4 und …?",
+  "gesprochen": "Die neun zerlege ich in vier und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_9_5",
+  "schluessel": "zerlege_frage",
+  "text": "Die 9 zerlege ich in 5 und …?",
+  "gesprochen": "Die neun zerlege ich in fünf und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_9_6",
+  "schluessel": "zerlege_frage",
+  "text": "Die 9 zerlege ich in 6 und …?",
+  "gesprochen": "Die neun zerlege ich in sechs und?",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_9_7",
+  "schluessel": "zerlege_frage",
+  "text": "Die 9 zerlege ich in 7 und …?",
+  "gesprochen": "Die neun zerlege ich in sieben und?",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_9_8",
+  "schluessel": "zerlege_frage",
+  "text": "Die 9 zerlege ich in 8 und …?",
+  "gesprochen": "Die neun zerlege ich in acht und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_9_9",
+  "schluessel": "zerlege_frage",
+  "text": "Die 9 zerlege ich in 9 und …?",
+  "gesprochen": "Die neun zerlege ich in neun und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_10_0",
+  "schluessel": "zerlege_frage",
+  "text": "Die 10 zerlege ich in 0 und …?",
+  "gesprochen": "Die zehn zerlege ich in null und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_10_1",
+  "schluessel": "zerlege_frage",
+  "text": "Die 10 zerlege ich in 1 und …?",
+  "gesprochen": "Die zehn zerlege ich in eins und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_10_2",
+  "schluessel": "zerlege_frage",
+  "text": "Die 10 zerlege ich in 2 und …?",
+  "gesprochen": "Die zehn zerlege ich in zwei und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_10_3",
+  "schluessel": "zerlege_frage",
+  "text": "Die 10 zerlege ich in 3 und …?",
+  "gesprochen": "Die zehn zerlege ich in drei und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_10_4",
+  "schluessel": "zerlege_frage",
+  "text": "Die 10 zerlege ich in 4 und …?",
+  "gesprochen": "Die zehn zerlege ich in vier und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_10_5",
+  "schluessel": "zerlege_frage",
+  "text": "Die 10 zerlege ich in 5 und …?",
+  "gesprochen": "Die zehn zerlege ich in fünf und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_10_6",
+  "schluessel": "zerlege_frage",
+  "text": "Die 10 zerlege ich in 6 und …?",
+  "gesprochen": "Die zehn zerlege ich in sechs und?",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_10_7",
+  "schluessel": "zerlege_frage",
+  "text": "Die 10 zerlege ich in 7 und …?",
+  "gesprochen": "Die zehn zerlege ich in sieben und?",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_10_8",
+  "schluessel": "zerlege_frage",
+  "text": "Die 10 zerlege ich in 8 und …?",
+  "gesprochen": "Die zehn zerlege ich in acht und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_10_9",
+  "schluessel": "zerlege_frage",
+  "text": "Die 10 zerlege ich in 9 und …?",
+  "gesprochen": "Die zehn zerlege ich in neun und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/zerlege_frage_10_10",
+  "schluessel": "zerlege_frage",
+  "text": "Die 10 zerlege ich in 10 und …?",
+  "gesprochen": "Die zehn zerlege ich in zehn und?",
+  "z": 0,
+  "weich": 0
  }
 ]
