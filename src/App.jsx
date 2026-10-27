@@ -2190,15 +2190,17 @@ const ZAHLFARBEN = (a, b) => paarFarbe(a, b);
 
 // Versteck-Bilder: Standbilder aus der 3D-Szene der Übung (eine Hand zu, Zahlenkarte auf dem Tisch).
 // Die Szene läuft unsichtbar außerhalb des Bildschirms; Ergebnis: Liste von Bild-Adressen, null (läuft) oder 'fehler'.
+// Rückgabe: [fotos, fertig] – fotos wächst Bild für Bild (Fortschritt sichtbar), fertig = alle da (oder 'fehler')
 function useVersteckFotos(aktiv, items) {
   const [fotos, setFotos] = useState(null);
+  const [fertig, setFertig] = useState(false);
   useEffect(() => {
     if (!aktiv) return undefined;
     let abbruch = false, szene = null;
     const box = document.createElement('div');
     Object.assign(box.style, { position: 'fixed', left: '-10000px', top: '0', width: '640px', height: '400px' });
     document.body.appendChild(box);
-    setFotos(null);
+    setFotos(null); setFertig(false);
     (async () => {
       szene = erzeugeZerlegeSzene(box, { modellPfad: 'modelle/' });
       await szene.bereit;
@@ -2207,16 +2209,17 @@ function useVersteckFotos(aktiv, items) {
         const t = items[i];
         await szene.setze({ n: t.n, a: t.a, b: t.b, leer: t.leer, haut: HAUT[i % HAUT.length] });
         szene.setzeGeschlossen();
-        urls.push(szene.foto(960, 600, true));
+        urls.push(szene.foto(960, 600, true, 'image/jpeg'));
+        if (!abbruch) setFotos([...urls]);
       }
-      if (!abbruch) setFotos(urls);
-    })().catch(() => { if (!abbruch) setFotos('fehler'); }).finally(() => {
+      if (!abbruch) setFertig(true);
+    })().catch(() => { if (!abbruch) { setFotos('fehler'); setFertig(true); } }).finally(() => {
       if (szene) szene.aufraeumen();
       if (box.parentNode) box.parentNode.removeChild(box);
     });
     return () => { abbruch = true; };
   }, [aktiv, items]);
-  return fotos;
+  return [fotos, fertig];
 }
 
 // Inhalt eines Blatts
@@ -2345,7 +2348,7 @@ function BlattInhalt({ typ, items, sol, maxN, bild, fotos = null }) {
 }
 
 // Eine A4-Seite mit Kopf (Name, Datum, Symbol, Titel, Text für die Lehrkraft)
-function BlattSeite({ typ, sol = false, untertitel, children }) {
+function BlattSeite({ typ, sol = false, untertitel, children, seite = null }) {
   const b = BLAETTER[typ], Icon = b.icon;
   return (
     <div className="sheet-page">
@@ -2357,25 +2360,25 @@ function BlattSeite({ typ, sol = false, untertitel, children }) {
         <div style={{ width: '17mm', height: '17mm', borderRadius: '3mm', border: '0.6mm solid #1e1b4b', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><Icon style={{ width: '11mm', height: '11mm', color: '#1e1b4b' }} strokeWidth={2.2} /></div>
         <div style={{ flex: 1 }}>
           <div style={{ fontSize: '3.2mm', letterSpacing: '0.3mm', color: '#6b7280', fontWeight: 600 }}>ERKENNEN UND ZERLEGEN · {untertitel}</div>
-          <div style={{ fontSize: '8mm', fontWeight: 700, lineHeight: 1.1 }}>{b.titel}{sol ? <span style={{ color: COL.sol }}> – Lösung</span> : ''}</div>
+          <div style={{ fontSize: '8mm', fontWeight: 700, lineHeight: 1.1 }}>{b.titel}{sol ? <span style={{ color: COL.sol }}> – Lösung</span> : ''}{seite ? <span style={{ fontSize: '5mm', color: '#6b7280', marginLeft: '3mm' }}>Seite {seite}</span> : ''}</div>
         </div>
       </div>
       <div style={{ background: '#f3f4f6', borderRadius: '2.5mm', padding: '2mm 4mm', margin: '3mm 0 4mm', fontSize: '3.6mm', lineHeight: 1.35, color: '#374151' }}>{b.text}</div>
       {children}
       <div style={{ position: 'absolute', bottom: '6mm', left: '14mm', right: '14mm', display: 'flex', justifyContent: 'space-between', fontSize: '2.8mm', color: '#9ca3af' }}>
-        <span>Erkennen und Zerlegen · Arbeitsblatt</span><span>{b.bereich === 'kraft' ? 'Kraft der 5' : 'Zerlegen'}</span>
+        <span>Erkennen und Zerlegen · {seite ? `Übungsheft · Seite ${seite}` : 'Arbeitsblatt'}</span><span>{b.bereich === 'kraft' ? 'Kraft der 5' : 'Zerlegen'}</span>
       </div>
     </div>
   );
 }
 
 // Blitz-Karten: 8 Karten zum Ausschneiden; oben das Punktebild, unten (auf dem Kopf) die Zahl – nach hinten knicken
-function KartenSeite({ items, maxN, untertitel }) {
+function KartenSeite({ items, maxN, untertitel, seite = null }) {
   return (
     <div className="sheet-page">
       <div style={{ display: 'flex', alignItems: 'center', gap: '3mm', fontSize: '3.4mm', color: '#374151', marginBottom: '3mm' }}>
         <Scissors style={{ width: '6mm', height: '6mm' }} />
-        <span><b>Blitz-Karten</b> · ERKENNEN UND ZERLEGEN · {untertitel} – {BLAETTER.karten.text}</span>
+        <span><b>Blitz-Karten{seite ? ` · Seite ${seite}` : ''}</b> · ERKENNEN UND ZERLEGEN · {untertitel} – {BLAETTER.karten.text}</span>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gridAutoRows: '62mm', border: '0.4mm dashed #6b7280' }}>
         {items.map((it, i) => (
@@ -2393,16 +2396,49 @@ function KartenSeite({ items, maxN, untertitel }) {
 }
 
 // Vorlese-Liste für das Hör-Diktat
-function VorleseListe({ items, maxN }) {
+function VorleseListe({ items, maxN, seite = null }) {
   return (
     <div className="sheet-page">
       <div style={{ fontSize: '3.2mm', color: '#6b7280', fontWeight: 600 }}>ERKENNEN UND ZERLEGEN · Für die Lehrkraft</div>
-      <div style={{ fontSize: '7mm', fontWeight: 700, borderBottom: '0.8mm solid #1e1b4b', paddingBottom: '2mm', marginBottom: '4mm' }}>Vorlese-Liste: Hör-Diktat</div>
+      <div style={{ fontSize: '7mm', fontWeight: 700, borderBottom: '0.8mm solid #1e1b4b', paddingBottom: '2mm', marginBottom: '4mm' }}>Vorlese-Liste: Hör-Diktat{seite ? ` – Seite ${seite}` : ''}</div>
       <p style={{ fontSize: '4mm', marginBottom: '4mm' }}>Jede Zahl deutlich und zweimal vorlesen. Die Kinder malen erst, wenn die Zahl ganz gesprochen ist. Nummer 1 ist das Beispiel und schon gelöst.</p>
       <div style={{ fontSize: '7mm', lineHeight: 1.8 }}>
         {items.map((it, i) => <div key={i}><b style={{ color: '#6b7280', display: 'inline-block', width: '14mm' }}>{i === 0 ? '★' : `${i}.`}</b>{it.n}</div>)}
       </div>
       <div style={{ position: 'absolute', bottom: '6mm', left: '14mm', fontSize: '2.8mm', color: '#9ca3af' }}>Zahlenraum bis {maxN}</div>
+    </div>
+  );
+}
+
+// Deckblatt für das Mini-Übungsheft: Titel, Name, Thema und je Seite ein Kästchen zum Abhaken
+const HEFT_SEITEN = 5;
+function Deckblatt({ typ, untertitel }) {
+  const b = BLAETTER[typ], Icon = b.icon;
+  return (
+    <div className="sheet-page" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div style={{ fontSize: '3.4mm', letterSpacing: '0.4mm', color: '#6b7280', fontWeight: 600, marginTop: '6mm' }}>ERKENNEN UND ZERLEGEN</div>
+      <div style={{ fontSize: '15mm', fontWeight: 700, lineHeight: 1.1, marginTop: '4mm' }}>Mein Übungsheft</div>
+      <div style={{ width: '46mm', height: '46mm', borderRadius: '8mm', border: '1mm solid #1e1b4b', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '10mm 0 6mm' }}>
+        <Icon style={{ width: '30mm', height: '30mm', color: '#1e1b4b' }} strokeWidth={2} />
+      </div>
+      <div style={{ fontSize: '8mm', fontWeight: 700 }}>{b.titel}</div>
+      <div style={{ fontSize: '4.6mm', color: '#374151', marginTop: '1mm' }}>{untertitel}</div>
+      <div style={{ fontSize: '6mm', marginTop: '14mm', width: '150mm', display: 'flex', alignItems: 'flex-end', gap: '3mm' }}>
+        <span>Name:</span><span style={{ flex: 1 }} className="sheet-line" />
+      </div>
+      <div style={{ marginTop: '14mm', width: '150mm', display: 'flex', flexDirection: 'column', gap: '4mm' }}>
+        {[...Array(HEFT_SEITEN)].map((_, i) => (
+          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '5mm', fontSize: '6mm' }}>
+            <span style={{ width: '13mm', height: '13mm', borderRadius: '50%', border: '0.7mm solid #1e1b4b', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700 }}>{i + 1}</span>
+            <Icon style={{ width: '8mm', height: '8mm', color: '#6b7280' }} />
+            <span style={{ flex: 1, alignSelf: 'flex-end', marginBottom: '2mm' }} className="sheet-line" />
+            <span style={{ width: '13mm', height: '13mm', borderRadius: '2mm', border: '0.7mm solid #1e1b4b', background: '#fff' }} />
+          </div>
+        ))}
+      </div>
+      <div style={{ position: 'absolute', bottom: '6mm', left: '14mm', right: '14mm', display: 'flex', justifyContent: 'space-between', fontSize: '2.8mm', color: '#9ca3af' }}>
+        <span>Erkennen und Zerlegen · Übungsheft</span><span>Auf der Linie das Datum eintragen, fertige Seite abhaken</span>
+      </div>
     </div>
   );
 }
@@ -2415,9 +2451,15 @@ function BlattStudio({ onClose, maxN: startMax = 20, mitNull = true }) {
   const [bild, setBild] = useState(true);
   const [loesung, setLoesung] = useState(true);
   const [seed, setSeed] = useState(0);
+  const [heft, setHeft] = useState(false); // Mini-Übungsheft: Deckblatt + das Blatt 5× mit neuen Zahlen
   const b = BLAETTER[typ];
-  const items = useMemo(() => blattAufgaben(typ, { maxN, zahl, mitNull }), [typ, maxN, zahl, mitNull, seed]); // eslint-disable-line react-hooks/exhaustive-deps
-  const fotos = useVersteckFotos(typ === 'versteck', items);
+  const saetze = useMemo(() => [...Array(heft ? HEFT_SEITEN : 1)].map(() => blattAufgaben(typ, { maxN, zahl, mitNull })), [typ, maxN, zahl, mitNull, seed, heft]); // eslint-disable-line react-hooks/exhaustive-deps
+  const items = saetze[0];
+  const alleItems = useMemo(() => saetze.flat(), [saetze]);
+  const [alleFotos, fotosFertig] = useVersteckFotos(typ === 'versteck', alleItems);
+  const fotosLaufen = typ === 'versteck' && !fotosFertig;
+  const fotosVon = (k) => (Array.isArray(alleFotos) ? alleFotos.slice(k * items.length, (k + 1) * items.length) : alleFotos);
+  const fotos = fotosVon(0);
   const scrollRef = useRef(null);
   const [scale, setScale] = useState(1);
   useEffect(() => {
@@ -2426,11 +2468,14 @@ function BlattStudio({ onClose, maxN: startMax = 20, mitNull = true }) {
   }, []);
   const untertitel = b.bereich === 'kraft' ? `Kraft der 5 · Zahlen bis ${maxN}` : `Zerlegen · ${zahl === 'gemischt' ? 'Zahlen 4 bis 10' : `Zahl ${zahl}`}`;
   const mitBild = b.bild && bild;
-  const seiten = typ === 'karten'
-    ? [<KartenSeite key="k" items={items} maxN={maxN} untertitel={untertitel} />]
-    : [<BlattSeite key="a" typ={typ} untertitel={untertitel}><BlattInhalt typ={typ} items={items} maxN={maxN} bild={mitBild} fotos={fotos} sol={false} /></BlattSeite>];
-  if (b.vorlesen) seiten.push(<VorleseListe key="v" items={items} maxN={maxN} />);
-  if (loesung && !b.ohneLoesung) seiten.push(<BlattSeite key="s" typ={typ} sol untertitel={untertitel}><BlattInhalt typ={typ} items={items} maxN={maxN} bild={mitBild} fotos={fotos} sol /></BlattSeite>);
+  // Seiten: (Deckblatt) · Übungsseiten · Vorlese-Listen · Lösungsblätter (im Heft gesammelt am Ende)
+  const nr = (k) => (heft ? k + 1 : null);
+  const seiten = heft ? [<Deckblatt key="d" typ={typ} untertitel={untertitel} />] : [];
+  saetze.forEach((it, k) => seiten.push(typ === 'karten'
+    ? <KartenSeite key={`k${k}`} items={it} maxN={maxN} untertitel={untertitel} seite={nr(k)} />
+    : <BlattSeite key={`a${k}`} typ={typ} untertitel={untertitel} seite={nr(k)}><BlattInhalt typ={typ} items={it} maxN={maxN} bild={mitBild} fotos={fotosVon(k)} sol={false} /></BlattSeite>));
+  if (b.vorlesen) saetze.forEach((it, k) => seiten.push(<VorleseListe key={`v${k}`} items={it} maxN={maxN} seite={nr(k)} />));
+  if (loesung && !b.ohneLoesung) saetze.forEach((it, k) => seiten.push(<BlattSeite key={`s${k}`} typ={typ} sol untertitel={untertitel} seite={nr(k)}><BlattInhalt typ={typ} items={it} maxN={maxN} bild={mitBild} fotos={fotosVon(k)} sol /></BlattSeite>));
   const knopf = (aktiv) => `inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-bold border-2 ${aktiv ? 'bg-yellow-400 text-indigo-950 border-yellow-300' : 'bg-slate-800 border-slate-700 hover:border-slate-500'}`;
   const klein = (aktiv) => `px-3 py-1.5 rounded-lg font-bold ${aktiv ? 'bg-cyan-500 text-slate-950' : 'bg-slate-800 hover:bg-slate-700'}`;
   return (
@@ -2439,7 +2484,11 @@ function BlattStudio({ onClose, maxN: startMax = 20, mitNull = true }) {
         <div className="max-w-6xl mx-auto flex flex-col gap-3">
           <div className="flex items-center justify-between gap-3">
             <h3 className="text-2xl font-comic text-yellow-300 flex items-center gap-2"><Printer className="w-7 h-7" /> Arbeitsblätter</h3>
-            <button onClick={onClose} className="bg-slate-800 hover:bg-slate-700 rounded-full p-2" aria-label="Schließen"><X className="w-6 h-6" /></button>
+            <div className="flex items-center gap-3">
+              {/* Drucken groß oben rechts – schnell zu finden (Wunsch der Lehrkraft) */}
+              <button onClick={() => window.print()} disabled={fotosLaufen} className="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 disabled:opacity-40 text-indigo-950 px-6 py-3 rounded-2xl font-bold text-lg shadow-[0_4px_0_#ca8a04] active:translate-y-1 active:shadow-none"><Printer className="w-6 h-6" /> Drucken</button>
+              <button onClick={onClose} className="bg-slate-800 hover:bg-slate-700 rounded-full p-2" aria-label="Schließen"><X className="w-6 h-6" /></button>
+            </div>
           </div>
           {[['kraft', 'Kraft der 5'], ['zerlegen', 'Zerlegen']].map(([bereich, name]) => (
             <div key={bereich} className="flex flex-wrap items-center gap-2">
@@ -2464,10 +2513,10 @@ function BlattStudio({ onClose, maxN: startMax = 20, mitNull = true }) {
               </>
             )}
             {!b.ohneLoesung && <label className="flex items-center gap-2 ml-2"><input type="checkbox" checked={loesung} onChange={ev => setLoesung(ev.target.checked)} /> Lösungsblatt</label>}
+            <label className="flex items-center gap-2 ml-2 font-bold text-yellow-200"><input type="checkbox" checked={heft} onChange={ev => setHeft(ev.target.checked)} /> Mini-Übungsheft (Deckblatt + 5 Seiten)</label>
             <button onClick={() => setSeed(s => s + 1)} className="ml-auto inline-flex items-center gap-2 bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-xl font-bold"><Shuffle className="w-4 h-4" /> Neue Zahlen</button>
-            <button onClick={() => window.print()} disabled={typ === 'versteck' && fotos === null} className="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 disabled:opacity-40 text-indigo-950 px-5 py-2 rounded-xl font-bold"><Printer className="w-5 h-5" /> Drucken</button>
           </div>
-          <p className="text-xs text-slate-400">{seiten.length} Seite{seiten.length > 1 ? 'n' : ''} · Im Druckfenster „A4“ und „Ränder: keine“ wählen. Für Farbe „Hintergrundgrafiken“ einschalten – die Blätter funktionieren aber auch in Schwarz-Weiß.{b.bereich === 'zerlegen' && !mitNull ? ' Zerlegungen mit 0 sind im Lehrer-Bereich ausgeschaltet.' : ''}</p>
+          <p className="text-xs text-slate-400">{fotosLaufen && <span className="text-yellow-300 font-bold">Bilder werden erzeugt: {Array.isArray(alleFotos) ? alleFotos.length : 0} von {alleItems.length} – Drucken danach · </span>}{seiten.length} Seite{seiten.length > 1 ? 'n' : ''} · Im Druckfenster „A4“ und „Ränder: keine“ wählen. Für Farbe „Hintergrundgrafiken“ einschalten – die Blätter funktionieren aber auch in Schwarz-Weiß.{b.bereich === 'zerlegen' && !mitNull ? ' Zerlegungen mit 0 sind im Lehrer-Bereich ausgeschaltet.' : ''}</p>
         </div>
       </div>
       <div ref={scrollRef} className="sheet-scroll flex-1 overflow-auto p-4 bg-slate-700">
@@ -2729,7 +2778,13 @@ export default function App() {
                   </span>
                 )}
               </div>
-              <div>
+              <div className="flex items-center gap-2">
+                {/* Arbeitsblätter gut sichtbar oben rechts in den Menüs (wie in der Zehner-Bande); auf dem Handy nur das Symbol */}
+                {['start', 'kraft', 'zerlegen', 'zstufe'].includes(screen) && (
+                  <button onClick={() => setBlaetter(true)} aria-label="Arbeitsblätter" title="Arbeitsblätter" className="h-14 px-3 sm:px-4 rounded-2xl border-2 border-sky-400/60 bg-slate-900/90 hover:bg-slate-800 text-sky-200 font-bold inline-flex items-center gap-2 active:scale-95">
+                    <Printer className="w-6 h-6" /><span className="hidden sm:inline">Arbeitsblätter</span>
+                  </button>
+                )}
                 {imKraft && screen !== 'geschafft' && (
                   <div className="flex rounded-2xl overflow-hidden border-2 border-yellow-400 bg-slate-900/90" role="group" aria-label="Zahlenraum">
                     {[10, 20].map(zr => (

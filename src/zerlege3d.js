@@ -480,13 +480,14 @@ export function erzeugeZerlegeSzene(container, { modellPfad = 'modelle/' } = {})
   }
 
   // Standbild der aktuellen Szene als PNG (für Menü-Bilder), optional ohne Zahlenkarte
-  function foto(breite = 480, hoehe = 300, mitKarte = false) {
+  // format 'image/jpeg' für Arbeitsblätter (viele Bilder, deutlich kleiner als PNG)
+  function foto(breite = 480, hoehe = 300, mitKarte = false, format = 'image/png') {
     const alt = { w: container.clientWidth, h: container.clientHeight };
     karte.karte.visible = mitKarte;
     renderer.setSize(breite, hoehe, false);
     camera.aspect = breite / hoehe; camera.updateProjectionMatrix();
     renderer.render(scene, camera);
-    const url = renderer.domElement.toDataURL('image/png');
+    const url = renderer.domElement.toDataURL(format, 0.88);
     karte.karte.visible = true;
     renderer.setSize(alt.w || breite, alt.h || hoehe, false);
     groesse();
