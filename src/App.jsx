@@ -1890,23 +1890,35 @@ function BlattTafel({ f, e, leer = false, sol = false, beispiel = false, klein =
   );
 }
 
-// Steckwürfel-Stange für Blätter: bekannter Teil grün, gesuchter Teil nur gestrichelt umrissen (zum Nachzählen)
-function stangeTeile(a, b, leer, w) {
-  const gap = w * 0.5;
-  const wuerfel = (x, key, hohl) => (
+// Steckwürfel-Stange für Blätter: bekannter Teil grün, gesuchter Teil nur gestrichelt umrissen (zum Nachzählen).
+// Die Fünfer-Gliederung zählt über die GANZE Stange: nach dem 5. Würfel eine ganz kleine Lücke, damit immer
+// zwei Fünferpakete erkennbar sind (10 = 2 + 8: 2 grün, 3 gestrichelt | 5 gestrichelt). Zwischen den Teilen die größere Lücke;
+// fällt sie auf die Fünfergrenze (5 + 5), gibt es nur sie. Ein Teil mit genau 10 Würfeln ist ein Zehner und wird blau.
+// start = Platz des ersten Würfels in der ganzen Stange (bei den Plusaufgaben steht jeder Teil einzeln unter seiner Zahl).
+const fuenferLuecke = (w) => w * 0.16;
+function stangeLage(a, b, w, start = 0) {
+  const gap = w * 0.5, xs = [];
+  for (let g = 0; g < a + b; g++) {
+    const ges = start + g;
+    const teilLuecke = a > 0 && b > 0 && g >= a;
+    const fuenfer = ges >= 5 && start < 5 && !(teilLuecke && start + a === 5);
+    xs.push(g * w + (fuenfer ? fuenferLuecke(w) : 0) + (teilLuecke ? gap : 0));
+  }
+  return { xs, breite: xs.length ? xs[xs.length - 1] + w : 0 };
+}
+function stangeTeile(a, b, leer, w, start = 0) {
+  const { xs } = stangeLage(a, b, w, start);
+  const wuerfel = (x, key, hohl, blau) => (
     <g key={key}>
-      <rect x={x + w * 0.3} y={0} width={w * 0.4} height={w * 0.18} rx={0.2} fill={hohl ? '#fff' : COL.eDark} stroke={hohl ? '#374151' : 'none'} strokeWidth={0.15} />
-      <rect x={x + 0.1} y={w * 0.16} width={w - 0.2} height={w - 0.2} rx={0.4} fill={hohl ? '#fff' : COL.e} stroke={hohl ? '#374151' : COL.eDark} strokeWidth={0.22} strokeDasharray={hohl ? '0.6 0.4' : undefined} />
+      <rect x={x + w * 0.3} y={0} width={w * 0.4} height={w * 0.18} rx={0.2} fill={hohl ? '#fff' : blau ? COL.zDark : COL.eDark} stroke={hohl ? '#374151' : 'none'} strokeWidth={0.15} />
+      <rect x={x + 0.1} y={w * 0.16} width={w - 0.2} height={w - 0.2} rx={0.4} fill={hohl ? '#fff' : blau ? COL.z : COL.e} stroke={hohl ? '#374151' : blau ? COL.zDark : COL.eDark} strokeWidth={0.22} strokeDasharray={hohl ? '0.6 0.4' : undefined} />
     </g>
   );
-  const teile = [];
-  for (let i = 0; i < a; i++) teile.push(wuerfel(i * w, `a${i}`, leer === 'l'));
-  for (let i = 0; i < b; i++) teile.push(wuerfel(a * w + (a ? gap : 0) + i * w, `b${i}`, leer === 'r'));
-  return teile;
+  return xs.map((x, g) => (g < a ? wuerfel(x, `a${g}`, leer === 'l', a === 10) : wuerfel(x, `b${g}`, leer === 'r', b === 10)));
 }
-const stangeBreite = (a, b, w) => (a + b) * w + (a && b ? w * 0.5 : 0);
-function BlattStange({ a, b, leer = null, w = 3.6 }) {
-  const width = stangeBreite(a, b, w), teile = stangeTeile(a, b, leer, w);
+const stangeBreite = (a, b, w, start = 0) => stangeLage(a, b, w, start).breite;
+function BlattStange({ a, b, leer = null, w = 3.6, start = 0 }) {
+  const width = stangeBreite(a, b, w, start), teile = stangeTeile(a, b, leer, w, start);
   return <svg viewBox={`0 0 ${Math.max(width, 1)} ${w * 1.2}`} style={{ width: mm(Math.max(width, 1)), height: mm(w * 1.2), display: 'block', overflow: 'visible' }}>{teile}</svg>;
 }
 
@@ -1916,7 +1928,7 @@ function BlattHaus({ n, zeilen, z = 15, sol = false, bild = false }) {
   const zahl = (wert, zeige, x, y) => (wert == null ? null : (zeige || sol) && (
     <text x={x} y={y} textAnchor="middle" dominantBaseline="central" fontSize={h * 0.72} fontWeight="700" fill={zeige ? '#111827' : COL.sol} fontFamily="Fuenfer Fredoka, sans-serif">{wert}</text>
   ));
-  const sw = z * 0.19, stangeX = W + 3, maxStange = n * sw + sw * 0.5;
+  const sw = z * 0.19, stangeX = W + 3, maxStange = n * sw + sw * 0.5 + 2 * fuenferLuecke(sw);
   const breite = bild ? stangeX + maxStange : W;
   const hoeheGes = dach + zeilen.length * h + rand;
   return (
@@ -2093,13 +2105,13 @@ function BlattInhalt({ typ, items, sol, maxN, bild, fotos = null }) {
           const luecke = <Kasten wert={zeig ? wert : null} sol={sol && i > 0} breite={14} hoehe={14} />;
           // Würfel stehen genau unter der Zahl, zu der sie gehören (bei 0 steht dort nichts); gesuchter Teil gestrichelt
           const w = Math.min(4.4, 30 / Math.max(t.a, t.b, 1));
-          const teil = (k, hohl) => (k > 0 ? <BlattStange a={k} b={0} leer={hohl ? 'l' : null} w={w} /> : <span />);
+          const teil = (k, hohl, start) => (k > 0 ? <BlattStange a={k} b={0} leer={hohl ? 'l' : null} w={w} start={start} /> : <span />);
           const grau = { color: '#6b7280' };
           return (
             <Aufgabe key={i} i={i} beispiel={i === 0} stil={{ minHeight: bild ? '34mm' : '26mm' }}>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, auto)', columnGap: '3mm', rowGap: '2.5mm', alignItems: 'center', justifyItems: 'center', fontSize: '11mm', fontWeight: 700, lineHeight: 1 }}>
                 <span>{t.n}</span><span style={grau}>=</span>{t.leer === 'l' ? luecke : <span>{t.a}</span>}<span style={grau}>+</span>{t.leer === 'r' ? luecke : <span>{t.b}</span>}
-                {bild && <><span /><span />{teil(t.a, t.leer === 'l')}<span />{teil(t.b, t.leer === 'r')}</>}
+                {bild && <><span /><span />{teil(t.a, t.leer === 'l', 0)}<span />{teil(t.b, t.leer === 'r', t.a)}</>}
               </div>
             </Aufgabe>
           );
