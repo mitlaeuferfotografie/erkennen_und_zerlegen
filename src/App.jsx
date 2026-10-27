@@ -1954,8 +1954,39 @@ function Aufgabe({ i, beispiel, children, stil = {} }) {
 
 const ZAHLFARBEN = (a, b) => paarFarbe(a, b);
 
+// Versteck-Bilder: Standbilder aus der 3D-Szene der Übung (eine Hand zu, Zahlenkarte auf dem Tisch).
+// Die Szene läuft unsichtbar außerhalb des Bildschirms; Ergebnis: Liste von Bild-Adressen, null (läuft) oder 'fehler'.
+function useVersteckFotos(aktiv, items) {
+  const [fotos, setFotos] = useState(null);
+  useEffect(() => {
+    if (!aktiv) return undefined;
+    let abbruch = false, szene = null;
+    const box = document.createElement('div');
+    Object.assign(box.style, { position: 'fixed', left: '-10000px', top: '0', width: '640px', height: '400px' });
+    document.body.appendChild(box);
+    setFotos(null);
+    (async () => {
+      szene = erzeugeZerlegeSzene(box, { modellPfad: 'modelle/' });
+      await szene.bereit;
+      const urls = [];
+      for (let i = 0; i < items.length && !abbruch; i++) {
+        const t = items[i];
+        await szene.setze({ n: t.n, a: t.a, b: t.b, leer: t.leer, haut: HAUT[i % HAUT.length] });
+        szene.setzeGeschlossen();
+        urls.push(szene.foto(960, 600, true));
+      }
+      if (!abbruch) setFotos(urls);
+    })().catch(() => { if (!abbruch) setFotos('fehler'); }).finally(() => {
+      if (szene) szene.aufraeumen();
+      if (box.parentNode) box.parentNode.removeChild(box);
+    });
+    return () => { abbruch = true; };
+  }, [aktiv, items]);
+  return fotos;
+}
+
 // Inhalt eines Blatts
-function BlattInhalt({ typ, items, sol, maxN, bild }) {
+function BlattInhalt({ typ, items, sol, maxN, bild, fotos = null }) {
   const raster = (spalten, gap = '4mm') => ({ display: 'grid', gridTemplateColumns: `repeat(${spalten}, 1fr)`, gap });
   const feldBreite = maxN <= 10 ? 70 : 72;
   switch (typ) {
@@ -2005,14 +2036,29 @@ function BlattInhalt({ typ, items, sol, maxN, bild }) {
     case 'versteck': return (
       <div style={raster(2, '5mm')}>
         {items.map((t, i) => {
-          const ton = HAUTTOENE[i % HAUTTOENE.length], wert = t.leer === 'l' ? t.a : t.b;
-          // Kästchen auf der Seite der Faust, damit klar ist, wofür es steht
+          const wert = t.leer === 'l' ? t.a : t.b, sichtbar = t.leer === 'l' ? t.b : t.a;
           const kasten = <Kasten wert={sol || i === 0 ? wert : null} sol={sol && i > 0} breite={15} hoehe={15} />;
+          const gegeben = <Kasten wert={sichtbar} breite={15} hoehe={15} />; // unter der offenen Hand: Anzahl steht schon da
+          // Ohne 3D (fotos = 'fehler'): gezeichnete Hände, Kästchen daneben
+          if (fotos === 'fehler') {
+            return (
+              <Aufgabe key={i} i={i} beispiel={i === 0} stil={{ flexDirection: 'row', gap: '2mm', minHeight: '64mm' }}>
+                {t.leer === 'l' ? kasten : gegeben}
+                <div className="blatt-haende" style={{ width: '60mm', height: '54mm', display: 'flex', justifyContent: 'center' }}><HaendeSzene t={t} offen={false} ton={HAUTTOENE[i % HAUTTOENE.length]} /></div>
+                {t.leer === 'r' ? kasten : gegeben}
+              </Aufgabe>
+            );
+          }
           return (
-            <Aufgabe key={i} i={i} beispiel={i === 0} stil={{ flexDirection: 'row', gap: '2mm', minHeight: '64mm' }}>
-              {t.leer === 'l' && kasten}
-              <div className="blatt-haende" style={{ width: '68mm', height: '54mm', display: 'flex', justifyContent: 'center' }}><HaendeSzene t={t} offen={false} ton={ton} /></div>
-              {t.leer === 'r' && kasten}
+            <Aufgabe key={i} i={i} beispiel={i === 0}>
+              <div style={{ position: 'relative', width: '80mm', height: '50mm', borderRadius: '2mm', overflow: 'hidden', background: '#eadcc5' }}>
+                {fotos && fotos[i]
+                  ? <img src={fotos[i]} alt="" style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover' }} />
+                  : <div style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '3.5mm', color: '#6b7280' }}>Bild wird erzeugt …</div>}
+                {/* Kästchen unten in den Ecken: leer auf der Seite der geschlossenen Hand, mit Anzahl unter der offenen Hand */}
+                <div style={{ position: 'absolute', bottom: '2mm', left: '2mm' }}>{t.leer === 'l' ? kasten : gegeben}</div>
+                <div style={{ position: 'absolute', bottom: '2mm', right: '2mm' }}>{t.leer === 'r' ? kasten : gegeben}</div>
+              </div>
             </Aufgabe>
           );
         })}
@@ -2134,6 +2180,7 @@ function BlattStudio({ onClose, maxN: startMax = 20, mitNull = true }) {
   const [seed, setSeed] = useState(0);
   const b = BLAETTER[typ];
   const items = useMemo(() => blattAufgaben(typ, { maxN, zahl, mitNull }), [typ, maxN, zahl, mitNull, seed]); // eslint-disable-line react-hooks/exhaustive-deps
+  const fotos = useVersteckFotos(typ === 'versteck', items);
   const scrollRef = useRef(null);
   const [scale, setScale] = useState(1);
   useEffect(() => {
@@ -2144,9 +2191,9 @@ function BlattStudio({ onClose, maxN: startMax = 20, mitNull = true }) {
   const mitBild = b.bild && bild;
   const seiten = typ === 'karten'
     ? [<KartenSeite key="k" items={items} maxN={maxN} untertitel={untertitel} />]
-    : [<BlattSeite key="a" typ={typ} untertitel={untertitel}><BlattInhalt typ={typ} items={items} maxN={maxN} bild={mitBild} sol={false} /></BlattSeite>];
+    : [<BlattSeite key="a" typ={typ} untertitel={untertitel}><BlattInhalt typ={typ} items={items} maxN={maxN} bild={mitBild} fotos={fotos} sol={false} /></BlattSeite>];
   if (b.vorlesen) seiten.push(<VorleseListe key="v" items={items} maxN={maxN} />);
-  if (loesung && !b.ohneLoesung) seiten.push(<BlattSeite key="s" typ={typ} sol untertitel={untertitel}><BlattInhalt typ={typ} items={items} maxN={maxN} bild={mitBild} sol /></BlattSeite>);
+  if (loesung && !b.ohneLoesung) seiten.push(<BlattSeite key="s" typ={typ} sol untertitel={untertitel}><BlattInhalt typ={typ} items={items} maxN={maxN} bild={mitBild} fotos={fotos} sol /></BlattSeite>);
   const knopf = (aktiv) => `inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-bold border-2 ${aktiv ? 'bg-yellow-400 text-indigo-950 border-yellow-300' : 'bg-slate-800 border-slate-700 hover:border-slate-500'}`;
   const klein = (aktiv) => `px-3 py-1.5 rounded-lg font-bold ${aktiv ? 'bg-cyan-500 text-slate-950' : 'bg-slate-800 hover:bg-slate-700'}`;
   return (
@@ -2181,7 +2228,7 @@ function BlattStudio({ onClose, maxN: startMax = 20, mitNull = true }) {
             )}
             {!b.ohneLoesung && <label className="flex items-center gap-2 ml-2"><input type="checkbox" checked={loesung} onChange={ev => setLoesung(ev.target.checked)} /> Lösungsblatt</label>}
             <button onClick={() => setSeed(s => s + 1)} className="ml-auto inline-flex items-center gap-2 bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-xl font-bold"><Shuffle className="w-4 h-4" /> Neue Zahlen</button>
-            <button onClick={() => window.print()} className="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-indigo-950 px-5 py-2 rounded-xl font-bold"><Printer className="w-5 h-5" /> Drucken</button>
+            <button onClick={() => window.print()} disabled={typ === 'versteck' && fotos === null} className="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 disabled:opacity-40 text-indigo-950 px-5 py-2 rounded-xl font-bold"><Printer className="w-5 h-5" /> Drucken</button>
           </div>
           <p className="text-xs text-slate-400">{seiten.length} Seite{seiten.length > 1 ? 'n' : ''} · Im Druckfenster „A4“ und „Ränder: keine“ wählen. Für Farbe „Hintergrundgrafiken“ einschalten – die Blätter funktionieren aber auch in Schwarz-Weiß.{b.bereich === 'zerlegen' && !mitNull ? ' Zerlegungen mit 0 sind im Lehrer-Bereich ausgeschaltet.' : ''}</p>
         </div>
