@@ -791,6 +791,8 @@ function LegeBrett({ pieces, setPieces, locked = false, glow = 0, side = null, k
     });
   };
   const clearAll = () => { if (!locked) setPieces([]); };
+  // Für das Loslassen beim Ziehen (läuft in einem älteren Render-Durchgang): aktuelle Werte über Refs
+  const tauschRef = useRef({ half: -1, tauschen }); tauschRef.current = { half: tauschHalf, tauschen };
 
   // Bildschirm-Punkt → Feld-Koordinaten (null = neben dem Feld)
   const toField = (x, y) => {
@@ -830,6 +832,12 @@ function LegeBrett({ pieces, setPieces, locked = false, glow = 0, side = null, k
       const left = ev.clientX - d.fx * gw, top = ev.clientY - d.fy * gu;
       const pt = toField(left + gw / 2, top + gu / 2);
       if (d.from === 'field') { if (!pt) removeLast(); return; }
+      // Fünfer auf einen Fünferplatz voller Einer gezogen → tauschen (die 5 Einer gehen zurück auf den Tisch)
+      const tz = tauschRef.current;
+      if (d.kind === 'f' && pt && tz.half >= 0) {
+        const hr = halfRect(tz.half), rand = U * 0.8;
+        if (pt.x > hr.x - rand && pt.x < hr.x + hr.w + rand && pt.y > hr.y - rand && pt.y < hr.y + hr.h + rand) { tz.tauschen(); return; }
+      }
       const res = pt ? checkPlace(d.kind, pt, filledRef.current, total) : { ok: false, key: null };
       if (res.ok) { add(d.kind); return; }
       if (res.key) say(res.key);
@@ -887,7 +895,7 @@ function LegeBrett({ pieces, setPieces, locked = false, glow = 0, side = null, k
               );
             })}
             {/* Fünferplatz voller Einer: Tausch möglich */}
-            {tauschHalf >= 0 && !drag && !locked && (() => { const r = halfRect(tauschHalf); return <rect x={r.x - 1.4} y={r.y - 1.4} width={r.w + 2.8} height={r.h + 2.8} rx={U * 0.6} fill="none" stroke="#f97316" strokeWidth={1.3} className="anim-glow" pointerEvents="none" />; })()}
+            {tauschHalf >= 0 && !locked && (!drag || drag.kind === 'f') && (() => { const r = halfRect(tauschHalf); return <rect x={r.x - 1.4} y={r.y - 1.4} width={r.w + 2.8} height={r.h + 2.8} rx={U * 0.6} fill="none" stroke="#f97316" strokeWidth={1.3} className="anim-glow" pointerEvents="none" />; })()}
           </svg>
         </div>
 
@@ -1738,7 +1746,7 @@ function ZerlegeHandGame({ onFinish, zahl, stufe }) {
     <div className="flex items-center justify-center bg-white border-4 border-indigo-900 rounded-2xl font-bold text-indigo-950 leading-none shadow-[4px_4px_0_rgba(30,27,75,0.2)]" style={schmal ? { width: 60, height: 112, fontSize: 54 } : { width: 96, height: 150, fontSize: 80 }}>{sichtbar}</div>
   );
   const nochmalKnopf = stufe === 1 && phase === 'frage' && !ohne3D && (
-    <button onClick={nochmalAnsehen} aria-label="Nochmal ansehen" title="Nochmal ansehen" className="flex items-center gap-2 bg-indigo-100 hover:bg-indigo-200 text-indigo-800 rounded-2xl px-5 py-3 active:scale-95"><Eye className="w-8 h-8" /><RotateCcw className="w-6 h-6" /></button>
+    <button onClick={nochmalAnsehen} aria-label="Nochmal ansehen" title="Nochmal ansehen" className="flex items-center gap-1.5 bg-white/90 hover:bg-white border-2 border-indigo-200 text-indigo-800 rounded-2xl px-3 py-2 shadow-md active:scale-95"><Eye className="w-7 h-7" /><RotateCcw className="w-5 h-5" /></button>
   );
   const ergebnisTeil = (
     <>
@@ -1751,12 +1759,14 @@ function ZerlegeHandGame({ onFinish, zahl, stufe }) {
   const seitenSpalte = (seite) => {
     const gesuchte = t.leer === seite;
     let inhalt = null;
-    if (phase === 'frage') inhalt = gesuchte ? eingabeFeld(seite) : (zahlKasten || nochmalKnopf);
+    if (phase === 'frage') inhalt = gesuchte ? eingabeFeld(seite) : zahlKasten;
     else if (offen && gesuchte) inhalt = ergebnisTeil;
     return <div className="w-[215px] shrink-0 flex flex-col items-center justify-center gap-4 self-stretch">{inhalt}</div>;
   };
   const szene = (
-    <div className={`${quer ? 'flex-1 min-w-0' : 'w-full'} bg-white rounded-3xl border-4 border-indigo-900 shadow-[6px_6px_0_rgba(30,27,75,0.25)] p-2`}>
+    <div className={`${quer ? 'flex-1 min-w-0' : 'w-full'} relative bg-white rounded-3xl border-4 border-indigo-900 shadow-[6px_6px_0_rgba(30,27,75,0.25)] p-2`}>
+      {/* „Nochmal ansehen“ oben rechts im Bild (Übung 1, Wunsch der Lehrkraft) – steht nicht mehr unter dem Bild */}
+      {nochmalKnopf && <div className="absolute top-4 right-4 z-10">{nochmalKnopf}</div>}
       {ohne3D
         ? <div className="pt-4 pb-2"><HaendeSzene key={idx} t={t} offen={offen} ton={t.ton} hilfe={hilfe && !offen} /></div>
         : <Haende3D t={t} stufe={stufe} offen={offen} tausch={ok && t.a !== t.b && (phase === 'tausch' || phase === 'fertig')} lauf={lauf} onFertig={animationFertig} onFehler={() => setOhne3D(true)} platzUnten={quer ? 305 : eingabe === 'tasten' ? (schmal ? 530 : 600) : (schmal ? 470 : 505)} quer={quer} minHoehe={schmal ? 130 : 160} />}
@@ -1785,7 +1795,6 @@ function ZerlegeHandGame({ onFinish, zahl, stufe }) {
                 {['l', 'r'].map(seite => <div key={seite} className="min-w-0 flex justify-center">{t.leer === seite ? eingabeFeld(seite) : zahlKasten}</div>)}
               </div>
             ))}
-            {nochmalKnopf}
           </>
         )}
         {hilfe && phase === 'frage' && !ohne3D && <div className="anim-pop bg-white rounded-2xl border-4 border-indigo-200 px-4 py-3"><Stange a={t.a} b={t.b} leer={t.leer} /></div>}
