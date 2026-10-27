@@ -92,7 +92,7 @@ function readUrlSettings() {
     const z = parseInt(p.get('zahl'), 10);
     if (z >= 4 && z <= 10) out.zahlFest = z; // ?zahl=4 … 10: direkt zur Zerlege-Zahl
     const g = parseFloat(p.get('grenze'));
-    if (g >= 1 && g <= 10) out.blitzGrenze = Math.round(g * 1000); // ?grenze=3: Blitz-Stern in der Pass-Probe unter 3 s Bedenkzeit
+    if (g >= 1 && g <= 10) out.blitzGrenze = Math.round(g * 1000); // ?grenze=3: Blitz-Stern in der Prüfung unter 3 s Bedenkzeit
     if (p.get('eingabe') === 'tippen') out.eingabe = 'tasten'; // ?eingabe=tippen: Ziffernfeld statt Fingerschrift
     if (p.get('null') === '0') out.mitNull = false; // ?null=0: keine Zerlegungen mit 0
   } catch (e) { /* ohne URL-Parameter */ }
@@ -147,18 +147,20 @@ function playFile(path) {
   }));
 }
 // Nach jeder Neuerzeugung der Töne hochzählen – sonst spielen Geräte alte Dateien aus dem Zwischenspeicher
-const TON_STAND = '2026-10-27';
+const TON_STAND = '2026-10-27c';
 const playNumber = (n) => (n >= 0 && n <= 20 ? playFile(`audio/thorsten/${n}.mp3?v=${TON_STAND}`) : Promise.resolve());
+// Gibt ein Versprechen zurück, das erfüllt ist, wenn der Satz zu Ende gesprochen ist (auch wenn der Ton fehlt) –
+// so kann ein Folgesatz warten und schneidet den ersten nicht ab.
 function playSatz(key, n) {
-  if (NUR_ZAHL.includes(key)) { setTimeout(() => playNumber(n).catch(() => {}), 150); return; }
+  if (NUR_ZAHL.includes(key)) return new Promise(ok => setTimeout(() => playNumber(n).catch(() => {}).then(ok), 150));
   const danachZahl = NACH_SATZ_ZAHL.includes(key) && n != null;
   if (SAETZE_MP3) {
-    playFile(`audio/thorsten/saetze/${satzDatei(key, n)}.mp3?v=${TON_STAND}`)
+    return playFile(`audio/thorsten/saetze/${satzDatei(key, n)}.mp3?v=${TON_STAND}`)
       .then(() => danachZahl && playNumber(n))
-      .catch(() => { if (danachZahl) playNumber(n).catch(() => {}); });
-  } else if (danachZahl) {
-    setTimeout(() => playNumber(n).catch(() => {}), 250);
+      .catch(() => { if (danachZahl) return playNumber(n).catch(() => {}); return undefined; });
   }
+  if (danachZahl) return new Promise(ok => setTimeout(() => playNumber(n).catch(() => {}).then(ok), 250));
+  return Promise.resolve();
 }
 
 // Sprechblase des Erzählers mit „Nochmal hören“
@@ -300,7 +302,7 @@ function ReturnGhost({ r, onDone }) {
 }
 
 // Ziffern-Tastatur (wie Zehner-Bande, größer, Symbole statt Wörter)
-function NumPad({ value, onChange, onSubmit, maxLen = 2, disabled = false, onStart }) {
+function NumPad({ value, onChange, onSubmit, maxLen = 2, disabled = false, onStart, kompakt = false }) {
   const press = useCallback((d) => { if (disabled) return; onStart && onStart(); if (value.length < maxLen) onChange((value === '0' ? '' : value) + d); }, [value, maxLen, onChange, disabled, onStart]);
   const del = useCallback(() => { if (!disabled) onChange(value.slice(0, -1)); }, [value, onChange, disabled]);
   useEffect(() => {
@@ -313,17 +315,18 @@ function NumPad({ value, onChange, onSubmit, maxLen = 2, disabled = false, onSta
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
   }, [press, del, onSubmit, value, disabled]);
-  const key = 'h-16 rounded-2xl bg-white hover:bg-indigo-50 border-2 border-indigo-200 text-4xl font-bold text-indigo-950 shadow-[0_3px_0_#c7d2fe] active:translate-y-0.5 active:shadow-none disabled:opacity-40';
+  const hoch = kompakt ? 'h-12' : 'h-16'; // kompakt: niedrigere Tasten (Übung 1/2 auf dem iPad quer)
+  const key = `${hoch} rounded-2xl bg-white hover:bg-indigo-50 border-2 border-indigo-200 text-4xl font-bold text-indigo-950 shadow-[0_3px_0_#c7d2fe] active:translate-y-0.5 active:shadow-none disabled:opacity-40`;
   return (
     <div className="flex flex-col items-center gap-2 w-full max-w-[290px] mx-auto">
-      <div className="w-full bg-white border-4 border-indigo-900 rounded-2xl h-20 flex items-center justify-center shadow-inner">
+      <div className={`w-full bg-white border-4 border-indigo-900 rounded-2xl ${kompakt ? 'h-14' : 'h-20'} flex items-center justify-center shadow-inner`}>
         {value ? <span className="text-6xl font-bold leading-none text-indigo-950">{value}</span> : <span className="text-5xl font-bold text-slate-300">?</span>}
       </div>
       <div className="grid grid-cols-3 gap-2 w-full">
         {['1', '2', '3', '4', '5', '6', '7', '8', '9'].map(d => <button key={d} disabled={disabled} onClick={() => press(d)} className={key}>{d}</button>)}
-        <button disabled={disabled} onClick={del} className="h-16 rounded-2xl bg-slate-200 hover:bg-slate-300 border-2 border-slate-300 flex items-center justify-center text-slate-700 active:translate-y-0.5 disabled:opacity-40" aria-label="Löschen"><Delete className="w-8 h-8" /></button>
+        <button disabled={disabled} onClick={del} className={`${hoch} rounded-2xl bg-slate-200 hover:bg-slate-300 border-2 border-slate-300 flex items-center justify-center text-slate-700 active:translate-y-0.5 disabled:opacity-40`} aria-label="Löschen"><Delete className="w-8 h-8" /></button>
         <button disabled={disabled} onClick={() => press('0')} className={key}>0</button>
-        <button disabled={disabled || !value} onClick={onSubmit} className="h-16 rounded-2xl bg-yellow-400 hover:bg-yellow-300 border-2 border-yellow-500 text-indigo-950 flex items-center justify-center shadow-[0_3px_0_#ca8a04] active:translate-y-0.5 active:shadow-none disabled:opacity-40" aria-label="Prüfen"><Check className="w-9 h-9" strokeWidth={3} /></button>
+        <button disabled={disabled || !value} onClick={onSubmit} className={`${hoch} rounded-2xl bg-yellow-400 hover:bg-yellow-300 border-2 border-yellow-500 text-indigo-950 flex items-center justify-center shadow-[0_3px_0_#ca8a04] active:translate-y-0.5 active:shadow-none disabled:opacity-40`} aria-label="Prüfen"><Check className="w-9 h-9" strokeWidth={3} /></button>
       </div>
     </div>
   );
@@ -352,22 +355,47 @@ function digitWeights() {
   return DIGIT_W;
 }
 
-// Bild aus dem Schreibfeld → 28×28 wie bei MNIST (Rahmen, längste Seite 20 px, nach Schwerpunkt zentriert) → Ziffer
-function recognizeDigit(canvas) {
-  const w = canvas.width, h = canvas.height;
-  const data = canvas.getContext('2d').getImageData(0, 0, w, h).data;
-  let minX = w, minY = h, maxX = -1, maxY = -1;
-  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
-    if (data[(y * w + x) * 4 + 3] > 40) { if (x < minX) minX = x; if (x > maxX) maxX = x; if (y < minY) minY = y; if (y > maxY) maxY = y; }
+// Bild aus dem Schreibfeld → 28×28 wie bei MNIST (längste Seite 20 px, nach Schwerpunkt zentriert) → Ziffer.
+// Gibt es den Schreibweg (strokes), wird die Ziffer daraus neu gezeichnet – immer mit gleich dünnem Strich,
+// egal wie groß das Kind schreibt. Vorher wurde das Bild nur verkleinert: Kleine Ziffern bekamen dadurch einen sehr
+// dicken Strich, Schleifen liefen zu, und aus 6, 8 oder 9 wurde z. B. eine 5 oder 3 (gefunden am 11.10.2026).
+const DIGIT_LW = 2.4; // Strichbreite im 28×28-Bild (wie bei MNIST)
+function recognizeDigit(canvas, strokes) {
+  const pts = strokes ? strokes.flat() : [];
+  let mid, dw, dh;
+  if (pts.length) {
+    const xs = pts.map(q => q.x), ys = pts.map(q => q.y);
+    const minX = Math.min(...xs), minY = Math.min(...ys);
+    const bw = Math.max(...xs) - minX, bh = Math.max(...ys) - minY;
+    const sc = (20 - DIGIT_LW) / Math.max(bw, bh, 1);
+    dw = bw * sc + DIGIT_LW; dh = bh * sc + DIGIT_LW;
+    const k = 4; // vierfach größer zeichnen, dann glatt verkleinern
+    mid = document.createElement('canvas'); mid.width = Math.max(1, Math.round(dw * k)); mid.height = Math.max(1, Math.round(dh * k));
+    const mc = mid.getContext('2d');
+    mc.strokeStyle = '#000'; mc.fillStyle = '#000'; mc.lineWidth = DIGIT_LW * k; mc.lineCap = 'round'; mc.lineJoin = 'round';
+    const tx = (q) => [((q.x - minX) * sc + DIGIT_LW / 2) * k, ((q.y - minY) * sc + DIGIT_LW / 2) * k];
+    for (const st of strokes) {
+      if (!st.length) continue;
+      mc.beginPath(); const [x0, y0] = tx(st[0]);
+      if (st.length === 1) { mc.arc(x0, y0, DIGIT_LW * k / 2, 0, 2 * Math.PI); mc.fill(); continue; }
+      mc.moveTo(x0, y0); for (let i = 1; i < st.length; i++) mc.lineTo(...tx(st[i])); mc.stroke();
+    }
+  } else {
+    const w = canvas.width, h = canvas.height;
+    const data = canvas.getContext('2d').getImageData(0, 0, w, h).data;
+    let minX = w, minY = h, maxX = -1, maxY = -1;
+    for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+      if (data[(y * w + x) * 4 + 3] > 40) { if (x < minX) minX = x; if (x > maxX) maxX = x; if (y < minY) minY = y; if (y > maxY) maxY = y; }
+    }
+    if (maxX < 0) return null;
+    const bw = maxX - minX + 1, bh = maxY - minY + 1;
+    const sc = 20 / Math.max(bw, bh);
+    dw = bw * sc; dh = bh * sc;
+    // in zwei Schritten verkleinern (glatter)
+    mid = document.createElement('canvas'); mid.width = Math.max(1, Math.round(dw * 4)); mid.height = Math.max(1, Math.round(dh * 4));
+    const mc = mid.getContext('2d'); mc.imageSmoothingEnabled = true; mc.imageSmoothingQuality = 'high';
+    mc.drawImage(canvas, minX, minY, bw, bh, 0, 0, mid.width, mid.height);
   }
-  if (maxX < 0) return null;
-  const bw = maxX - minX + 1, bh = maxY - minY + 1;
-  const sc = 20 / Math.max(bw, bh);
-  const dw = bw * sc, dh = bh * sc;
-  // in zwei Schritten verkleinern (glatter)
-  const mid = document.createElement('canvas'); mid.width = Math.max(1, Math.round(dw * 4)); mid.height = Math.max(1, Math.round(dh * 4));
-  const mc = mid.getContext('2d'); mc.imageSmoothingEnabled = true; mc.imageSmoothingQuality = 'high';
-  mc.drawImage(canvas, minX, minY, bw, bh, 0, 0, mid.width, mid.height);
   const draw = (ox, oy) => {
     const c = document.createElement('canvas'); c.width = 28; c.height = 28;
     const cx = c.getContext('2d'); cx.imageSmoothingEnabled = true; cx.imageSmoothingQuality = 'high';
@@ -393,49 +421,120 @@ function recognizeDigit(canvas) {
   const mxo = Math.max(...out); const ex = out.map(v => Math.exp(v - mxo)); const tot = ex.reduce((a, b) => a + b, 0);
   const probs = ex.map(v => v / tot);
   const digit = probs.indexOf(Math.max(...probs));
-  return { digit, conf: probs[digit], aspect: bh / bw, p1: probs[1], p7: probs[7] };
+  return { digit, conf: probs[digit], aspect: dh / dw, p1: probs[1], p7: probs[7], probs };
 }
 
-// Die deutsche 1 mit Aufstrich sieht für das Netz (gelernt an amerikanischen Ziffern) oft wie eine 7 aus –
-// und umgekehrt. Darum wird bei 1 oder 7 zusätzlich der Schreibweg geprüft (strokes = Liste der Striche mit Punkten):
-// 7 = Querstrich in der Mitte oder Anfang oben links mit flachem Strich nach rechts,
-// 1 = steiler Aufstrich, der deutlich unterhalb der Spitze beginnt, oder ein fast senkrechter Strich.
+// Geschlossene Schleifen zählen (Löcher im Schriftbild). Eine 3 oder 5 hat keine Schleife, eine 8 zwei, eine 9 oben
+// eine, eine 6 unten eine. Gezeichnet wird mit etwas dickerem Strich, damit kleine Lücken in der Schleife zugehen.
+// Winzige Löcher (z. B. ein Kringel in der Mitte der 3) zählen nicht.
+function findLoops(strokes) {
+  const pts = strokes.flat(); if (pts.length < 3) return [];
+  const xs = pts.map(q => q.x), ys = pts.map(q => q.y);
+  const minX = Math.min(...xs), minY = Math.min(...ys);
+  const bw = Math.max(...xs) - minX, bh = Math.max(...ys) - minY;
+  if (Math.max(bw, bh) < 15) return [];
+  const N = 56, LW = 6.5, sc = (N - 12) / Math.max(bw, bh, 1);
+  const c = document.createElement('canvas'); c.width = N; c.height = N;
+  const cx = c.getContext('2d'); cx.lineWidth = LW; cx.lineCap = 'round'; cx.lineJoin = 'round'; cx.strokeStyle = '#000';
+  const ox = (N - bw * sc) / 2, oy = (N - bh * sc) / 2;
+  for (const st of strokes) {
+    if (st.length < 2) continue;
+    cx.beginPath(); cx.moveTo(ox + (st[0].x - minX) * sc, oy + (st[0].y - minY) * sc);
+    for (const q of st) cx.lineTo(ox + (q.x - minX) * sc, oy + (q.y - minY) * sc);
+    cx.stroke();
+  }
+  const d = cx.getImageData(0, 0, N, N).data;
+  const ink = new Uint8Array(N * N); for (let i = 0; i < N * N; i++) ink[i] = d[i * 4 + 3] > 100 ? 1 : 0;
+  const seen = new Uint8Array(N * N); const loops = [];
+  const minArea = 0.035 * (bw * sc) * (bh * sc);
+  for (let i = 0; i < N * N; i++) {
+    if (ink[i] || seen[i]) continue;
+    const stack = [i]; seen[i] = 1; let area = 0, sy = 0, top = N, bot = 0, edge = false;
+    while (stack.length) {
+      const k = stack.pop(); const x = k % N, y = (k - x) / N; area++; sy += y; if (y < top) top = y; if (y > bot) bot = y;
+      if (x === 0 || y === 0 || x === N - 1 || y === N - 1) edge = true;
+      for (const [nx, ny] of [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]]) {
+        if (nx < 0 || ny < 0 || nx >= N || ny >= N) continue;
+        const nk = ny * N + nx; if (!ink[nk] && !seen[nk]) { seen[nk] = 1; stack.push(nk); }
+      }
+    }
+    // cy, top, bot: Lage der Schleife, 0 = oben, 1 = unten
+    const rel = (v) => (v - oy) / (bh * sc);
+    if (!edge && area >= minArea) loops.push({ area, cy: rel(sy / area), top: rel(top), bot: rel(bot) });
+  }
+  return loops;
+}
+
+// Liest das Netz eine 3 oder 5, obwohl das Kind eine Schleife geschlossen hat, war es eine 8, 9 oder 6.
+// Liest es eine 0, die Schleife sitzt aber nur unten (bzw. nur oben), war es eine 6 (bzw. 9).
+// (Rückmeldung der Lehrkraft, 11.10.2026: 8 und 9 wurden manchmal als 3 gelesen, 6 als 0.)
+function refineLoops(r, strokes) {
+  if (!r || !r.probs || !strokes || ![0, 1, 3, 5, 7].includes(r.digit)) return r;
+  const loops = findLoops(strokes);
+  if (!loops.length) return r;
+  const P = r.probs; const best = (list) => list.reduce((a, b) => (P[b] > P[a] ? b : a));
+  const L = loops[0];
+  let digit = null;
+  if (r.digit === 1 || r.digit === 7) {
+    if (loops.length >= 2) digit = 8;
+    else if (L.cy < 0.5) digit = 9;                         // schmale 9: Schleife oben
+  } else if (r.digit === 0) {
+    if (loops.length === 1 && L.top > 0.3) digit = 6;       // Bogen oben, Schleife unten
+    else if (loops.length === 1 && L.bot < 0.7) digit = 9; // Schleife oben, Strich unten
+  } else if (loops.length >= 2) digit = 8;
+  else if (L.cy < 0.45) digit = best([9, 8]);
+  else if (L.cy > 0.55) digit = r.digit === 5 ? 6 : best([6, 8]); // eine 5 mit geschlossenem Bauch ist eine 6
+  else if (r.digit === 3) digit = best([8, 0]);
+  if (digit === null) return r;
+  return { ...r, digit, conf: Math.max(r.conf, 0.85), loops: loops.length };
+}
+
+// Die deutsche 1 mit Aufstrich sieht für das Netz (gelernt an amerikanischen Ziffern) oft wie eine 7 aus – und umgekehrt.
+// In der Klasse wird die 7 immer mit Querstrich geschrieben (Vorgabe der Lehrkraft, 11.10.2026). Darum entscheidet
+// bei 1 oder 7 allein der Querstrich: ein eigener, flacher Strich etwa in der Mitte → 7, sonst → 1.
 function refineOneSeven(r, strokes) {
-  if (!r || !strokes || !strokes.length) return r;
+  if (!r || !strokes || !strokes.length || r.loops) return r; // mit Schleife ist es keine 1 oder 7
   if (r.digit !== 1 && r.digit !== 7 && r.p1 + r.p7 < 0.5) return r;
   const all = strokes.flat();
-  const xs = all.map(p => p.x), ys = all.map(p => p.y);
-  const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
-  const h = maxY - minY, w = maxX - minX;
+  const ys = all.map(p => p.y);
+  const minY = Math.min(...ys), h = Math.max(...ys) - minY;
   if (h < 15) return r;
-  const as = (digit) => ({ ...r, digit, conf: Math.max(r.conf, 0.85), checked: true });
   const len = (s) => s.reduce((a, p, i) => (i ? a + Math.hypot(p.x - s[i - 1].x, p.y - s[i - 1].y) : 0), 0);
-  // Querstrich der 7: ein zweiter, flacher Strich etwa in der Mitte
   const main = strokes.reduce((a, s) => (len(s) > len(a) ? s : a), strokes[0]);
   const bar = strokes.some(s => {
     if (s === main || s.length < 2) return false;
     const sx = s.map(p => p.x), sy = s.map(p => p.y);
     const bw = Math.max(...sx) - Math.min(...sx), bh = Math.max(...sy) - Math.min(...sy);
     const cy = (sy.reduce((a, v) => a + v, 0) / sy.length - minY) / h;
-    return bw > 0.2 * h && bh < 0.15 * h && cy > 0.3 && cy < 0.8;
+    return bw > 0.2 * h && bh < 0.5 * bw && cy > 0.25 && cy < 0.85;
   });
-  if (bar) return as(7);
-  // Ecke = Punkt, an dem der erste Strich am weitesten nach rechts oben kommt
-  const first = strokes[0];
-  const start = first[0];
-  const corner = first.reduce((a, p) => (p.x - p.y > a.x - a.y ? p : a), first[0]);
-  const drop = Math.max(0, start.y - corner.y) / h; // wie weit unter der Spitze der Strich beginnt
-  const run = Math.max(0, corner.x - start.x) / h;   // wie weit er nach rechts geht
-  if (run >= 0.3 && drop < 0.4 * run) return as(7);
-  if (drop >= 0.15 && drop >= 0.6 * run) return as(1);
-  if (w < 0.25 * h) return as(1);
-  return r;
+  return { ...r, digit: bar ? 7 : 1, conf: Math.max(r.conf, 0.85), checked: true };
 }
+
+// Die deutsche 4 wird mit zwei Strichen geschrieben (Winkel + langer senkrechter Strich). Das Netz liest sie dann
+// manchmal als 2 (Rückmeldung der Lehrkraft 27.10.2026). Eine 2 hat nie einen eigenen langen senkrechten Strich –
+// gibt es einen, war es eine 4.
+function refineVier(r, strokes) {
+  if (!r || !strokes || strokes.length < 2 || r.digit !== 2) return r;
+  const ys = strokes.flat().map(p => p.y);
+  const h = Math.max(...ys) - Math.min(...ys);
+  if (h < 15) return r;
+  const senkrecht = strokes.some(st => {
+    if (st.length < 2) return false;
+    const sx = st.map(p => p.x), sy = st.map(p => p.y);
+    const bw = Math.max(...sx) - Math.min(...sx), bh = Math.max(...sy) - Math.min(...sy);
+    return bh >= 0.5 * h && bw <= 0.35 * bh;
+  });
+  return senkrecht ? { ...r, digit: 4, conf: Math.max(r.conf, 0.85), checked: true } : r;
+}
+
+// Alle Prüfungen nacheinander: Netz (aus dem Schreibweg neu gezeichnet) → Schleifen → 4/2 → 1/7
+const erkenneZiffer = (canvas, strokes) => refineOneSeven(refineVier(refineLoops(recognizeDigit(canvas, strokes), strokes), strokes), strokes);
 
 // Ein Schreibfeld für eine Ziffer (Finger, Stift oder Maus).
 // side: Lage in der Reihe (left | middle | right | single). Die Felder liegen ohne Abstand nebeneinander,
 // damit die Ziffern wie eine Zahl zusammenstehen; Rahmen nur zart in der Stellenwert-Farbe.
-function WritePad({ label, color, light, dark, onResult, disabled, resetKey, size = 150, hint = 'Schreib hier eine Ziffer', side = 'single', onStart }) {
+function WritePad({ label, color, light, dark, onResult, disabled, resetKey, size = 150, hint = 'Schreib hier eine Ziffer', side = 'single', onStart, ohneRadierer = false }) {
   const ref = useRef(null);
   const drawing = useRef(false);
   const last = useRef(null);
@@ -464,7 +563,7 @@ function WritePad({ label, color, light, dark, onResult, disabled, resetKey, siz
   const up = () => {
     if (!drawing.current) return; drawing.current = false;
     clearTimeout(timer.current);
-    timer.current = setTimeout(() => { const r = refineOneSeven(recognizeDigit(ref.current), strokes.current); setRes(r); onResult && onResult(r); }, 450);
+    timer.current = setTimeout(() => { const r = erkenneZiffer(ref.current, strokes.current); setRes(r); onResult && onResult(r); }, 450);
   };
   const clear = () => {
     const c = ref.current; c.getContext('2d').clearRect(0, 0, c.width, c.height); strokes.current = []; setRes(null); onResult && onResult(null);
@@ -490,10 +589,10 @@ function WritePad({ label, color, light, dark, onResult, disabled, resetKey, siz
         <canvas ref={ref} onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up} onPointerLeave={up}
           style={{ width: W, height: H, touchAction: 'none', position: 'relative', cursor: disabled ? 'default' : 'crosshair' }} />
       </div>
-      <div className="min-h-[2.5rem] text-sm leading-tight font-bold text-center" style={{ color: unsure ? '#c2410c' : dark, width: W }}>
+      <div className={`${ohneRadierer ? 'min-h-[1.5rem]' : 'min-h-[2.5rem]'} text-sm leading-tight font-bold text-center`} style={{ color: unsure ? '#c2410c' : dark, width: W }}>
         {res ? (unsure ? 'Nicht lesbar – schreib nochmal' : <>Ich lese: <span className="text-lg">{res.digit}</span></>) : <span className="text-slate-400">{hint}</span>}
       </div>
-      {!disabled && <button onClick={clear} aria-label="Wegradieren" title="Wegradieren" className="w-14 h-11 rounded-xl bg-pink-100 border-2 border-pink-300 text-pink-600 hover:bg-pink-200 active:translate-y-0.5 inline-flex items-center justify-center shadow-[0_3px_0_#f9a8d4] active:shadow-none"><Eraser className="w-7 h-7" /></button>}
+      {!disabled && !ohneRadierer && <button onClick={clear} aria-label="Wegradieren" title="Wegradieren" className="w-14 h-11 rounded-xl bg-pink-100 border-2 border-pink-300 text-pink-600 hover:bg-pink-200 active:translate-y-0.5 inline-flex items-center justify-center shadow-[0_3px_0_#f9a8d4] active:shadow-none"><Eraser className="w-7 h-7" /></button>}
     </div>
   );
 }
@@ -501,7 +600,9 @@ function WritePad({ label, color, light, dark, onResult, disabled, resetKey, siz
 // Schreibfelder: zuerst Zehner, dann Einer (optional Hunderter-Feld, z. B. in „Wie viele sind es?“ für die 100).
 // optional = Z und H dürfen leer bleiben (für einstellige Zahlen); das E-Feld muss immer beschrieben sein.
 // nurEiner = nur ein Schreibfeld (Antwort sicher unter 10, z. B. Zerlegen 4–9) – ein leeres Zehnerfeld verwirrt nur.
-function HandwriteNumber({ onSubmit, disabled, withH = false, optional = false, onStart, nurEiner = false }) {
+// kompakt = kleineres Feld, Prüfen-Haken (und extra, z. B. der Tippen-Schalter) neben statt unter dem Feld – für Übung 1/2,
+// damit auf dem iPad quer nichts unter den Bildschirmrand rutscht. knoepfeLinks = Knöpfe links vom Feld.
+function HandwriteNumber({ onSubmit, disabled, withH = false, optional = false, onStart, nurEiner = false, kompakt = false, knoepfeLinks = false, extra = null, klein = false }) {
   const [rh, setRh] = useState(null);
   const [rz, setRz] = useState(null);
   const [re, setRe] = useState(null);
@@ -509,35 +610,57 @@ function HandwriteNumber({ onSubmit, disabled, withH = false, optional = false, 
   const fine = (r) => !r || okRes(r);
   const ready = okRes(re) && (nurEiner || ((optional ? fine(rz) : okRes(rz)) && (!withH || fine(rh)) && !(rh && !rz)));
   const value = () => (nurEiner ? re.digit : (withH && rh ? rh.digit * 100 : 0) + (rz ? rz.digit * 10 : 0) + re.digit);
-  const size = withH ? 108 : 150;
+  const size = withH ? 108 : kompakt || klein ? 120 : 150;
+  const [loesch, setLoesch] = useState(0); // kompakt: gemeinsamer Radiergummi leert alle Felder
+  const pad = { ohneRadierer: kompakt, resetKey: kompakt ? loesch : undefined };
+  const pruefen = <button onClick={() => onSubmit(value())} disabled={!ready || disabled} className="bg-yellow-400 hover:bg-yellow-300 disabled:opacity-40 text-indigo-950 font-black text-xl py-3 px-10 rounded-xl shadow-[0_4px_0_#ca8a04] active:translate-y-1 active:shadow-none" aria-label="Prüfen"><Check className="w-8 h-8" strokeWidth={3} /></button>;
   return (
-    <div className="flex flex-col items-center gap-3">
+    <div className={kompakt ? `flex items-center gap-3 ${knoepfeLinks ? 'flex-row-reverse' : ''}` : 'flex flex-col items-center gap-3'}>
       <div className="flex">
-        {nurEiner && <WritePad size={size} side="single" label="" color={COL.e} light={COL.eLight} dark={COL.eDark} onResult={setRe} disabled={disabled} hint="" onStart={onStart} />}
-        {!nurEiner && withH && <WritePad size={size} side="left" label="H" color={COL.h} light={COL.hLight} dark={COL.hDark} onResult={setRh} disabled={disabled} hint="nur bei 100" />}
-        {!nurEiner && <WritePad size={size} side={withH ? 'middle' : 'left'} label="Z" color={COL.z} light={COL.zLight} dark={COL.zDark} onResult={setRz} disabled={disabled} hint={optional ? 'Zehner' : undefined} onStart={onStart} />}
-        {!nurEiner && <WritePad size={size} side="right" label="E" color={COL.e} light={COL.eLight} dark={COL.eDark} onResult={setRe} disabled={disabled} hint={optional ? 'Einer' : undefined} onStart={onStart} />}
+        {nurEiner && <WritePad {...pad} size={size} side="single" label="" color={COL.e} light={COL.eLight} dark={COL.eDark} onResult={setRe} disabled={disabled} hint="" onStart={onStart} />}
+        {!nurEiner && withH && <WritePad {...pad} size={size} side="left" label="H" color={COL.h} light={COL.hLight} dark={COL.hDark} onResult={setRh} disabled={disabled} hint="nur bei 100" />}
+        {!nurEiner && <WritePad {...pad} size={size} side={withH ? 'middle' : 'left'} label="Z" color={COL.z} light={COL.zLight} dark={COL.zDark} onResult={setRz} disabled={disabled} hint={optional ? 'Zehner' : undefined} onStart={onStart} />}
+        {!nurEiner && <WritePad {...pad} size={size} side="right" label="E" color={COL.e} light={COL.eLight} dark={COL.eDark} onResult={setRe} disabled={disabled} hint={optional ? 'Einer' : undefined} onStart={onStart} />}
       </div>
-      <button onClick={() => onSubmit(value())} disabled={!ready || disabled} className="bg-yellow-400 hover:bg-yellow-300 disabled:opacity-40 text-indigo-950 font-black text-xl py-3 px-10 rounded-xl shadow-[0_4px_0_#ca8a04] active:translate-y-1 active:shadow-none" aria-label="Prüfen"><Check className="w-8 h-8" strokeWidth={3} /></button>
+      {kompakt ? (
+        <div className="flex flex-col items-center gap-3">
+          {pruefen}
+          {!disabled && <button onClick={() => setLoesch(k => k + 1)} aria-label="Wegradieren" title="Wegradieren" className="w-14 h-11 rounded-xl bg-pink-100 border-2 border-pink-300 text-pink-600 hover:bg-pink-200 active:translate-y-0.5 inline-flex items-center justify-center"><Eraser className="w-6 h-6" /></button>}
+          {extra}
+        </div>
+      ) : pruefen}
     </div>
   );
 }
 
 // Zahl eingeben: mit dem Finger schreiben (Standard, Z | E wie in der Zehner-Bande) oder tippen
-function ZahlEingabe({ onSubmit, resetKey, onStart, nurEiner = false }) {
+function ZahlEingabe({ onSubmit, resetKey, onStart, nurEiner = false, kompakt = false, knoepfeLinks = false, klein = false }) {
   const { eingabe, setSettings } = useSettings();
   const [value, setValue] = useState('');
   useEffect(() => { setValue(''); }, [resetKey]);
   const submitTasten = () => { const n = parseInt(value, 10); if (!Number.isNaN(n)) onSubmit(n); };
   const stift = eingabe === 'stift';
+  const umschalter = (
+    <button onClick={() => setSettings(s => ({ ...s, eingabe: stift ? 'tasten' : 'stift' }))} aria-label={stift ? 'Lieber tippen' : 'Lieber mit dem Finger schreiben'} title={stift ? 'Lieber tippen' : 'Lieber mit dem Finger schreiben'} className="flex items-center gap-2 rounded-full bg-indigo-100 hover:bg-indigo-200 text-indigo-700 px-4 py-2 font-bold active:scale-95">
+      {stift ? <Grid3x3 className="w-6 h-6" /> : <PenLine className="w-6 h-6" />}
+    </button>
+  );
+  // kompakt (Übung 1/2): Knöpfe neben dem Feld, damit auf dem iPad quer alles ohne Scrollen sichtbar bleibt
+  if (kompakt && stift) return <HandwriteNumber key={resetKey} onSubmit={onSubmit} optional onStart={onStart} nurEiner={nurEiner} kompakt knoepfeLinks={knoepfeLinks} extra={umschalter} />;
+  if (kompakt) {
+    return (
+      <div className={`flex items-center gap-3 ${knoepfeLinks ? 'flex-row-reverse' : ''}`}>
+        <div className="w-[240px]"><NumPad value={value} onChange={setValue} onSubmit={submitTasten} onStart={onStart} maxLen={nurEiner ? 1 : 2} kompakt /></div>
+        {umschalter}
+      </div>
+    );
+  }
   return (
     <div className="flex flex-col items-center gap-3 w-full">
       {stift
-        ? <HandwriteNumber key={resetKey} onSubmit={onSubmit} optional onStart={onStart} nurEiner={nurEiner} />
-        : <NumPad value={value} onChange={setValue} onSubmit={submitTasten} onStart={onStart} maxLen={nurEiner ? 1 : 2} />}
-      <button onClick={() => setSettings(s => ({ ...s, eingabe: stift ? 'tasten' : 'stift' }))} aria-label={stift ? 'Lieber tippen' : 'Lieber mit dem Finger schreiben'} title={stift ? 'Lieber tippen' : 'Lieber mit dem Finger schreiben'} className="flex items-center gap-2 rounded-full bg-indigo-100 hover:bg-indigo-200 text-indigo-700 px-4 py-2 font-bold active:scale-95">
-        {stift ? <Grid3x3 className="w-6 h-6" /> : <PenLine className="w-6 h-6" />}
-      </button>
+        ? <HandwriteNumber key={resetKey} onSubmit={onSubmit} optional onStart={onStart} nurEiner={nurEiner} klein={klein} />
+        : <NumPad value={value} onChange={setValue} onSubmit={submitTasten} onStart={onStart} maxLen={nurEiner ? 1 : 2} kompakt={klein} />}
+      {umschalter}
     </div>
   );
 }
@@ -635,7 +758,8 @@ function LegeBrett({ pieces, setPieces, locked = false, glow = 0, side = null })
     prevZ.current = zehnerRows;
     setBlueRows(b => b.filter(r => zehnerRows.includes(r)));
     if (!neu.length) return undefined;
-    const t = setTimeout(() => { setBlueRows(zehnerRows); say('zehner'); }, 450);
+    // Nur der Farbwechsel zu Blau – ohne Ansage „Zwei Fünfer sind ein Zehner.“ (störte den Arbeitsfluss, Lehrkraft 27.10.2026)
+    const t = setTimeout(() => { setBlueRows(zehnerRows); }, 450);
     return () => clearTimeout(t);
   }, [zKey]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -1207,7 +1331,7 @@ function stufenAufgaben(zahl, mitNull, einstellig = false) {
   return out;
 }
 
-// Pass-Probe: alle Zerlegungen genau einmal, zufällig, Tauschpaare nie direkt hintereinander
+// Prüfung: alle Zerlegungen genau einmal, zufällig, Tauschpaare nie direkt hintereinander
 function probeAufgaben(n, mitNull) {
   const zs = zerlegungen(n, mitNull);
   let o = mischen(zs);
@@ -1246,7 +1370,7 @@ function erkenneZahl(canvas, strokes, dpr) {
     // Striche, die zu dieser Ziffer gehören (für die Unterscheidung 1/7)
     const zu = strokes.filter((s) => { const mx = s.reduce((acc, p) => acc + p.x, 0) / s.length * dpr; return mx >= a && mx <= b; })
       .map(s => s.map(p => ({ x: p.x * dpr - a, y: p.y * dpr })));
-    return refineOneSeven(recognizeDigit(c), zu);
+    return erkenneZiffer(c, zu);
   });
   if (ziffern.some(z => !z)) return { wert: null, conf: 0 };
   return { wert: ziffern.reduce((acc, z) => acc * 10 + z.digit, 0), conf: Math.min(...ziffern.map(z => z.conf)) };
@@ -1462,7 +1586,7 @@ function HaendeSzene({ t, offen, ton, hilfe = false }) {
 // stufe 1: Hände greifen die ganze Stange, brechen sie, ein Teil verschwindet in der Hand (dann onFertig)
 // stufe 2: Stange schon geteilt, eine Hand schon zu (sofort onFertig). offen = true → Hand öffnet sich.
 // lauf: hochzählen, um die Animation noch einmal abzuspielen. Ohne WebGL: onFehler → gezeichnete Hände.
-function Haende3D({ t, stufe, offen, tausch = false, lauf = 0, onFertig, onFehler }) {
+function Haende3D({ t, stufe, offen, tausch = false, lauf = 0, onFertig, onFehler, platzUnten = 520, quer = false }) {
   const box = useRef(null);
   const szene = useRef(null);
   const fertigRef = useRef(onFertig); fertigRef.current = onFertig;
@@ -1492,9 +1616,22 @@ function Haende3D({ t, stufe, offen, tausch = false, lauf = 0, onFertig, onFehle
   return (
     <div className="w-full">
       {/* Die Zahl liegt als Karte vorne auf dem Tisch (in der 3D-Szene) und bleibt immer sichtbar */}
-      <div ref={box} className="w-full rounded-2xl overflow-hidden" style={{ height: 'min(56vw, 400px)' }} />
+      {/* Höhe passt sich dem Bildschirm an (iPad quer: Schreibfeld und Prüfen-Haken bleiben ohne Scrollen sichtbar) */}
+      <div ref={box} className="w-full rounded-2xl overflow-hidden" style={quer ? { aspectRatio: '1.45', maxHeight: `calc(100dvh - ${platzUnten}px)` } : { height: `min(56vw, 400px, max(160px, calc(100dvh - ${platzUnten}px)))` }} />
     </div>
   );
+}
+
+// Querformat mit wenig Höhe (iPad quer, mit Safari-Leisten): dort stehen Schreibfeld und Zahl NEBEN den Händen,
+// sonst reicht die Höhe nicht für Bild + Schreibfeld übereinander.
+const QUER = '(orientation: landscape) and (max-height: 900px)';
+function useQuerFormat() {
+  const [quer, setQuer] = useState(() => typeof window !== 'undefined' && window.matchMedia(QUER).matches);
+  useEffect(() => {
+    const mq = window.matchMedia(QUER), h = () => setQuer(mq.matches);
+    mq.addEventListener('change', h); return () => mq.removeEventListener('change', h);
+  }, []);
+  return quer;
 }
 
 // ==========================================
@@ -1504,7 +1641,8 @@ function Haende3D({ t, stufe, offen, tausch = false, lauf = 0, onFertig, onFehle
 // Stufe 2: Stange ist schon geteilt, eine Hand ist schon zu. Danach bei beiden: Hand öffnet sich zur Kontrolle,
 // Zahlenhaus-Zeile n | a | b, Tauschaufgabe (Stange dreht sich um).
 function ZerlegeHandGame({ onFinish, zahl, stufe }) {
-  const { mitNull } = useSettings();
+  const { mitNull, eingabe } = useSettings();
+  const quer = useQuerFormat();
   const say = useSay();
   const [tasks] = useState(() => stufenAufgaben(zahl, mitNull).map(t => {
     const hautNr = Math.floor(Math.random() * HAUT.length);
@@ -1520,7 +1658,8 @@ function ZerlegeHandGame({ onFinish, zahl, stufe }) {
   const [lauf, setLauf] = useState(0);
   const [ohne3D, setOhne3D] = useState(false);
   const timers = useRef([]);
-  useEffect(() => () => timers.current.forEach(clearTimeout), []);
+  const aufgabeNr = useRef(0); // wechselt bei jeder neuen Aufgabe – alte Folgesätze verfallen dann
+  useEffect(() => () => { timers.current.forEach(clearTimeout); aufgabeNr.current += 1; }, []);
   const later = (fn, ms) => timers.current.push(setTimeout(fn, ms));
   const t = tasks[idx];
   const gesucht = gesuchtVon(t);
@@ -1537,11 +1676,17 @@ function ZerlegeHandGame({ onFinish, zahl, stufe }) {
   const record = (good) => setResults(r => { const c = [...r]; c[idx] = good; return c; });
   const pruefe = (x) => {
     if (x === gesucht) {
-      setOk(true); setPhase('offen'); record(tries === 0); say('zerlege_richtig', t);
-      // Tauschaufgabe: Stange dreht sich einmal um (nicht bei gleichen Teilen, z. B. 3|3)
+      setOk(true); setPhase('offen'); record(tries === 0);
+      const gesagt = say('zerlege_richtig', t) || Promise.resolve();
+      // Tauschaufgabe: Stange dreht sich einmal um (nicht bei gleichen Teilen, z. B. 3|3).
+      // Erst wenn „Richtig! 4 ist 3 und 1.“ zu Ende ist (mindestens 2,2 s, damit die Hand offen ist) – sonst fehlt die letzte Zahl.
       if (t.a !== t.b) {
-        later(() => { setPhase('tausch'); say('zerlege_tausch', t); }, 2200);
-        later(() => setPhase('fertig'), ohne3D ? 3600 : 5300);
+        const nr = aufgabeNr.current;
+        Promise.all([gesagt.catch(() => {}), new Promise(ok => setTimeout(ok, 2200))]).then(() => {
+          if (nr !== aufgabeNr.current) return;
+          setPhase('tausch'); say('zerlege_tausch', t);
+          later(() => setPhase('fertig'), ohne3D ? 1400 : 3100);
+        });
       } else later(() => setPhase('fertig'), 1400);
       return;
     }
@@ -1550,7 +1695,7 @@ function ZerlegeHandGame({ onFinish, zahl, stufe }) {
   };
   const weiter = () => {
     if (idx + 1 >= ROUND) { onFinish(results.filter(Boolean).length); return; }
-    timers.current.forEach(clearTimeout); timers.current = [];
+    timers.current.forEach(clearTimeout); timers.current = []; aufgabeNr.current += 1;
     setIdx(i => i + 1); setPhase(stufe === 1 ? 'zeigen' : 'frage'); setTries(0); setHilfe(false); setOk(false); setRk(k => k + 1);
   };
   const nochmalAnsehen = () => { if (phase === 'frage') { setPhase('zeigen'); setLauf(l => l + 1); } };
@@ -1559,44 +1704,61 @@ function ZerlegeHandGame({ onFinish, zahl, stufe }) {
   const zeilen = [{ a: t.a, b: t.b, leer: t.leer, sol: !ok, farbe: ok ? paarFarbe(t.a, t.b) : undefined }];
   if (ok && t.a !== t.b && (phase === 'tausch' || phase === 'fertig')) zeilen.push({ a: t.b, b: t.a, farbe: paarFarbe(t.a, t.b), neu: true });
 
+  // Bausteine der Seite: Schreibfeld (unter bzw. neben der geschlossenen Hand), sichtbare Anzahl (Stufe 2), Ergebnis
+  const eingabeFeld = (seite) => <ZahlEingabe onSubmit={pruefe} resetKey={rk} nurEiner={t.n < 10} kompakt={!quer} knoepfeLinks={seite === 'r'} klein={quer} />;
+  const zahlKasten = stufe === 2 && (
+    <div className="flex items-center justify-center bg-white border-4 border-indigo-900 rounded-2xl font-bold text-indigo-950 leading-none shadow-[4px_4px_0_rgba(30,27,75,0.2)]" style={{ width: 96, height: 150, fontSize: 80 }}>{sichtbar}</div>
+  );
+  const nochmalKnopf = stufe === 1 && phase === 'frage' && !ohne3D && (
+    <button onClick={nochmalAnsehen} aria-label="Nochmal ansehen" title="Nochmal ansehen" className="flex items-center gap-2 bg-indigo-100 hover:bg-indigo-200 text-indigo-800 rounded-2xl px-5 py-3 active:scale-95"><Eye className="w-8 h-8" /><RotateCcw className="w-6 h-6" /></button>
+  );
+  const ergebnisTeil = (
+    <>
+      {offen && <Zahlenhaus key={`h${idx}`} n={t.n} zeilen={zeilen} zimmer={64} />}
+      {phase === 'offen' && ok && <Cheer />}
+      {phase === 'fertig' && <Ergebnis ok={ok} n={gesucht} onNext={weiter} jubel={false} />}
+    </>
+  );
+  // Querformat: Spalte links bzw. rechts neben dem Bild – auf der Seite der geschlossenen Hand Schreibfeld, danach das Ergebnis
+  const seitenSpalte = (seite) => {
+    const gesuchte = t.leer === seite;
+    let inhalt = null;
+    if (phase === 'frage') inhalt = gesuchte ? eingabeFeld(seite) : (zahlKasten || nochmalKnopf);
+    else if (offen && gesuchte) inhalt = ergebnisTeil;
+    return <div className="w-[215px] shrink-0 flex flex-col items-center justify-center gap-4 self-stretch">{inhalt}</div>;
+  };
+  const szene = (
+    <div className={`${quer ? 'flex-1 min-w-0' : 'w-full'} bg-white rounded-3xl border-4 border-indigo-900 shadow-[6px_6px_0_rgba(30,27,75,0.25)] p-2`}>
+      {ohne3D
+        ? <div className="pt-4 pb-2"><HaendeSzene key={idx} t={t} offen={offen} ton={t.ton} hilfe={hilfe && !offen} /></div>
+        : <Haende3D t={t} stufe={stufe} offen={offen} tausch={ok && t.a !== t.b && (phase === 'tausch' || phase === 'fertig')} lauf={lauf} onFertig={animationFertig} onFehler={() => setOhne3D(true)} platzUnten={quer ? 305 : eingabe === 'tasten' ? 600 : 505} quer={quer} />}
+    </div>
+  );
+
   return (
     <div>
       <RoundDots current={idx} total={ROUND} results={results} />
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_290px] gap-6 items-start">
-        <div className="flex flex-col items-center gap-4">
-          <div className="w-full bg-white rounded-3xl border-4 border-indigo-900 shadow-[6px_6px_0_rgba(30,27,75,0.25)] p-2">
-            {ohne3D
-              ? <div className="pt-4 pb-2"><HaendeSzene key={idx} t={t} offen={offen} ton={t.ton} hilfe={hilfe && !offen} /></div>
-              : <Haende3D t={t} stufe={stufe} offen={offen} tausch={ok && t.a !== t.b && (phase === 'tausch' || phase === 'fertig')} lauf={lauf} onFertig={animationFertig} onFehler={() => setOhne3D(true)} />}
-          </div>
-          {/* Schreibfeld unter der geschlossenen Hand; in Stufe 2 steht unter der offenen Hand die sichtbare Anzahl (wie auf dem Arbeitsblatt) */}
-          {phase === 'frage' && (
-            <div className="w-full grid grid-cols-2 gap-2 items-start justify-items-center">
-              {[['l', t.leer === 'l'], ['r', t.leer === 'r']].map(([seite, gesuchteSeite]) => (
-                <div key={seite} className="min-w-0 flex justify-center">
-                  {gesuchteSeite
-                    ? <ZahlEingabe onSubmit={pruefe} resetKey={rk} nurEiner={t.n < 10} />
-                    : stufe === 2 && (
-                      <div className="flex items-center justify-center bg-white border-4 border-indigo-900 rounded-2xl font-bold text-indigo-950 leading-none shadow-[4px_4px_0_rgba(30,27,75,0.2)]" style={{ width: 120, height: 188, fontSize: 96 }}>{sichtbar}</div>
-                    )}
-                </div>
-              ))}
-            </div>
-          )}
-          {stufe === 1 && phase === 'frage' && !ohne3D && (
-            <button onClick={nochmalAnsehen} aria-label="Nochmal ansehen" title="Nochmal ansehen" className="flex items-center gap-2 bg-indigo-100 hover:bg-indigo-200 text-indigo-800 rounded-2xl px-5 py-3 active:scale-95"><Eye className="w-8 h-8" /><RotateCcw className="w-6 h-6" /></button>
-          )}
-          {hilfe && phase === 'frage' && !ohne3D && <div className="anim-pop bg-white rounded-2xl border-4 border-indigo-200 px-4 py-3"><Stange a={t.a} b={t.b} leer={t.leer} /></div>}
-          {/* Ohne WebGL: Tausch als flache Stange */}
-          {ohne3D && phase === 'tausch' && <div className="anim-flip"><Stange a={t.a} b={t.b} /></div>}
-          {ohne3D && phase === 'fertig' && ok && t.a !== t.b && <div className="anim-pop"><Stange a={t.b} b={t.a} /></div>}
-        </div>
-        <div className="flex flex-col items-center gap-4">
-          {phase === 'zeigen' && <div className="text-indigo-300 py-6"><Eye className="w-16 h-16 anim-float" /></div>}
-          {offen && <Zahlenhaus key={`h${idx}`} n={t.n} zeilen={zeilen} zimmer={64} />}
-          {phase === 'offen' && ok && <Cheer />}
-          {phase === 'fertig' && <Ergebnis ok={ok} n={gesucht} onNext={weiter} jubel={false} />}
-        </div>
+      <div className="flex flex-col items-center gap-4 w-full">
+        {quer ? (
+          // Querformat: [Spalte links] [Hände] [Spalte rechts]
+          <div className="w-full flex items-stretch gap-3">{seitenSpalte('l')}{szene}{seitenSpalte('r')}</div>
+        ) : (
+          // Hochformat: Hände über die ganze Breite, Schreibfeld unter der geschlossenen Hand (Stufe 2: Zahl unter der offenen)
+          <>
+            {szene}
+            {phase === 'frage' && (
+              <div className="w-full grid grid-cols-2 gap-2 items-start justify-items-center">
+                {['l', 'r'].map(seite => <div key={seite} className="min-w-0 flex justify-center">{t.leer === seite ? eingabeFeld(seite) : zahlKasten}</div>)}
+              </div>
+            )}
+            {nochmalKnopf}
+          </>
+        )}
+        {hilfe && phase === 'frage' && !ohne3D && <div className="anim-pop bg-white rounded-2xl border-4 border-indigo-200 px-4 py-3"><Stange a={t.a} b={t.b} leer={t.leer} /></div>}
+        {/* Ohne WebGL: Tausch als flache Stange */}
+        {ohne3D && phase === 'tausch' && <div className="anim-flip"><Stange a={t.a} b={t.b} /></div>}
+        {ohne3D && phase === 'fertig' && ok && t.a !== t.b && <div className="anim-pop"><Stange a={t.b} b={t.a} /></div>}
+        {!quer && <div className="flex flex-wrap items-center justify-center gap-6">{ergebnisTeil}</div>}
       </div>
     </div>
   );
@@ -1605,7 +1767,7 @@ const Stufe1Game = (props) => <ZerlegeHandGame {...props} stufe={1} />;
 const Stufe2Game = (props) => <ZerlegeHandGame {...props} stufe={2} />;
 
 // ==========================================
-// PLUSAUFGABE als Baustein (Stufe 4 und Pass-Probe): „7 = ___ + 4“
+// PLUSAUFGABE als Baustein (Stufe 4 und Prüfung): „7 = ___ + 4“
 // ==========================================
 // Gleichung groß; wert = Zahl in der Lücke (null = leer), farbe für die Zahl, leuchten = richtig
 function PlusGleichung({ t, wert = null, farbe = '#4f46e5', leuchten = false }) {
@@ -1624,7 +1786,7 @@ function PlusGleichung({ t, wert = null, farbe = '#4f46e5', leuchten = false }) 
 }
 
 // Eingabe: Zahlenfelder zum Draufdrücken, die gewählte Zahl erscheint in der Lücke, dann ✓.
-// onStart beim ersten Tipp (Bedenkzeit in der Pass-Probe).
+// onStart beim ersten Tipp (Bedenkzeit in der Prüfung).
 function PlusFrage({ t, onSubmit, onStart, unten = null }) {
   const [wahl, setWahl] = useState(null);
   const getippt = useRef(false);
@@ -1806,7 +1968,7 @@ const ZGAMES = [
   { id: 'z2', title: 'Stufe 2', stufe: 2, comp: Stufe2Game, bild: 'stufe2' }, // eine Hand zu, eine offen
   { id: 'z3', title: 'Stufe 3', stufe: 3, comp: Stufe3Game },
   { id: 'z4', title: 'Plusaufgaben', stufe: 4, comp: PlusGame }, // „7 = ___ + 4“, Zahl antippen
-  { id: 'zprobe', title: 'Pass-Probe', icon: Award, comp: ProbeGame, ohneGemischt: true, eigenesEnde: true }
+  { id: 'zprobe', title: 'Prüfung', icon: Award, comp: ProbeGame, ohneGemischt: true, eigenesEnde: true }
 ].map(g => ({ ...g, bereich: 'zerlegen' }));
 const gameById = (id) => [...GAMES, ...ZGAMES].find(g => g.id === id);
 
@@ -2353,7 +2515,7 @@ function AdminControlModal({ onClose, settings, setSettings, onBlaetter }) {
           <Seg value={settings.stufeFest} options={[{ v: null, l: 'frei' }, { v: 1, l: '1' }, { v: 2, l: '2' }, { v: 3, l: '3' }, { v: 4, l: '4' }]} onChange={set('stufeFest')} />
           <Label>Zerlegungen mit 0 (z. B. 6 = 6 + 0)</Label>
           <Seg value={settings.mitNull} options={[{ v: true, l: 'an' }, { v: false, l: 'aus' }]} onChange={set('mitNull')} />
-          <Label>Pass-Probe: Blitz-Stern bei Bedenkzeit unter</Label>
+          <Label>Prüfung: Blitz-Stern bei Bedenkzeit unter</Label>
           <Seg value={settings.blitzGrenze} options={[2000, 3000, 4000, 5000].map(v => ({ v, l: `${v / 1000} s` }))} onChange={set('blitzGrenze')} />
           <p className="text-xs text-slate-500">Gemessen wird nur die Zeit bis zum ersten Strich bzw. Tipp, nicht die Schreibzeit.</p>
         </div>
@@ -2418,7 +2580,7 @@ function ImpressumModal({ onClose, section }) {
           <H3>2. Das Wichtigste in Kürze</H3>
           <p>Die App funktioniert ohne Anmeldung und ohne Namen. Sie setzt keine Cookies, speichert nichts im Browser und verwendet keine Analyse-, Werbe- oder Trackingdienste. Sterne gibt es nur für die aktuelle Runde. Es wird kein Spielstand und kein Lernfortschritt gespeichert. Schriften, Tondateien, Bilder und 3D-Modelle werden direkt mit der App ausgeliefert; es werden keine Verbindungen zu Google oder anderen Drittanbietern aufgebaut.</p>
           <H3>3. Fingerschrift, Vorlesen und 3D-Darstellung</H3>
-          <p>Die App benutzt kein Mikrofon und keine Kamera. Die mit dem Finger geschriebenen Ziffern werden nur auf dem Gerät erkannt; die Schrift wird nicht gespeichert und nicht übertragen. Aufgaben, Hinweise und Zahlen werden mit aufgenommenen Sprachdateien vorgelesen, die mit der App ausgeliefert werden. Die Hände und Steckwürfel beim Zerlegen werden auf dem Gerät selbst berechnet und dargestellt (WebGL). In der Pass-Probe misst die App die Bedenkzeit bis zur ersten Eingabe, um blitzschnelle Antworten zu kennzeichnen; diese Zeit wird nur während der laufenden Probe auf dem Gerät verwendet und weder gespeichert noch übertragen.</p>
+          <p>Die App benutzt kein Mikrofon und keine Kamera. Die mit dem Finger geschriebenen Ziffern werden nur auf dem Gerät erkannt; die Schrift wird nicht gespeichert und nicht übertragen. Aufgaben, Hinweise und Zahlen werden mit aufgenommenen Sprachdateien vorgelesen, die mit der App ausgeliefert werden. Die Hände und Steckwürfel beim Zerlegen werden auf dem Gerät selbst berechnet und dargestellt (WebGL). In der Prüfung misst die App die Bedenkzeit bis zur ersten Eingabe, um blitzschnelle Antworten zu kennzeichnen; diese Zeit wird nur während der laufenden Probe auf dem Gerät verwendet und weder gespeichert noch übertragen.</p>
           <H3>4. Bereitstellung über GitHub Pages</H3>
           <p>Die App wird über GitHub Pages bereitgestellt, einen Dienst der GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf der App verarbeitet GitHub technisch notwendige Daten, insbesondere die IP-Adresse, Datum und Uhrzeit des Abrufs sowie Angaben zum verwendeten Browser. Dies ist erforderlich, um die Seite auszuliefern und ihre Sicherheit zu gewährleisten. Dabei können Daten in die USA übermittelt werden. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Mein berechtigtes Interesse liegt in einer sicheren und zuverlässigen Bereitstellung der App. Ich selbst erhalte keine Zugriffsdaten und werte keine aus. Weitere Informationen: Datenschutzerklärung von GitHub (<a href={GITHUB_PRIVACY_URL} target="_blank" rel="noopener noreferrer" className="text-cyan-300 underline underline-offset-2 hover:text-cyan-200 break-all">{GITHUB_PRIVACY_URL}</a>).</p>
           <H3>5. Deine Rechte</H3>
@@ -2453,7 +2615,7 @@ export default function App() {
   const say = useCallback((key, n) => {
     const s = SAETZE[key];
     setNarr({ key, n, text: typeof s === 'function' ? s(n) : s, stamp: Date.now() });
-    playSatz(key, n);
+    return playSatz(key, n);
   }, []);
 
   const go = (id) => {

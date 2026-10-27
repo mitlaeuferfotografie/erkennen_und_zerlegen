@@ -27,7 +27,7 @@ export const SAETZE = {
   spiel_z2: 'Übung 2',
   spiel_z3: 'Übung 3',
   spiel_z4: 'Plusaufgaben',
-  spiel_zprobe: 'Pass-Probe',
+  spiel_zprobe: 'Prüfung',
   // gefragt wird nach dem leeren Zimmer; die bekannte Zahl steht im anderen Zimmer
   zerlege_aufgabe: (t) => `Wie viel muss ich zur ${t.leer === 'r' ? t.a : t.b} dazuzählen, damit ich ${t.n} erhalte?`,
   zerlege_richtig: (t) => `Richtig! ${t.n} ist ${t.a} und ${t.b}.`,
@@ -40,12 +40,12 @@ export const SAETZE = {
   stufe2_hilfe: 'Schau in die Hand und zähl die Würfel.',
   zerlege_tausch: (t) => `Das geht auch andersherum: ${t.b} und ${t.a}.`,
   zerlege_loesung: (t) => `Schau: ${t.n} ist ${t.a} und ${t.b}.`,
-  probe_start: 'Jetzt kommt die Pass-Probe.',
+  probe_start: 'Jetzt kommt die Prüfung.',
   probe_ende: ({ richtig, gesamt, blitz }) => `${richtig === gesamt ? `Alle ${gesamt}` : `${richtig} von ${gesamt}`} richtig${blitz ? `, davon ${blitz} blitzschnell` : ''}.`,
   bald: 'Das kommt bald.',
   frei_intro: 'Leg Fünfer und Einer ins Feld. Dann schreib, wie viele es sind.',
   legen_aufgabe: ({ f, e }) => `${ZW_FUENFER[f]} und ${ZW_EINER[e]}.`,
-  legen_nochmal: 'Schau noch mal auf die Tafel.',
+  legen_nochmal: 'Schau noch einmal genau.',
   legen_tauschen: 'Schau auf die Tafel. Tausche fünf Einer gegen einen Fünfer.',
   schreib_zahl: 'Wie viele sind es? Schreib die Zahl.',
   geschafft: (s) => `Geschafft! Du hast ${s === 1 ? 'einen Stern' : `${s} Sterne`}.`,
@@ -101,7 +101,7 @@ export function alleSaetze() {
     zerlege_tausch: zerlegungen,
     stufe2_aufgabe: bis(4, 10).map(n => ({ n })),
     zerlege_frage: zerlegungen.map(t => ({ ...t, leer: 'r' })), // sichtbar = a
-    // Pass-Probe: 3 bis 11 Aufgaben (mit bzw. ohne Null-Zerlegungen)
+    // Prüfung (früher Pass-Probe): 3 bis 11 Aufgaben (mit bzw. ohne Null-Zerlegungen)
     probe_ende: bis(3, 11).flatMap(gesamt => bis(0, gesamt).flatMap(richtig => bis(0, richtig).map(blitz => ({ richtig, gesamt, blitz }))))
   };
   const out = new Map();

@@ -30,12 +30,6 @@
   "weich": 0
  },
  {
-  "datei": "5",
-  "text": "5",
-  "z": 0,
-  "weich": 0
- },
- {
   "datei": "6",
   "text": "6",
   "z": 1,
@@ -330,14 +324,6 @@
   "schluessel": "spiel_z4",
   "text": "Plusaufgaben",
   "gesprochen": "Plusaufgaben",
-  "z": 0,
-  "weich": 0
- },
- {
-  "datei": "saetze/spiel_zprobe",
-  "schluessel": "spiel_zprobe",
-  "text": "Pass-Probe",
-  "gesprochen": "Passprobe",
   "z": 0,
   "weich": 0
  },
@@ -2210,14 +2196,6 @@
   "schluessel": "zerlege_loesung",
   "text": "Schau: 10 ist 10 und 0.",
   "gesprochen": "Schau: zehn ist zehn und null.",
-  "z": 0,
-  "weich": 0
- },
- {
-  "datei": "saetze/probe_start",
-  "schluessel": "probe_start",
-  "text": "Jetzt kommt die Pass-Probe.",
-  "gesprochen": "Jetzt kommt die Passprobe.",
   "z": 0,
   "weich": 0
  },
@@ -5270,14 +5248,6 @@
   "weich": 0
  },
  {
-  "datei": "saetze/legen_nochmal",
-  "schluessel": "legen_nochmal",
-  "text": "Schau noch mal auf die Tafel.",
-  "gesprochen": "Schau noch mal auf die Tafel.",
-  "z": 0,
-  "weich": 0
- },
- {
   "datei": "saetze/legen_tauschen",
   "schluessel": "legen_tauschen",
   "text": "Schau auf die Tafel. Tausche fünf Einer gegen einen Fünfer.",
@@ -6250,6 +6220,36 @@
   "schluessel": "zerlege_frage",
   "text": "Die 10 zerlege ich in 10 und …?",
   "gesprochen": "Die zehn zerlege ich in zehn und?",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/spiel_zprobe",
+  "schluessel": "spiel_zprobe",
+  "text": "Prüfung",
+  "gesprochen": "Prüfung",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/probe_start",
+  "schluessel": "probe_start",
+  "text": "Jetzt kommt die Prüfung.",
+  "gesprochen": "Jetzt kommt die Prüfung.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/legen_nochmal",
+  "schluessel": "legen_nochmal",
+  "text": "Schau noch einmal genau.",
+  "gesprochen": "Schau noch einmal genau.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "5",
+  "text": "5",
   "z": 0,
   "weich": 0
  }

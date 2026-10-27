@@ -33,7 +33,10 @@ AUSSPRACHE = {
     'nˈɔøn': 'nˈɔɪn',                         # neun → „noin“
     'tsˈeːn': 'ttsˈeːn',                      # zehn, Zehner: kräftigeres t (sonst klingt das z wie s)
 }
-NEUN_AUSBLENDEN = 0.10  # die einzelne 9 wird aus „Neunzehn“ herausgeschnitten (klang als Einzelwort nicht gut), so lange ausblenden
+# Einzelne Zahlen, die als Einzelwort nicht gut klangen, werden aus der „-zehn“-Zahl herausgeschnitten
+# (bis zum letzten Laut vor „zehn“, dann 0,1 s weich ausblenden): 9 aus „Neunzehn“ („noin“), 5 aus „Fünfzehn“ (klang wie „fanf“).
+AUS_ZEHN = {9: 'Neunzehn.', 5: 'Fünfzehn.'}
+NEUN_AUSBLENDEN = 0.10
 
 
 def lautschrift_anpassen(laute):
@@ -175,14 +178,16 @@ def main(onnx, liste, ziel, nur=None):
     os.makedirs(os.path.join(ziel, 'saetze'), exist_ok=True)
     alt = os.path.join(ziel, 'saetze', 'bericht.json')
     bericht = [b for b in json.load(open(alt, encoding='utf-8')) if b.get('schluessel') not in nur] if nur and os.path.exists(alt) else []
-    # Zahlen 0–20 (gleiches Modell wie die Sätze, damit alles gleich klingt)
-    for n in (range(0, 21) if not nur else []):
+    # Zahlen 0–20 (gleiches Modell wie die Sätze, damit alles gleich klingt); mit nur=['zahl_5', …] nur diese Zahlen
+    zahlen = range(0, 21) if not nur else [int(k[5:]) for k in nur if k.startswith('zahl_')]
+    bericht = [b for b in bericht if b['datei'] not in [str(n) for n in zahlen]]
+    for n in zahlen:
         t = sprechtext(str(n))
         a, laute = stimme.sprich(t + '.', TEMPO_ZAHL)
-        if n == 9:  # „noin“ aus „Neunzehn“: bis zum Ende des n vor „zehn“, dann weich ausblenden
-            a, laute = stimme.sprich('Neunzehn.', TEMPO_ZAHL)
+        if n in AUS_ZEHN:  # aus „Neunzehn“ bzw. „Fünfzehn“: bis zum letzten Laut vor „zehn“, dann weich ausblenden
+            a, laute = stimme.sprich(AUS_ZEHN[n], TEMPO_ZAHL)
             ps = [l[0] for l in laute]
-            kn = next(i for i in range(len(ps) - 1) if ps[i] == 'n' and ps[i + 1] == 't')
+            kn = next(i for i in range(1, len(ps) - 1) if ps[i + 1] == 't')
             ende, fade = laute[kn][2], int(NEUN_AUSBLENDEN * sr)
             a = a[:ende].copy(); a[-fade:] *= np.linspace(1, 0, fade)
             laute = [l for l in laute if l[2] <= ende]

@@ -254,7 +254,10 @@ export function erzeugeZerlegeSzene(container, { modellPfad = 'modelle/' } = {})
     camera.aspect = w / h;
     const breite = 18.5;
     const vFov = MathUtils.degToRad(camera.fov);
-    const dist = Math.max(15, (breite / 2) / (Math.tan(vFov / 2) * camera.aspect)) + 2;
+    // Abstand so, dass die ganze Breite (Hände) UND die Höhe (bis zur Zahlenkarte vorne) ins Bild passen –
+    // bei sehr breiten, flachen Bildern (iPad quer, einspaltig) würde sonst die Karte unten abgeschnitten
+    const hoeheHalb = 5.8;
+    const dist = Math.max(15, (breite / 2) / (Math.tan(vFov / 2) * camera.aspect), hoeheHalb / Math.tan(vFov / 2)) + 2;
     camera.position.set(0, dist * 0.42, dist);
     camera.lookAt(0, -0.2, 2.2);
     camera.updateProjectionMatrix();
