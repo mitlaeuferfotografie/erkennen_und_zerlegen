@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo, createContext, useContext } from 'react';
 import { erzeugeZerlegeSzene, HAUT } from './zerlege3d';
 import { SAETZE, satzDatei, NACH_SATZ_ZAHL, NUR_ZAHL } from './saetze';
-import { Lock, X, Settings, Copy, Printer, Scissors, Hand, Plus as PlusZeichen, ArrowRight, ArrowLeft, RotateCcw, Volume2, Delete, Eraser, Check, Home, Zap, Hourglass, Star, PenLine, Grid3x3, Eye, Ear, Blocks, Shapes, Award, Shuffle } from 'lucide-react';
+import { Lock, X, Settings, Copy, Smartphone, RotateCw, Printer, Scissors, Hand, Plus as PlusZeichen, ArrowRight, ArrowLeft, RotateCcw, Volume2, Delete, Eraser, Check, Home, Zap, Hourglass, Star, PenLine, Grid3x3, Eye, Ear, Blocks, Shapes, Award, Shuffle } from 'lucide-react';
 
 // ==========================================
 // ERKENNEN UND ZERLEGEN (früher „Die Fünfer-Bande“) – Kraft der 5 und Zerlegen (Klasse 1)
@@ -302,7 +302,7 @@ function ReturnGhost({ r, onDone }) {
 }
 
 // Ziffern-Tastatur (wie Zehner-Bande, größer, Symbole statt Wörter)
-function NumPad({ value, onChange, onSubmit, maxLen = 2, disabled = false, onStart, kompakt = false }) {
+function NumPad({ value, onChange, onSubmit, maxLen = 2, disabled = false, onStart, kompakt = false, eng = false }) {
   const press = useCallback((d) => { if (disabled) return; onStart && onStart(); if (value.length < maxLen) onChange((value === '0' ? '' : value) + d); }, [value, maxLen, onChange, disabled, onStart]);
   const del = useCallback(() => { if (!disabled) onChange(value.slice(0, -1)); }, [value, onChange, disabled]);
   useEffect(() => {
@@ -315,11 +315,11 @@ function NumPad({ value, onChange, onSubmit, maxLen = 2, disabled = false, onSta
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
   }, [press, del, onSubmit, value, disabled]);
-  const hoch = kompakt ? 'h-12' : 'h-16'; // kompakt: niedrigere Tasten (Übung 1/2 auf dem iPad quer)
+  const hoch = eng ? 'h-10' : kompakt ? 'h-12' : 'h-16'; // kompakt: niedrigere Tasten (Übung 1/2 auf dem iPad quer)
   const key = `${hoch} rounded-2xl bg-white hover:bg-indigo-50 border-2 border-indigo-200 text-4xl font-bold text-indigo-950 shadow-[0_3px_0_#c7d2fe] active:translate-y-0.5 active:shadow-none disabled:opacity-40`;
   return (
     <div className="flex flex-col items-center gap-2 w-full max-w-[290px] mx-auto">
-      <div className={`w-full bg-white border-4 border-indigo-900 rounded-2xl ${kompakt ? 'h-14' : 'h-20'} flex items-center justify-center shadow-inner`}>
+      <div className={`w-full bg-white border-4 border-indigo-900 rounded-2xl ${eng ? 'h-12' : kompakt ? 'h-14' : 'h-20'} flex items-center justify-center shadow-inner`}>
         {value ? <span className="text-6xl font-bold leading-none text-indigo-950">{value}</span> : <span className="text-5xl font-bold text-slate-300">?</span>}
       </div>
       <div className="grid grid-cols-3 gap-2 w-full">
@@ -602,7 +602,7 @@ function WritePad({ label, color, light, dark, onResult, disabled, resetKey, siz
 // nurEiner = nur ein Schreibfeld (Antwort sicher unter 10, z. B. Zerlegen 4–9) – ein leeres Zehnerfeld verwirrt nur.
 // kompakt = kleineres Feld, Prüfen-Haken (und extra, z. B. der Tippen-Schalter) neben statt unter dem Feld – für Übung 1/2,
 // damit auf dem iPad quer nichts unter den Bildschirmrand rutscht. knoepfeLinks = Knöpfe links vom Feld.
-function HandwriteNumber({ onSubmit, disabled, withH = false, optional = false, onStart, nurEiner = false, kompakt = false, knoepfeLinks = false, extra = null, klein = false }) {
+function HandwriteNumber({ onSubmit, disabled, withH = false, optional = false, onStart, nurEiner = false, kompakt = false, knoepfeLinks = false, extra = null, klein = false, eng = false }) {
   const [rh, setRh] = useState(null);
   const [rz, setRz] = useState(null);
   const [re, setRe] = useState(null);
@@ -610,12 +610,12 @@ function HandwriteNumber({ onSubmit, disabled, withH = false, optional = false, 
   const fine = (r) => !r || okRes(r);
   const ready = okRes(re) && (nurEiner || ((optional ? fine(rz) : okRes(rz)) && (!withH || fine(rh)) && !(rh && !rz)));
   const value = () => (nurEiner ? re.digit : (withH && rh ? rh.digit * 100 : 0) + (rz ? rz.digit * 10 : 0) + re.digit);
-  const size = withH ? 108 : kompakt || klein ? 120 : 150;
+  const size = withH ? 108 : eng ? 90 : kompakt || klein ? 120 : 150;
   const [loesch, setLoesch] = useState(0); // kompakt: gemeinsamer Radiergummi leert alle Felder
   const pad = { ohneRadierer: kompakt, resetKey: kompakt ? loesch : undefined };
-  const pruefen = <button onClick={() => onSubmit(value())} disabled={!ready || disabled} className="bg-yellow-400 hover:bg-yellow-300 disabled:opacity-40 text-indigo-950 font-black text-xl py-3 px-10 rounded-xl shadow-[0_4px_0_#ca8a04] active:translate-y-1 active:shadow-none" aria-label="Prüfen"><Check className="w-8 h-8" strokeWidth={3} /></button>;
+  const pruefen = <button onClick={() => onSubmit(value())} disabled={!ready || disabled} className={`bg-yellow-400 hover:bg-yellow-300 disabled:opacity-40 text-indigo-950 font-black text-xl py-3 ${kompakt ? 'px-4' : 'px-10'} rounded-xl shadow-[0_4px_0_#ca8a04] active:translate-y-1 active:shadow-none`} aria-label="Prüfen"><Check className="w-8 h-8" strokeWidth={3} /></button>;
   return (
-    <div className={kompakt ? `flex items-center gap-3 ${knoepfeLinks ? 'flex-row-reverse' : ''}` : 'flex flex-col items-center gap-3'}>
+    <div className={kompakt ? `flex items-center ${eng ? 'gap-2' : 'gap-3'} ${knoepfeLinks ? 'flex-row-reverse' : ''}` : 'flex flex-col items-center gap-3'}>
       <div className="flex">
         {nurEiner && <WritePad {...pad} size={size} side="single" label="" color={COL.e} light={COL.eLight} dark={COL.eDark} onResult={setRe} disabled={disabled} hint="" onStart={onStart} />}
         {!nurEiner && withH && <WritePad {...pad} size={size} side="left" label="H" color={COL.h} light={COL.hLight} dark={COL.hDark} onResult={setRh} disabled={disabled} hint="nur bei 100" />}
@@ -634,7 +634,8 @@ function HandwriteNumber({ onSubmit, disabled, withH = false, optional = false, 
 }
 
 // Zahl eingeben: mit dem Finger schreiben (Standard, Z | E wie in der Zehner-Bande) oder tippen
-function ZahlEingabe({ onSubmit, resetKey, onStart, nurEiner = false, kompakt = false, knoepfeLinks = false, klein = false }) {
+// eng = Handy hoch: noch kleinere Felder bzw. schmaleres Tastenfeld, damit Feld, Knöpfe und Zahl nebeneinander passen
+function ZahlEingabe({ onSubmit, resetKey, onStart, nurEiner = false, kompakt = false, knoepfeLinks = false, klein = false, eng = false }) {
   const { eingabe, setSettings } = useSettings();
   const [value, setValue] = useState('');
   useEffect(() => { setValue(''); }, [resetKey]);
@@ -646,17 +647,17 @@ function ZahlEingabe({ onSubmit, resetKey, onStart, nurEiner = false, kompakt = 
     </button>
   );
   // kompakt (Übung 1/2): Knöpfe neben dem Feld, damit auf dem iPad quer alles ohne Scrollen sichtbar bleibt
-  if (kompakt && stift) return <HandwriteNumber key={resetKey} onSubmit={onSubmit} optional onStart={onStart} nurEiner={nurEiner} kompakt knoepfeLinks={knoepfeLinks} extra={umschalter} />;
+  if (kompakt && stift) return <HandwriteNumber key={resetKey} onSubmit={onSubmit} optional onStart={onStart} nurEiner={nurEiner} kompakt knoepfeLinks={knoepfeLinks} extra={umschalter} eng={eng} />;
   if (kompakt) {
     return (
       <div className={`flex items-center gap-3 ${knoepfeLinks ? 'flex-row-reverse' : ''}`}>
-        <div className="w-[240px]"><NumPad value={value} onChange={setValue} onSubmit={submitTasten} onStart={onStart} maxLen={nurEiner ? 1 : 2} kompakt /></div>
+        <div className={eng ? 'w-[190px]' : 'w-[240px]'}><NumPad value={value} onChange={setValue} onSubmit={submitTasten} onStart={onStart} maxLen={nurEiner ? 1 : 2} kompakt eng={eng} /></div>
         {umschalter}
       </div>
     );
   }
   return (
-    <div className="flex flex-col items-center gap-3 w-full">
+    <div className={`flex flex-col items-center gap-3 ${klein ? '' : 'w-full'}`}>
       {stift
         ? <HandwriteNumber key={resetKey} onSubmit={onSubmit} optional onStart={onStart} nurEiner={nurEiner} klein={klein} />
         : <NumPad value={value} onChange={setValue} onSubmit={submitTasten} onStart={onStart} maxLen={nurEiner ? 1 : 2} kompakt={klein} />}
@@ -710,7 +711,8 @@ function Ergebnis({ ok, n, onNext, jubel = true }) {
 // ==========================================
 // pieces/setPieces kommen von der Übung. locked = nichts mehr bewegen (z. B. beim Schreiben).
 // glow = Zeitstempel: Fünfer leuchten kurz auf („Schau, das sind 5“). side = rechte Spalte (Tafel, Schreiben …).
-function LegeBrett({ pieces, setPieces, locked = false, glow = 0, side = null }) {
+// knoepfe = Knöpfe (z. B. Fertig-Haken), die auf schmalen Bildschirmen direkt unter dem Feld stehen (über dem Tisch, ohne Scrollen)
+function LegeBrett({ pieces, setPieces, locked = false, glow = 0, side = null, knoepfe = null }) {
   const { maxN, einerAufTisch } = useSettings();
   const say = useSay();
   const total = maxN;
@@ -735,7 +737,8 @@ function LegeBrett({ pieces, setPieces, locked = false, glow = 0, side = null })
     return () => window.removeEventListener('resize', measure);
   }, [maxN]);
   const unitRef = useRef(unitPx); unitRef.current = unitPx;
-  const trayUnit = Math.max(34, Math.min(48, unitPx));
+  // Teile auf dem Tisch so groß wie die Plätze im Feld (auf dem Handy kleiner) – so passen immer zwei Fünfer nebeneinander
+  const trayUnit = Math.max(22, Math.min(48, unitPx));
 
   const laid = layoutPieces(pieces);
   const filled = countSlots(pieces);
@@ -897,6 +900,7 @@ function LegeBrett({ pieces, setPieces, locked = false, glow = 0, side = null })
               <PieceSvg kind="f" unit={22} />
             </button>
           )}
+          {knoepfe && !locked && <div className="flex items-center gap-3 lg:hidden">{knoepfe}</div>}
           {pieces.length > 0 && !locked && (
             <button onClick={clearAll} aria-label="Alles zurück" title="Alles zurück" className="rounded-2xl bg-slate-200 hover:bg-slate-300 text-slate-600 p-3 active:scale-95"><RotateCcw className="w-7 h-7" /></button>
           )}
@@ -910,7 +914,7 @@ function LegeBrett({ pieces, setPieces, locked = false, glow = 0, side = null })
               ? <div key={i} onPointerDown={(ev) => startDrag(ev, 'f', 'tray')} className={`rounded-full ${shakeKind && shakeKind.startsWith('f') ? 'anim-shake' : ''}`} style={{ touchAction: 'none', cursor: 'grab', padding: 4 }}><PieceSvg kind="f" unit={trayUnit} /></div>
               : <div key={i} style={{ width: 5 * trayUnit + 8, height: trayUnit + 8, borderRadius: 999, border: '2px dashed rgba(120,53,15,0.3)' }} />)}
           </div>
-          <div className="flex flex-wrap gap-2 justify-center mt-4">
+          <div className="flex flex-wrap gap-2 justify-center mt-2 sm:mt-4">
             {[...Array(einerAufTisch)].map((_, i) => i < trayE
               ? <div key={i} onPointerDown={(ev) => startDrag(ev, 'e', 'tray')} className={shakeKind && shakeKind.startsWith('e') ? 'anim-shake' : ''} style={{ touchAction: 'none', cursor: 'grab', padding: 4 }}><PieceSvg kind="e" unit={trayUnit} /></div>
               : <div key={i} style={{ width: trayUnit + 8, height: trayUnit + 8, borderRadius: 999, border: '2px dashed rgba(120,53,15,0.3)' }} />)}
@@ -948,16 +952,17 @@ function RoundDots({ current, total, results }) {
 
 // Angabe als Tafel: Fünfer-Symbol | Einer-Symbol mit Ziffern (kein Bild der Teile, sonst nur Abgleichen)
 function Tafel({ f, e, puls = 0 }) {
+  const schmal = useMedia(SCHMAL); // Handy: etwas kleiner, damit der Material-Tisch ganz ins Bild passt
   return (
     <div key={puls} className={`inline-flex items-stretch bg-white border-4 border-indigo-900 rounded-3xl overflow-hidden shadow-[4px_4px_0_rgba(30,27,75,0.2)] ${puls ? 'anim-shake' : ''}`}>
-      <div className="flex items-center gap-3 px-4 py-2">
-        <FridaSvg size={95} />
-        <span className="text-6xl font-bold leading-none" style={{ color: COL.eDark }}>{f}</span>
+      <div className="flex items-center gap-3 px-3 py-1 sm:px-4 sm:py-2">
+        <FridaSvg size={schmal ? 76 : 95} />
+        <span className="text-5xl sm:text-6xl font-bold leading-none" style={{ color: COL.eDark }}>{f}</span>
       </div>
       <div className="w-1 bg-indigo-900" />
-      <div className="flex items-center gap-3 px-4 py-2">
+      <div className="flex items-center gap-3 px-3 py-1 sm:px-4 sm:py-2">
         <EliSvg size={30} />
-        <span className="text-6xl font-bold leading-none" style={{ color: COL.eDark }}>{e}</span>
+        <span className="text-5xl sm:text-6xl font-bold leading-none" style={{ color: COL.eDark }}>{e}</span>
       </div>
     </div>
   );
@@ -1023,7 +1028,7 @@ function LegenGame({ onFinish }) {
     <>
       <div className="hidden lg:block"><Tafel f={f} e={e} puls={puls} /></div>
       {phase === 'legen' && (
-        <button onClick={pruefeLegen} disabled={pieces.length === 0} aria-label="Fertig gelegt" title="Fertig gelegt" className="bg-yellow-400 hover:bg-yellow-300 disabled:opacity-40 text-indigo-950 rounded-2xl px-12 py-4 shadow-[0_4px_0_#ca8a04] active:translate-y-1 active:shadow-none">
+        <button onClick={pruefeLegen} disabled={pieces.length === 0} aria-label="Fertig gelegt" title="Fertig gelegt" className="hidden lg:block bg-yellow-400 hover:bg-yellow-300 disabled:opacity-40 text-indigo-950 rounded-2xl px-12 py-4 shadow-[0_4px_0_#ca8a04] active:translate-y-1 active:shadow-none">
           <Check className="w-12 h-12" strokeWidth={3} />
         </button>
       )}
@@ -1035,8 +1040,10 @@ function LegenGame({ onFinish }) {
   return (
     <div>
       <RoundDots current={idx} total={ROUND} results={results} />
-      <div className="flex justify-center mb-4 lg:hidden"><Tafel f={f} e={e} puls={puls} /></div>
-      <LegeBrett pieces={pieces} setPieces={setPieces} locked={phase !== 'legen'} glow={glow} side={side} />
+      <div className="flex justify-center mb-2 sm:mb-4 lg:hidden"><Tafel f={f} e={e} puls={puls} /></div>
+      <LegeBrett pieces={pieces} setPieces={setPieces} locked={phase !== 'legen'} glow={glow} side={side} knoepfe={phase === 'legen' && (
+        <button onClick={pruefeLegen} disabled={pieces.length === 0} aria-label="Fertig gelegt" title="Fertig gelegt" className="bg-yellow-400 hover:bg-yellow-300 disabled:opacity-40 text-indigo-950 rounded-2xl px-7 py-2 shadow-[0_4px_0_#ca8a04] active:translate-y-1 active:shadow-none"><Check className="w-10 h-10" strokeWidth={3} /></button>
+      )} />
     </div>
   );
 }
@@ -1213,8 +1220,8 @@ function UmkehrGame({ onFinish }) {
   const side = phase === 'legen'
     ? (
       <>
-        <button onClick={() => say('umkehr_aufgabe', n)} aria-label="Zahl nochmal hören" title="Zahl nochmal hören" className="bg-indigo-600 hover:bg-indigo-500 text-white rounded-3xl px-10 py-5 shadow-lg active:scale-95"><Ear className="w-14 h-14" /></button>
-        <button onClick={pruefe} disabled={pieces.length === 0} aria-label="Fertig gelegt" title="Fertig gelegt" className="bg-yellow-400 hover:bg-yellow-300 disabled:opacity-40 text-indigo-950 rounded-2xl px-12 py-4 shadow-[0_4px_0_#ca8a04] active:translate-y-1 active:shadow-none">
+        <button onClick={() => say('umkehr_aufgabe', n)} aria-label="Zahl nochmal hören" title="Zahl nochmal hören" className="hidden lg:block bg-indigo-600 hover:bg-indigo-500 text-white rounded-3xl px-10 py-5 shadow-lg active:scale-95"><Ear className="w-14 h-14" /></button>
+        <button onClick={pruefe} disabled={pieces.length === 0} aria-label="Fertig gelegt" title="Fertig gelegt" className="hidden lg:block bg-yellow-400 hover:bg-yellow-300 disabled:opacity-40 text-indigo-950 rounded-2xl px-12 py-4 shadow-[0_4px_0_#ca8a04] active:translate-y-1 active:shadow-none">
           <Check className="w-12 h-12" strokeWidth={3} />
         </button>
       </>
@@ -1229,7 +1236,12 @@ function UmkehrGame({ onFinish }) {
   return (
     <div>
       <RoundDots current={idx} total={ROUND} results={results} />
-      <LegeBrett pieces={pieces} setPieces={setPieces} locked={phase !== 'legen'} glow={glow} side={side} />
+      <LegeBrett pieces={pieces} setPieces={setPieces} locked={phase !== 'legen'} glow={glow} side={side} knoepfe={phase === 'legen' && (
+        <>
+          <button onClick={() => say('umkehr_aufgabe', n)} aria-label="Zahl nochmal hören" title="Zahl nochmal hören" className="bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl px-5 py-2 shadow-lg active:scale-95"><Ear className="w-10 h-10" /></button>
+          <button onClick={pruefe} disabled={pieces.length === 0} aria-label="Fertig gelegt" title="Fertig gelegt" className="bg-yellow-400 hover:bg-yellow-300 disabled:opacity-40 text-indigo-950 rounded-2xl px-7 py-2 shadow-[0_4px_0_#ca8a04] active:translate-y-1 active:shadow-none"><Check className="w-10 h-10" strokeWidth={3} /></button>
+        </>
+      )} />
     </div>
   );
 }
@@ -1586,7 +1598,7 @@ function HaendeSzene({ t, offen, ton, hilfe = false }) {
 // stufe 1: Hände greifen die ganze Stange, brechen sie, ein Teil verschwindet in der Hand (dann onFertig)
 // stufe 2: Stange schon geteilt, eine Hand schon zu (sofort onFertig). offen = true → Hand öffnet sich.
 // lauf: hochzählen, um die Animation noch einmal abzuspielen. Ohne WebGL: onFehler → gezeichnete Hände.
-function Haende3D({ t, stufe, offen, tausch = false, lauf = 0, onFertig, onFehler, platzUnten = 520, quer = false }) {
+function Haende3D({ t, stufe, offen, tausch = false, lauf = 0, onFertig, onFehler, platzUnten = 520, quer = false, minHoehe = 160 }) {
   const box = useRef(null);
   const szene = useRef(null);
   const fertigRef = useRef(onFertig); fertigRef.current = onFertig;
@@ -1617,7 +1629,7 @@ function Haende3D({ t, stufe, offen, tausch = false, lauf = 0, onFertig, onFehle
     <div className="w-full">
       {/* Die Zahl liegt als Karte vorne auf dem Tisch (in der 3D-Szene) und bleibt immer sichtbar */}
       {/* Höhe passt sich dem Bildschirm an (iPad quer: Schreibfeld und Prüfen-Haken bleiben ohne Scrollen sichtbar) */}
-      <div ref={box} className="w-full rounded-2xl overflow-hidden" style={quer ? { aspectRatio: '1.45', maxHeight: `calc(100dvh - ${platzUnten}px)` } : { height: `min(56vw, 400px, max(160px, calc(100dvh - ${platzUnten}px)))` }} />
+      <div ref={box} className="w-full rounded-2xl overflow-hidden" style={quer ? { aspectRatio: '1.45', maxHeight: `calc(100dvh - ${platzUnten}px)` } : { height: `min(56vw, 400px, max(${minHoehe}px, calc(100dvh - ${platzUnten}px)))` }} />
     </div>
   );
 }
@@ -1625,13 +1637,28 @@ function Haende3D({ t, stufe, offen, tausch = false, lauf = 0, onFertig, onFehle
 // Querformat mit wenig Höhe (iPad quer, mit Safari-Leisten): dort stehen Schreibfeld und Zahl NEBEN den Händen,
 // sonst reicht die Höhe nicht für Bild + Schreibfeld übereinander.
 const QUER = '(orientation: landscape) and (max-height: 900px)';
-function useQuerFormat() {
-  const [quer, setQuer] = useState(() => typeof window !== 'undefined' && window.matchMedia(QUER).matches);
+const SCHMAL = '(max-width: 639px)'; // Handy hoch: zu schmal für Feld + Knöpfe nebeneinander unter einer Hand
+function useMedia(abfrage) {
+  const [an, setAn] = useState(() => typeof window !== 'undefined' && window.matchMedia(abfrage).matches);
   useEffect(() => {
-    const mq = window.matchMedia(QUER), h = () => setQuer(mq.matches);
+    const mq = window.matchMedia(abfrage), h = () => setAn(mq.matches);
     mq.addEventListener('change', h); return () => mq.removeEventListener('change', h);
-  }, []);
-  return quer;
+  }, [abfrage]);
+  return an;
+}
+const useQuerFormat = () => useMedia(QUER);
+// Handy quer (sehr wenig Höhe): Dafür reicht keine Anordnung der Übungen – die App bittet mit einem Bild ums Drehen
+const HANDY_QUER = '(orientation: landscape) and (max-height: 480px)';
+function DrehHinweis() {
+  return (
+    <div className="no-print fixed inset-0 z-[240] bg-indigo-950 flex flex-col items-center justify-center gap-4 text-yellow-300" role="alert" aria-label="Bitte das Handy hochkant drehen">
+      <div className="relative">
+        <Smartphone className="w-24 h-24 rotate-90" strokeWidth={1.6} />
+        <RotateCw className="w-12 h-12 absolute -right-8 -top-6 text-white" strokeWidth={2.4} />
+      </div>
+      <Smartphone className="w-20 h-20" strokeWidth={1.6} />
+    </div>
+  );
 }
 
 // ==========================================
@@ -1643,6 +1670,7 @@ function useQuerFormat() {
 function ZerlegeHandGame({ onFinish, zahl, stufe }) {
   const { mitNull, eingabe } = useSettings();
   const quer = useQuerFormat();
+  const schmal = useMedia(SCHMAL) && !quer;
   const say = useSay();
   const [tasks] = useState(() => stufenAufgaben(zahl, mitNull).map(t => {
     const hautNr = Math.floor(Math.random() * HAUT.length);
@@ -1705,9 +1733,9 @@ function ZerlegeHandGame({ onFinish, zahl, stufe }) {
   if (ok && t.a !== t.b && (phase === 'tausch' || phase === 'fertig')) zeilen.push({ a: t.b, b: t.a, farbe: paarFarbe(t.a, t.b), neu: true });
 
   // Bausteine der Seite: Schreibfeld (unter bzw. neben der geschlossenen Hand), sichtbare Anzahl (Stufe 2), Ergebnis
-  const eingabeFeld = (seite) => <ZahlEingabe onSubmit={pruefe} resetKey={rk} nurEiner={t.n < 10} kompakt={!quer} knoepfeLinks={seite === 'r'} klein={quer} />;
+  const eingabeFeld = (seite) => <ZahlEingabe onSubmit={pruefe} resetKey={rk} nurEiner={t.n < 10} kompakt={!quer} knoepfeLinks={seite === 'r'} klein={quer} eng={schmal} />;
   const zahlKasten = stufe === 2 && (
-    <div className="flex items-center justify-center bg-white border-4 border-indigo-900 rounded-2xl font-bold text-indigo-950 leading-none shadow-[4px_4px_0_rgba(30,27,75,0.2)]" style={{ width: 96, height: 150, fontSize: 80 }}>{sichtbar}</div>
+    <div className="flex items-center justify-center bg-white border-4 border-indigo-900 rounded-2xl font-bold text-indigo-950 leading-none shadow-[4px_4px_0_rgba(30,27,75,0.2)]" style={schmal ? { width: 60, height: 112, fontSize: 54 } : { width: 96, height: 150, fontSize: 80 }}>{sichtbar}</div>
   );
   const nochmalKnopf = stufe === 1 && phase === 'frage' && !ohne3D && (
     <button onClick={nochmalAnsehen} aria-label="Nochmal ansehen" title="Nochmal ansehen" className="flex items-center gap-2 bg-indigo-100 hover:bg-indigo-200 text-indigo-800 rounded-2xl px-5 py-3 active:scale-95"><Eye className="w-8 h-8" /><RotateCcw className="w-6 h-6" /></button>
@@ -1731,7 +1759,7 @@ function ZerlegeHandGame({ onFinish, zahl, stufe }) {
     <div className={`${quer ? 'flex-1 min-w-0' : 'w-full'} bg-white rounded-3xl border-4 border-indigo-900 shadow-[6px_6px_0_rgba(30,27,75,0.25)] p-2`}>
       {ohne3D
         ? <div className="pt-4 pb-2"><HaendeSzene key={idx} t={t} offen={offen} ton={t.ton} hilfe={hilfe && !offen} /></div>
-        : <Haende3D t={t} stufe={stufe} offen={offen} tausch={ok && t.a !== t.b && (phase === 'tausch' || phase === 'fertig')} lauf={lauf} onFertig={animationFertig} onFehler={() => setOhne3D(true)} platzUnten={quer ? 305 : eingabe === 'tasten' ? 600 : 505} quer={quer} />}
+        : <Haende3D t={t} stufe={stufe} offen={offen} tausch={ok && t.a !== t.b && (phase === 'tausch' || phase === 'fertig')} lauf={lauf} onFertig={animationFertig} onFehler={() => setOhne3D(true)} platzUnten={quer ? 305 : eingabe === 'tasten' ? (schmal ? 530 : 600) : (schmal ? 470 : 505)} quer={quer} minHoehe={schmal ? 130 : 160} />}
     </div>
   );
 
@@ -1746,11 +1774,17 @@ function ZerlegeHandGame({ onFinish, zahl, stufe }) {
           // Hochformat: Hände über die ganze Breite, Schreibfeld unter der geschlossenen Hand (Stufe 2: Zahl unter der offenen)
           <>
             {szene}
-            {phase === 'frage' && (
+            {phase === 'frage' && (schmal ? (
+              // Handy hoch: Schreibfeld (Knöpfe darunter) und Zahl links/rechts außen – auf der Seite ihrer Hand
+              <div className={`w-full flex items-start justify-between gap-2 px-1 ${t.leer === 'r' ? 'flex-row-reverse' : ''}`}>
+                {eingabeFeld(t.leer)}
+                {zahlKasten || <div />}
+              </div>
+            ) : (
               <div className="w-full grid grid-cols-2 gap-2 items-start justify-items-center">
                 {['l', 'r'].map(seite => <div key={seite} className="min-w-0 flex justify-center">{t.leer === seite ? eingabeFeld(seite) : zahlKasten}</div>)}
               </div>
-            )}
+            ))}
             {nochmalKnopf}
           </>
         )}
@@ -1793,13 +1827,13 @@ function PlusFrage({ t, onSubmit, onStart, unten = null }) {
   const maxZahl = Math.min(9, t.n); // gesucht ist immer eine einzelne Ziffer
   const tippe = (k) => { if (!getippt.current) { getippt.current = true; if (onStart) onStart(); } setWahl(k); };
   return (
-    <div className="flex flex-col items-center gap-6">
+    <div className="flex flex-col items-center gap-4 sm:gap-6">
       <PlusGleichung t={t} wert={wahl} />
       {unten}
-      <div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-xl">
+      <div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-[300px] sm:max-w-xl">
         {[...Array(maxZahl + 1)].map((_, k) => (
           <button key={k} onClick={() => tippe(k)} aria-label={`Zahl ${k}`}
-            className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl border-4 text-4xl sm:text-5xl font-bold shadow-[0_4px_0_#c7d2fe] active:translate-y-1 active:shadow-none ${wahl === k ? 'bg-indigo-600 text-white border-indigo-700' : 'bg-white text-indigo-950 border-indigo-200 hover:bg-indigo-50'}`}>{k}</button>
+            className={`w-[52px] h-[52px] sm:w-20 sm:h-20 rounded-2xl border-4 text-3xl sm:text-5xl font-bold shadow-[0_4px_0_#c7d2fe] active:translate-y-1 active:shadow-none ${wahl === k ? 'bg-indigo-600 text-white border-indigo-700' : 'bg-white text-indigo-950 border-indigo-200 hover:bg-indigo-50'}`}>{k}</button>
         ))}
       </div>
       <button onClick={() => wahl != null && onSubmit(wahl)} disabled={wahl == null} aria-label="Prüfen" title="Prüfen" className="h-16 px-12 rounded-2xl bg-yellow-400 hover:bg-yellow-300 disabled:opacity-40 text-indigo-950 shadow-[0_4px_0_#ca8a04] active:translate-y-1 active:shadow-none inline-flex items-center justify-center"><Check className="w-10 h-10" strokeWidth={3} /></button>
@@ -2608,6 +2642,7 @@ export default function App() {
   const [impressum, setImpressum] = useState(null); // null | 'impressum' | 'datenschutz'
   const [admin, setAdmin] = useState(null); // null | 'auth' | 'offen'
   const [blaetter, setBlaetter] = useState(false);
+  const handyQuer = useMedia(HANDY_QUER);
   const [narr, setNarr] = useState(() => (settings.zahlFest && !direkt
     ? { key: 'stufe_wahl', n: settings.zahlFest, text: SAETZE.stufe_wahl(settings.zahlFest), stamp: 0 }
     : { key: 'start_hallo', text: SAETZE.start_hallo, stamp: 0 }));
@@ -2668,6 +2703,7 @@ export default function App() {
         {admin === 'offen' && <AdminControlModal onClose={() => setAdmin(null)} settings={settings} setSettings={setSettings} onBlaetter={() => { setAdmin(null); setBlaetter(true); }} />}
         {blaetter && <BlattStudio onClose={() => setBlaetter(false)} maxN={settings.maxN} mitNull={settings.mitNull} />}
         {impressum && <ImpressumModal section={impressum} onClose={() => setImpressum(null)} />}
+        {handyQuer && !impressum && !admin && !blaetter && <DrehHinweis />}
         <div className={`min-h-screen overflow-x-hidden ${bg} text-indigo-50 ${blaetter ? 'no-print' : ''}`}>
           <div className="min-h-screen storm-dots px-3 md:px-4 pb-10">
             {/* KOPFLEISTE */}
