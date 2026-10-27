@@ -2091,13 +2091,16 @@ function BlattInhalt({ typ, items, sol, maxN, bild, fotos = null }) {
         {items.map((t, i) => {
           const zeig = sol || i === 0, wert = gesuchtVon(t);
           const luecke = <Kasten wert={zeig ? wert : null} sol={sol && i > 0} breite={14} hoehe={14} />;
-          const zahl = (v) => <span>{v}</span>;
+          // Würfel stehen genau unter der Zahl, zu der sie gehören (bei 0 steht dort nichts); gesuchter Teil gestrichelt
+          const w = Math.min(4.4, 30 / Math.max(t.a, t.b, 1));
+          const teil = (k, hohl) => (k > 0 ? <BlattStange a={k} b={0} leer={hohl ? 'l' : null} w={w} /> : <span />);
+          const grau = { color: '#6b7280' };
           return (
             <Aufgabe key={i} i={i} beispiel={i === 0} stil={{ minHeight: bild ? '34mm' : '26mm' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '3mm', fontSize: '11mm', fontWeight: 700, lineHeight: 1 }}>
-                {zahl(t.n)}<span style={{ color: '#6b7280' }}>=</span>{t.leer === 'l' ? luecke : zahl(t.a)}<span style={{ color: '#6b7280' }}>+</span>{t.leer === 'r' ? luecke : zahl(t.b)}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, auto)', columnGap: '3mm', rowGap: '2.5mm', alignItems: 'center', justifyItems: 'center', fontSize: '11mm', fontWeight: 700, lineHeight: 1 }}>
+                <span>{t.n}</span><span style={grau}>=</span>{t.leer === 'l' ? luecke : <span>{t.a}</span>}<span style={grau}>+</span>{t.leer === 'r' ? luecke : <span>{t.b}</span>}
+                {bild && <><span /><span />{teil(t.a, t.leer === 'l')}<span />{teil(t.b, t.leer === 'r')}</>}
               </div>
-              {bild && <BlattStange a={t.a} b={t.b} leer={t.leer} w={4.4} />}
             </Aufgabe>
           );
         })}
