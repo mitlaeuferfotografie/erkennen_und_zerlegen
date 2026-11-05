@@ -25,13 +25,18 @@ export const SAETZE = {
   stufe_wahl: (z) => (z === 'gemischt' ? 'Alle Zahlen gemischt. Welche Übung?' : `Die ${z}. Welche Übung?`),
   spiel_z1: 'Übung 1',
   spiel_z2: 'Übung 2',
-  spiel_z3: 'Übung 3',
+  spiel_zs: 'Übung 3',
+  spiel_zk: 'Übung 4',
+  spiel_z3: 'Übung 5',
   spiel_z4: 'Plusaufgaben',
   spiel_zprobe: 'Prüfung',
   // gefragt wird nach dem leeren Zimmer; die bekannte Zahl steht im anderen Zimmer
   zerlege_aufgabe: (t) => `Wie viel muss ich zur ${t.leer === 'r' ? t.a : t.b} dazuzählen, damit ich ${t.n} erhalte?`,
   zerlege_richtig: (t) => `Richtig! ${t.n} ist ${t.a} und ${t.b}.`,
   zerlege_hilfe: 'Schau auf die Würfel. Wie viele fehlen?',
+  // Übung 3/4 „Schere“ (05.11.2026)
+  schere_aufgabe: (n) => `Die ${n} zerlege ich in zwei Teile. Wie viele sind links, wie viele rechts?`,
+  schere_hilfe: 'Zähl die Plättchen links und rechts von der Schere.',
   stufe2_aufgabe: (t) => `${t.n}. Wie viele sind in der Hand?`,
   // Übung 1 und 2 (Hände): die sichtbare Anzahl wird genannt, die versteckte erfragt (Probe der Lehrkraft 27.10.2026)
   zerlege_frage: (t) => `Die ${t.n} zerlege ich in ${t.leer === 'l' ? t.b : t.a} und …?`,
@@ -100,6 +105,7 @@ export function alleSaetze() {
     zerlege_loesung: zerlegungen,
     zerlege_tausch: zerlegungen,
     stufe2_aufgabe: bis(4, 10).map(n => ({ n })),
+    schere_aufgabe: bis(4, 10),
     zerlege_frage: zerlegungen.map(t => ({ ...t, leer: 'r' })), // sichtbar = a
     // Prüfung (früher Pass-Probe): 3 bis 11 Aufgaben (mit bzw. ohne Null-Zerlegungen)
     probe_ende: bis(3, 11).flatMap(gesamt => bis(0, gesamt).flatMap(richtig => bis(0, richtig).map(blitz => ({ richtig, gesamt, blitz }))))

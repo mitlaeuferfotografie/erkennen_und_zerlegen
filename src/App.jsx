@@ -38,6 +38,10 @@ const appStyles = `
   .anim-glow-ok { animation: pop-in 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, glow-ok 0.9s ease-out 0.2s 2; }
   @media (prefers-reduced-motion: reduce) { .cheer-star { display: none; } }
   .anim-glow { animation: glow 0.9s ease-in-out infinite; }
+  @keyframes snip-l { 0%, 100% { transform: rotate(-12deg); } 50% { transform: rotate(3deg); } }
+  @keyframes snip-r { 0%, 100% { transform: rotate(12deg); } 50% { transform: rotate(-3deg); } }
+  .schere-l { transform: rotate(-12deg); } .schere-r { transform: rotate(12deg); }
+  .schere-zu .schere-l { animation: snip-l .32s ease-in-out 2; } .schere-zu .schere-r { animation: snip-r .32s ease-in-out 2; }
   .anim-glow3 { animation: glow 0.8s ease-in-out 3; stroke-opacity: 0; }
 
   body { font-family: 'Fuenfer Fredoka', sans-serif; }
@@ -88,7 +92,7 @@ function readUrlSettings() {
     const b = parseFloat(p.get('blitz'));
     if (b >= 0 && b <= 5) out.blitzMs = Math.round(b * 1000); // ?blitz=0 … 5 (Sekunden)
     const st = parseInt(p.get('stufe'), 10);
-    if ([1, 2, 3, 4].includes(st)) out.stufeFest = st; // ?stufe=1|2|3|4: Zerlegen-Stufe fest (z. B. für Förderkinder)
+    if ([1, 2, 3, 4, 5, 6].includes(st)) out.stufeFest = st; // ?stufe=1…6: Zerlegen-Übung fest (z. B. für Förderkinder); seit 05.11.2026: 3 Schere, 4 Im Kopf, 5 Zahlenhaus, 6 Plusaufgaben
     const z = parseInt(p.get('zahl'), 10);
     if (z >= 4 && z <= 10) out.zahlFest = z; // ?zahl=4 … 10: direkt zur Zerlege-Zahl
     const g = parseFloat(p.get('grenze'));
@@ -147,7 +151,7 @@ function playFile(path) {
   }));
 }
 // Nach jeder Neuerzeugung der Töne hochzählen – sonst spielen Geräte alte Dateien aus dem Zwischenspeicher
-const TON_STAND = '2026-10-27c';
+const TON_STAND = '2026-11-05a';
 const playNumber = (n) => (n >= 0 && n <= 20 ? playFile(`audio/thorsten/${n}.mp3?v=${TON_STAND}`) : Promise.resolve());
 // Gibt ein Versprechen zurück, das erfüllt ist, wenn der Satz zu Ende gesprochen ist (auch wenn der Ton fehlt) –
 // so kann ein Folgesatz warten und schneidet den ersten nicht ab.
@@ -602,7 +606,8 @@ function WritePad({ label, color, light, dark, onResult, disabled, resetKey, siz
 // nurEiner = nur ein Schreibfeld (Antwort sicher unter 10, z. B. Zerlegen 4–9) – ein leeres Zehnerfeld verwirrt nur.
 // kompakt = kleineres Feld, Prüfen-Haken (und extra, z. B. der Tippen-Schalter) neben statt unter dem Feld – für Übung 1/2,
 // damit auf dem iPad quer nichts unter den Bildschirmrand rutscht. knoepfeLinks = Knöpfe links vom Feld.
-function HandwriteNumber({ onSubmit, disabled, withH = false, optional = false, onStart, nurEiner = false, kompakt = false, knoepfeLinks = false, extra = null, klein = false, eng = false }) {
+// ohnePruefen + onWert: kein eigener Haken, meldet laufend die erkannte Zahl (null = noch nicht lesbar) – für ZweiFelder
+function HandwriteNumber({ onSubmit, disabled, withH = false, optional = false, onStart, nurEiner = false, kompakt = false, knoepfeLinks = false, extra = null, klein = false, eng = false, ohnePruefen = false, onWert = null, feldGroesse = null, ohneRadierer = false, loeschSignal = 0 }) {
   const [rh, setRh] = useState(null);
   const [rz, setRz] = useState(null);
   const [re, setRe] = useState(null);
@@ -610,9 +615,13 @@ function HandwriteNumber({ onSubmit, disabled, withH = false, optional = false, 
   const fine = (r) => !r || okRes(r);
   const ready = okRes(re) && (nurEiner || ((optional ? fine(rz) : okRes(rz)) && (!withH || fine(rh)) && !(rh && !rz)));
   const value = () => (nurEiner ? re.digit : (withH && rh ? rh.digit * 100 : 0) + (rz ? rz.digit * 10 : 0) + re.digit);
-  const size = withH ? 108 : eng ? 90 : kompakt || klein ? 120 : 150;
+  const wertRef = useRef(onWert); wertRef.current = onWert;
+  useEffect(() => { if (wertRef.current) wertRef.current(ready ? value() : null); }, [rh, rz, re]); // eslint-disable-line react-hooks/exhaustive-deps
+  const size = feldGroesse || (withH ? 108 : eng ? 90 : kompakt || klein ? 120 : 150);
   const [loesch, setLoesch] = useState(0); // kompakt: gemeinsamer Radiergummi leert alle Felder
-  const pad = { ohneRadierer: kompakt, resetKey: kompakt ? loesch : undefined };
+  const gemeinsam = kompakt || ohneRadierer; // ein Radiergummi für alle Felder (neben dem Feld oder von außen über loeschSignal)
+  useEffect(() => { if (loeschSignal) setLoesch(k => k + 1); }, [loeschSignal]);
+  const pad = { ohneRadierer: gemeinsam, resetKey: gemeinsam ? loesch : undefined };
   const pruefen = <button onClick={() => onSubmit(value())} disabled={!ready || disabled} className={`bg-yellow-400 hover:bg-yellow-300 disabled:opacity-40 text-indigo-950 font-black text-xl py-3 ${kompakt ? 'px-4' : 'px-10'} rounded-xl shadow-[0_4px_0_#ca8a04] active:translate-y-1 active:shadow-none`} aria-label="Prüfen"><Check className="w-8 h-8" strokeWidth={3} /></button>;
   return (
     <div className={kompakt ? `flex items-center ${eng ? 'gap-2' : 'gap-3'} ${knoepfeLinks ? 'flex-row-reverse' : ''}` : 'flex flex-col items-center gap-3'}>
@@ -628,7 +637,7 @@ function HandwriteNumber({ onSubmit, disabled, withH = false, optional = false, 
           {!disabled && <button onClick={() => setLoesch(k => k + 1)} aria-label="Wegradieren" title="Wegradieren" className="w-14 h-11 rounded-xl bg-pink-100 border-2 border-pink-300 text-pink-600 hover:bg-pink-200 active:translate-y-0.5 inline-flex items-center justify-center"><Eraser className="w-6 h-6" /></button>}
           {extra}
         </div>
-      ) : pruefen}
+      ) : (ohnePruefen ? null : pruefen)}
     </div>
   );
 }
@@ -1470,6 +1479,243 @@ function HausFrage({ t, zimmer = 140, resetKey, onSubmit, onStart }) {
 }
 
 // ==========================================
+// ZEHNERSTREIFEN MIT SCHERE (Übung 3 „Schere“ und Übung 4 „Im Kopf zerlegen“, Wunsch der Lehrkraft 05.11.2026)
+// ==========================================
+// Ein gestrichelter Zehner mit gestrichelter Trennung nach dem 5. Platz (Lehrkraft 05.11.2026: ein Streifen, nicht zwei Fünfer), 10 Plätze, n Plättchen von links. a = Größe des linken Teils (Schnitt zwischen Plättchen a und a+1).
+const STR = { u: 40, gap: 0, pad: 14, r: 15, y: 30, H: 82 }; // Streifen oben, Schere kommt von unten (oben steht die Gesamtzahl)
+const STR_W = 2 * STR.pad + 10 * STR.u + STR.gap;
+const strX = (i) => STR.pad + i * STR.u + (i >= 5 ? STR.gap : 0) + STR.u / 2;
+const schnittX = (a, n) => {
+  if (a <= 0) return strX(0) - STR.u / 2 - 2;
+  if (a >= n) return n < 10 ? (strX(n - 1) + strX(n)) / 2 : strX(9) + STR.u / 2 + 2;
+  return (strX(a - 1) + strX(a)) / 2;
+};
+
+// animiert: Schere fährt heran, schneidet, rechter Teil rückt ab (dann onFertig). schere: Schere/Schnitt sofort sichtbar.
+// hilfe: die beiden Teile werden farbig umrandet (zum Nachzählen).
+function ZehnerStreifen({ n, a, schere = false, animiert = false, lauf = 0, onFertig, hilfe = false, maxBreite = 620 }) {
+  const [phase, setPhase] = useState(animiert ? 'warte' : schere ? 'getrennt' : 'ganz'); // ganz | warte | fahren | schnitt | getrennt
+  const fertigRef = useRef(onFertig); fertigRef.current = onFertig;
+  useEffect(() => {
+    if (!animiert) { setPhase(schere ? 'getrennt' : 'ganz'); return undefined; }
+    setPhase('warte');
+    const t = [
+      setTimeout(() => setPhase('fahren'), 350),
+      setTimeout(() => setPhase('schnitt'), 1300),
+      setTimeout(() => setPhase('getrennt'), 2000),
+      setTimeout(() => fertigRef.current && fertigRef.current(), 2550)
+    ];
+    return () => t.forEach(clearTimeout);
+  }, [animiert, schere, lauf, n, a]);
+  const sx = schnittX(a, n);
+  const scherePos = phase === 'warte' ? STR_W + 60 : sx;
+  const sichtbar = phase !== 'ganz';
+  const zu = phase === 'schnitt' || phase === 'getrennt';
+  const weg = 0; // nichts rückt ab – Schere und Schnittlinie zeigen die Grenze (Lehrkraft 05.11.2026: Wegrutschen verwirrt)
+  const rand = (i) => (i < a ? '#4f46e5' : '#ea580c');
+  const oben = STR.y - STR.u / 2 - 4, hoch = STR.u + 8, mitte = STR.pad + 5 * STR.u;
+  const rahmen = (
+    <g>
+      <rect x={STR.pad - 4} y={oben} width={10 * STR.u + 8} height={hoch} rx={12} fill="#f8fafc" stroke="#94a3b8" strokeWidth={1.8} strokeDasharray="6 4" />
+      <line x1={mitte} y1={oben} x2={mitte} y2={oben + hoch} stroke="#94a3b8" strokeWidth={1.8} strokeDasharray="5 4" />
+    </g>
+  );
+  const platz = (i) => {
+    const x = strX(i), voll = i < n, rechts = i >= a;
+    return (
+      <g key={i} style={{ transform: `translateX(${rechts && voll ? weg : 0}px)`, transition: 'transform .5s ease-out' }}>
+        <circle cx={x} cy={STR.y} r={STR.r} fill={voll ? COL.e : 'none'} stroke={voll ? COL.eDark : COL.empty} strokeWidth={voll ? 2 : 1.6} />
+        {hilfe && voll && <circle cx={x} cy={STR.y} r={STR.r + 4} fill="none" stroke={rand(i)} strokeWidth={3} className="anim-glow" />}
+      </g>
+    );
+  };
+  return (
+    <svg viewBox={`0 0 ${STR_W} ${STR.H}`} width="100%" style={{ maxWidth: maxBreite, display: 'block', margin: '0 auto', overflow: 'visible' }} aria-label={`Zehnerstreifen mit ${n} Plättchen`}>
+      {rahmen}
+      {[...Array(10)].map((_, i) => platz(i))}
+      {/* Eine Schere (Lehrkraft 05.11.2026): fährt offen unter den Streifen, rutscht dann langsam nach oben in die Lücke
+          und schließt sich dabei – danach steckt sie zwischen den beiden Teilen (statt einer gestrichelten Linie).
+          Beim Heranfahren ragt sie unten aus dem Bild (overflow visible), darunter ist in der Zeige-Phase freier Platz. */}
+      {sichtbar && (
+        <g style={{ transform: `translate(${scherePos}px, ${phase === 'warte' || phase === 'fahren' ? 40 : 0}px)`, transition: phase === 'fahren' ? 'transform .9s cubic-bezier(.2,.7,.2,1)' : phase === 'schnitt' ? 'transform .7s ease-in-out' : 'none' }}>
+          <g transform="translate(0 52) scale(1 -1)">
+            {[-1, 1].map(seite => (
+              <g key={seite} style={{ transform: `rotate(${zu ? 0 : seite * -12}deg)`, transition: phase === 'schnitt' ? 'transform .7s ease-in-out' : 'none' }}>
+                <path d="M -2.6 0 L 0 46 L 2.6 0 Z" fill="#ea580c" stroke="#9a3412" strokeWidth={0.8} strokeLinejoin="round" />
+                <line x1={0} y1={0} x2={seite * 7} y2={-12} stroke="#ea580c" strokeWidth={4} strokeLinecap="round" />
+                <circle cx={seite * 9} cy={-19} r={6.5} fill="#fff" stroke="#ea580c" strokeWidth={3.5} />
+              </g>
+            ))}
+            <circle cx={0} cy={0} r={2.4} fill="#9a3412" />
+          </g>
+        </g>
+      )}
+    </svg>
+  );
+}
+
+// Kleines Bild für die Übungs-Karte: Streifen mit Plättchen, bei „schere“ mit Schere
+function MiniStreifen({ n = 7, schere = false }) {
+  const a = Math.max(1, n - 2);
+  return (
+    <div className="h-full w-full bg-white rounded-xl p-1.5 flex items-center justify-center">
+      <ZehnerStreifen n={n} a={a} schere={schere} />
+    </div>
+  );
+}
+
+// Zwei Felder fest links und rechts (gleich in beiden Übungen). gegeben = { l: Zahl|null, r: Zahl|null }.
+// Fingerschrift: je ein Schreibfeld, ein gemeinsamer Haken. Tippen: Feld antippen, dann Ziffern.
+// zwei: welches Schreibfeld Zehner+Einer hat – nur ein Teil, der 10 ist (Lehrkraft 05.11.2026); maxStellen: beim Tippen
+function ZweiFelder({ gegeben = { l: null, r: null }, zwei = { l: false, r: false }, maxStellen = 1, resetKey, onSubmit, eng = false, quer = false }) {
+  const { eingabe, setSettings } = useSettings();
+  const stift = eingabe === 'stift';
+  const [werte, setWerte] = useState({ l: null, r: null }); // Fingerschrift: erkannte Zahl je Seite (null = noch nicht lesbar)
+  const [tasten, setTasten] = useState({ l: '', r: '' });
+  const offen = ['l', 'r'].filter(s => gegeben[s] == null);
+  const [aktiv, setAktiv] = useState(offen[0] || 'l');
+  useEffect(() => { setWerte({ l: null, r: null }); setTasten({ l: '', r: '' }); setAktiv(offen[0] || 'l'); }, [resetKey]); // eslint-disable-line react-hooks/exhaustive-deps
+  const size = eng || quer ? 90 : 120;
+  const zweiZiffern = stift && (zwei.l || zwei.r);
+  const einRadierer = eng && zweiZiffern; // Handy bei zwei Ziffern: ein gemeinsamer Radiergummi statt vier einzelner (spart Höhe)
+  const [loeschen, setLoeschen] = useState(0); // Handy und iPad quer: kleiner, damit alles ohne Scrollen sichtbar bleibt
+  const W = Math.round(size * 0.8), H = Math.round(size * (eng && !stift ? 0.85 : 1.25)); // Tippen auf dem Handy: Kästchen etwas niedriger
+  const wert = (s) => (gegeben[s] != null ? gegeben[s] : stift ? werte[s] : (tasten[s] === '' ? null : parseInt(tasten[s], 10)));
+  const bereit = wert('l') != null && wert('r') != null;
+  const absenden = () => { if (bereit) onSubmit({ l: wert('l'), r: wert('r') }); else { const leer = offen.find(s => wert(s) == null); if (leer) setAktiv(leer); } };
+  const kasten = (s, inhalt, an = false, klick = null) => (
+    <div onClick={klick || undefined} className={`flex items-center justify-center bg-white rounded-2xl font-bold text-indigo-950 leading-none ${klick ? 'cursor-pointer' : ''} ${an ? 'border-4 border-indigo-500 ring-4 ring-indigo-200' : 'border-4 border-indigo-900'}`}
+      style={{ width: W, height: H, fontSize: Math.round(H * 0.5) }}>{inhalt}</div>
+  );
+  const zelle = (s) => {
+    if (gegeben[s] != null) return <div className={stift ? 'pt-7' : ''}>{kasten(s, gegeben[s])}</div>; // pt-7: auf Höhe der Schreibfelder (die haben oben Platz für Z/E)
+    if (stift) return <HandwriteNumber key={`${resetKey}-${s}`} onSubmit={() => {}} ohnePruefen onWert={(v) => setWerte(w => ({ ...w, [s]: v }))} optional nurEiner={!zwei[s]} feldGroesse={size} ohneRadierer={einRadierer} loeschSignal={loeschen} />;
+    return <div>{kasten(s, tasten[s] || <span className="text-slate-300">?</span>, aktiv === s, () => setAktiv(s))}</div>;
+  };
+  const umschalter = (
+    <button onClick={() => setSettings(st => ({ ...st, eingabe: stift ? 'tasten' : 'stift' }))} aria-label={stift ? 'Lieber tippen' : 'Lieber mit dem Finger schreiben'} title={stift ? 'Lieber tippen' : 'Lieber mit dem Finger schreiben'} className="flex items-center gap-2 rounded-full bg-indigo-100 hover:bg-indigo-200 text-indigo-700 px-4 py-2 font-bold active:scale-95">
+      {stift ? <Grid3x3 className="w-6 h-6" /> : <PenLine className="w-6 h-6" />}
+    </button>
+  );
+  // Knöpfe in der Mitte zwischen den Feldern (spart eine Reihe); auf dem Handy bei zwei Ziffern bzw. beim Tippen darunter
+  const pruefKnopf = <button onClick={absenden} disabled={!bereit} aria-label="Prüfen" title="Prüfen" className="bg-yellow-400 hover:bg-yellow-300 disabled:opacity-40 text-indigo-950 py-3 px-6 rounded-xl shadow-[0_4px_0_#ca8a04] active:translate-y-1 active:shadow-none"><Check className="w-8 h-8" strokeWidth={3} /></button>;
+  const radierKnopf = einRadierer && stift && <button onClick={() => setLoeschen(k => k + 1)} aria-label="Wegradieren" title="Wegradieren" className="w-14 h-11 rounded-xl bg-pink-100 border-2 border-pink-300 text-pink-600 hover:bg-pink-200 active:translate-y-0.5 inline-flex items-center justify-center"><Eraser className="w-6 h-6" /></button>;
+  const knoepfe = <div className={`flex items-center gap-3 ${eng && zweiZiffern ? 'flex-row' : 'flex-col'}`}>{stift && pruefKnopf}{radierKnopf}{umschalter}</div>; // Handy bei zwei Ziffern: nebeneinander unter den Feldern
+  // Tippen: Ziffern 0–9 in einer Leiste (auf dem Handy zwei Reihen) – tippt in das gerade gewählte Feld
+  const tippe = (d) => setTasten(t => { const alt = t[aktiv]; const neu = (alt === '0' ? '' : alt) + d; return { ...t, [aktiv]: neu.length > maxStellen ? alt : neu }; });
+  const taste = `${quer ? 'h-12 w-12' : 'h-12 w-12 sm:h-14 sm:w-14'} rounded-xl bg-white hover:bg-indigo-50 border-2 border-indigo-200 text-3xl font-bold text-indigo-950 shadow-[0_3px_0_#c7d2fe] active:translate-y-0.5 active:shadow-none`;
+  const leiste = !stift && (
+    <div className="flex flex-wrap justify-center items-center gap-1 sm:gap-2 max-w-[340px] sm:max-w-none">
+      {['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'].map(d => <button key={d} onClick={() => tippe(d)} className={taste}>{d}</button>)}
+      <button onClick={() => setTasten(t => ({ ...t, [aktiv]: t[aktiv].slice(0, -1) }))} aria-label="Löschen" className="h-12 w-12 sm:h-14 sm:w-14 rounded-xl bg-slate-200 hover:bg-slate-300 border-2 border-slate-300 text-slate-700 flex items-center justify-center"><Delete className="w-7 h-7" /></button>
+      {pruefKnopf}
+    </div>
+  );
+  const mitteUnten = eng && zweiZiffern && stift;
+  return (
+    <div className="w-full flex flex-col items-center gap-3">
+      <div className={`w-full grid ${mitteUnten ? 'grid-cols-2' : 'grid-cols-[1fr_auto_1fr]'} gap-2 items-start justify-items-center`}>
+        <div className="min-w-0 flex justify-center">{zelle('l')}</div>
+        {!mitteUnten && <div className={`${stift ? 'pt-7' : ''} self-center`}>{knoepfe}</div>}
+        <div className="min-w-0 flex justify-center">{zelle('r')}</div>
+      </div>
+      {mitteUnten && knoepfe}
+      {leiste}
+    </div>
+  );
+}
+
+// Übung 3 (modus 'schere'): Schere zerteilt den Streifen, beide Teile werden geschrieben.
+// Übung 4 (modus 'kopf'): Streifen ohne Schere, ein Teil steht schon da, der andere wird gesucht; als Hilfe erscheint die Schere.
+function SchereGame({ onFinish, zahl, modus }) {
+  const { mitNull } = useSettings();
+  const say = useSay();
+  const schmal = useMedia(SCHMAL);
+  const quer = useQuerFormat();
+  const [tasks] = useState(() => stufenAufgaben(zahl, mitNull));
+  const [idx, setIdx] = useState(0);
+  const [results, setResults] = useState([]);
+  const [phase, setPhase] = useState(modus === 'schere' ? 'zeigen' : 'frage'); // zeigen | frage | offen | tausch | fertig
+  const [tries, setTries] = useState(0);
+  const [hilfe, setHilfe] = useState(false);
+  const [ok, setOk] = useState(false);
+  const [rk, setRk] = useState(0);
+  const [lauf, setLauf] = useState(0);
+  const timers = useRef([]);
+  const aufgabeNr = useRef(0);
+  useEffect(() => () => { timers.current.forEach(clearTimeout); aufgabeNr.current += 1; }, []);
+  const later = (fn, ms) => timers.current.push(setTimeout(fn, ms));
+  const t = tasks[idx];
+  const schere = modus === 'schere';
+
+  useEffect(() => { if (schere) say('schere_aufgabe', t.n); else say('zerlege_frage', t); }, [idx]); // eslint-disable-line react-hooks/exhaustive-deps
+  const animationFertig = () => { if (phase === 'zeigen') setPhase('frage'); };
+
+  const record = (good) => setResults(r => { const c = [...r]; c[idx] = good; return c; });
+  const pruefe = ({ l, r }) => {
+    const richtig = schere ? (l === t.a && r === t.b) : (t.leer === 'l' ? l === t.a : r === t.b);
+    if (richtig) {
+      setOk(true); setPhase('offen'); record(tries === 0);
+      const gesagt = say('zerlege_richtig', t) || Promise.resolve();
+      if (t.a !== t.b) {
+        const nr = aufgabeNr.current;
+        Promise.all([gesagt.catch(() => {}), new Promise(res => setTimeout(res, 1800))]).then(() => {
+          if (nr !== aufgabeNr.current) return;
+          setPhase('tausch'); say('zerlege_tausch', t);
+          later(() => setPhase('fertig'), 2600);
+        });
+      } else later(() => setPhase('fertig'), 1400);
+      return;
+    }
+    if (tries === 0) { setTries(1); setHilfe(true); setRk(k => k + 1); if (!schere) setLauf(x => x + 1); say('schere_hilfe'); return; }
+    setOk(false); setPhase('fertig'); record(false); say('zerlege_loesung', t);
+  };
+  const weiter = () => {
+    if (idx + 1 >= ROUND) { onFinish(results.filter(Boolean).length); return; }
+    timers.current.forEach(clearTimeout); timers.current = []; aufgabeNr.current += 1;
+    setIdx(i => i + 1); setPhase(schere ? 'zeigen' : 'frage'); setTries(0); setHilfe(false); setOk(false); setRk(k => k + 1);
+  };
+  const nochmalAnsehen = () => { if (phase === 'frage' && schere) { setPhase('zeigen'); setLauf(l => l + 1); } };
+
+  const offen = phase === 'offen' || phase === 'tausch' || phase === 'fertig';
+  // Schere: in Übung 3 immer (animiert); in Übung 4 erst als Hilfe nach einem Fehler und zur Kontrolle nach der Antwort
+  const mitSchere = schere || hilfe || offen;
+  const animiert = schere ? phase === 'zeigen' : (hilfe && phase === 'frage');
+  const zeilen = [{ a: t.a, b: t.b, sol: !ok, farbe: ok ? paarFarbe(t.a, t.b) : undefined }];
+  if (ok && t.a !== t.b && (phase === 'tausch' || phase === 'fertig')) zeilen.push({ a: t.b, b: t.a, farbe: paarFarbe(t.a, t.b), neu: true });
+  const gegeben = schere ? { l: null, r: null } : (t.leer === 'l' ? { l: null, r: t.b } : { l: t.a, r: null });
+
+  return (
+    <div>
+      <RoundDots current={idx} total={ROUND} results={results} />
+      <div className="flex flex-col items-center gap-4 w-full max-w-3xl mx-auto">
+        <div className={`relative w-full bg-white rounded-3xl border-4 border-indigo-900 shadow-[6px_6px_0_rgba(30,27,75,0.25)] px-2 sm:px-5 flex flex-col items-center ${quer || schmal ? 'py-2 gap-1' : 'py-3 gap-2'}`}>
+          {/* Gesamtzahl über dem Streifen (Lehrkraft 05.11.2026); die Schere kommt von unten, stößt also nicht an die Zahl */}
+          <div className={`font-bold text-indigo-950 leading-none ${schmal ? 'text-2xl' : quer ? 'text-3xl' : 'text-4xl'}`}>{t.n}</div>
+          {schere && phase === 'frage' && (
+            <button onClick={nochmalAnsehen} aria-label="Nochmal ansehen" title="Nochmal ansehen" className={`absolute flex items-center gap-1 bg-white hover:bg-indigo-50 border-2 border-indigo-200 text-indigo-800 rounded-xl active:scale-95 ${schmal || quer ? 'top-1 right-1 px-1.5 py-0.5' : 'top-2 right-2 px-2 py-1.5'}`}><Eye className={schmal || quer ? 'w-5 h-5' : 'w-6 h-6'} /><RotateCcw className="w-4 h-4" /></button>
+          )}
+          <div className="w-full">
+            <ZehnerStreifen maxBreite={quer ? 440 : 540} key={`${idx}-${lauf}`} n={t.n} a={t.a} schere={mitSchere} animiert={animiert} lauf={lauf} onFertig={animationFertig} hilfe={hilfe && phase === 'frage' && schere} />
+          </div>
+        </div>
+        {phase === 'zeigen' && <div className="h-24" />}
+        {phase === 'frage' && <ZweiFelder key={idx} gegeben={gegeben} zwei={{ l: t.a >= 10, r: t.b >= 10 }} maxStellen={t.n >= 10 ? 2 : 1} resetKey={rk} onSubmit={pruefe} eng={schmal} quer={quer} />}
+        {offen && (
+          <div className="flex flex-wrap items-center justify-center gap-6">
+            <Zahlenhaus key={`h${idx}`} n={t.n} zeilen={zeilen} zimmer={64} />
+            {phase === 'offen' && ok && <Cheer />}
+            {phase === 'fertig' && <Ergebnis ok={ok} n={schere ? `${t.a} | ${t.b}` : gesuchtVon(t)} onNext={weiter} jubel={false} />}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+const SchereUebung = (props) => <SchereGame {...props} modus="schere" />;
+const KopfUebung = (props) => <SchereGame {...props} modus="kopf" />;
+
+// ==========================================
 // ZERLEGEN STUFE 3: Zahlenhaus mit Ziffern, ein Zimmer leer
 // ==========================================
 function Stufe3Game({ onFinish, zahl }) {
@@ -2009,8 +2255,10 @@ const GAMES = [
 const ZGAMES = [
   { id: 'z1', title: 'Stufe 1', stufe: 1, comp: Stufe1Game, bild: 'stufe1' }, // zwei Hände halten die ganze Stange
   { id: 'z2', title: 'Stufe 2', stufe: 2, comp: Stufe2Game, bild: 'stufe2' }, // eine Hand zu, eine offen
-  { id: 'z3', title: 'Stufe 3', stufe: 3, comp: Stufe3Game },
-  { id: 'z4', title: 'Plusaufgaben', stufe: 4, comp: PlusGame }, // „7 = ___ + 4“, Zahl antippen
+  { id: 'zs', title: 'Schere', stufe: 3, comp: SchereUebung }, // Zehnerstreifen, Schere zerteilt, beide Teile schreiben
+  { id: 'zk', title: 'Im Kopf zerlegen', stufe: 4, comp: KopfUebung }, // Zehnerstreifen ohne Schere, ein Teil vorgegeben
+  { id: 'z3', title: 'Stufe 5', stufe: 5, comp: Stufe3Game }, // Zahlenhaus (bis 05.11.2026 Übung 3)
+  { id: 'z4', title: 'Plusaufgaben', stufe: 6, comp: PlusGame }, // „7 = ___ + 4“, Zahl antippen (bis 05.11.2026 Übung 4)
   { id: 'zprobe', title: 'Prüfung', icon: Award, comp: ProbeGame, ohneGemischt: true, eigenesEnde: true }
 ].map(g => ({ ...g, bereich: 'zerlegen' }));
 const gameById = (id) => [...GAMES, ...ZGAMES].find(g => g.id === id);
@@ -2604,7 +2852,7 @@ function AdminControlModal({ onClose, settings, setSettings, onBlaetter }) {
         <div className="flex flex-col gap-2">
           <h4 className="font-bold text-cyan-300">Zerlegen</h4>
           <Label>Übung festlegen (die Übungswahl wird übersprungen)</Label>
-          <Seg value={settings.stufeFest} options={[{ v: null, l: 'frei' }, { v: 1, l: '1' }, { v: 2, l: '2' }, { v: 3, l: '3' }, { v: 4, l: '4' }]} onChange={set('stufeFest')} />
+          <Seg value={settings.stufeFest} options={[{ v: null, l: 'frei' }, { v: 1, l: '1' }, { v: 2, l: '2' }, { v: 3, l: '3' }, { v: 4, l: '4' }, { v: 5, l: '5' }, { v: 6, l: '6' }]} onChange={set('stufeFest')} />
           <Label>Zerlegungen mit 0 (z. B. 6 = 6 + 0)</Label>
           <Seg value={settings.mitNull} options={[{ v: true, l: 'an' }, { v: false, l: 'aus' }]} onChange={set('mitNull')} />
           <Label>Prüfung: Blitz-Stern bei Bedenkzeit unter</Label>
@@ -2894,6 +3142,8 @@ export default function App() {
                             {g.bild
                               // Bild passend zur gewählten Zahl (public/bilder/stufe1_<n>.jpg), bei „gemischt“ die 6
                               ? <img src={`bilder/${g.bild}_${zerlegZahl === 'gemischt' ? 6 : zerlegZahl}.jpg`} alt={g.title} className="w-full h-full object-cover rounded-xl border-2 border-white/30" draggable="false" />
+                              : g.id === 'zs' || g.id === 'zk'
+                                ? <MiniStreifen n={zerlegZahl === 'gemischt' ? 7 : zerlegZahl} schere={g.id === 'zs'} />
                               : g.id === 'z3'
                                 ? <div className="h-full bg-white rounded-xl p-1.5 flex items-center"><MiniZahlenhaus size={84} n={zerlegZahl === 'gemischt' ? 6 : zerlegZahl} /></div>
                                 : g.id === 'z4' ? <PlusSymbol n={zerlegZahl === 'gemischt' ? 7 : zerlegZahl} />

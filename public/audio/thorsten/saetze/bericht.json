@@ -312,14 +312,6 @@
   "weich": 0
  },
  {
-  "datei": "saetze/spiel_z3",
-  "schluessel": "spiel_z3",
-  "text": "Übung 3",
-  "gesprochen": "Übung drei",
-  "z": 0,
-  "weich": 0
- },
- {
   "datei": "saetze/spiel_z4",
   "schluessel": "spiel_z4",
   "text": "Plusaufgaben",
@@ -6251,6 +6243,94 @@
   "datei": "5",
   "text": "5",
   "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/spiel_zs",
+  "schluessel": "spiel_zs",
+  "text": "Übung 3",
+  "gesprochen": "Übung drei",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/spiel_zk",
+  "schluessel": "spiel_zk",
+  "text": "Übung 4",
+  "gesprochen": "Übung vier",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/spiel_z3",
+  "schluessel": "spiel_z3",
+  "text": "Übung 5",
+  "gesprochen": "Übung fünf",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/schere_hilfe",
+  "schluessel": "schere_hilfe",
+  "text": "Zähl die Plättchen links und rechts von der Schere.",
+  "gesprochen": "Zähl die Plättchen links und rechts von der Schere.",
+  "z": 0,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/schere_aufgabe_4",
+  "schluessel": "schere_aufgabe",
+  "text": "Die 4 zerlege ich in zwei Teile. Wie viele sind links, wie viele rechts?",
+  "gesprochen": "Die vier zerlege ich in zwei Teile. Wie viele sind links, wie viele rechts?",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/schere_aufgabe_5",
+  "schluessel": "schere_aufgabe",
+  "text": "Die 5 zerlege ich in zwei Teile. Wie viele sind links, wie viele rechts?",
+  "gesprochen": "Die fünf zerlege ich in zwei Teile. Wie viele sind links, wie viele rechts?",
+  "z": 1,
+  "weich": 0
+ },
+ {
+  "datei": "saetze/schere_aufgabe_6",
+  "schluessel": "schere_aufgabe",
+  "text": "Die 6 zerlege ich in zwei Teile. Wie viele sind links, wie viele rechts?",
+  "gesprochen": "Die sechs zerlege ich in zwei Teile. Wie viele sind links, wie viele rechts?",
+  "z": 2,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/schere_aufgabe_7",
+  "schluessel": "schere_aufgabe",
+  "text": "Die 7 zerlege ich in zwei Teile. Wie viele sind links, wie viele rechts?",
+  "gesprochen": "Die sieben zerlege ich in zwei Teile. Wie viele sind links, wie viele rechts?",
+  "z": 2,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/schere_aufgabe_8",
+  "schluessel": "schere_aufgabe",
+  "text": "Die 8 zerlege ich in zwei Teile. Wie viele sind links, wie viele rechts?",
+  "gesprochen": "Die acht zerlege ich in zwei Teile. Wie viele sind links, wie viele rechts?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/schere_aufgabe_9",
+  "schluessel": "schere_aufgabe",
+  "text": "Die 9 zerlege ich in zwei Teile. Wie viele sind links, wie viele rechts?",
+  "gesprochen": "Die neun zerlege ich in zwei Teile. Wie viele sind links, wie viele rechts?",
+  "z": 1,
+  "weich": 1
+ },
+ {
+  "datei": "saetze/schere_aufgabe_10",
+  "schluessel": "schere_aufgabe",
+  "text": "Die 10 zerlege ich in zwei Teile. Wie viele sind links, wie viele rechts?",
+  "gesprochen": "Die zehn zerlege ich in zwei Teile. Wie viele sind links, wie viele rechts?",
+  "z": 1,
   "weich": 0
  }
 ]
